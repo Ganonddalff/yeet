@@ -29,8 +29,9 @@ public class AssociationAccountCreationBean implements Serializable {
         this.accountCreationForm.fill();
     }
 
-    public void create(){
+    public String create(){
         accountService.createAssociationAccount(this.accountCreationForm);
+        return "index";
     }
 
     public AssociationAccountCreationForm getAccountCreationForm() {

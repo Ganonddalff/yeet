@@ -56,9 +56,9 @@
         <h:inputText id="countryInput" value="#{userAccountCreationBean.accountCreationForm.address.country}"/>
         <h:message for="countryInput" style = "color:red" />
 
-        <h:outputLabel value="Pseudonyme : "/>
-        <h:inputText id="pseudonymInput" value="#{userAccountCreationBean.accountCreationForm.account.pseudonym}"/>
-        <h:message for="pseudonymInput" style = "color:red" />
+        <h:outputLabel value="Identifiant : "/>
+        <h:inputText id="identifierInput" value="#{userAccountCreationBean.accountCreationForm.account.identifier}"/>
+        <h:message for="identifierInput" style = "color:red" />
 
         <h:outputLabel value="Mot de passe : "/>
         <h:inputSecret id="passwordInput" value="#{userAccountCreationBean.accountCreationForm.account.password}"/>
@@ -70,5 +70,6 @@
     </h:panelGrid>
 </h:form>
 <hr/>
+<h:link outcome="index.xhtml">Revenir à l'accueil</h:link>
 </body>
 </html>

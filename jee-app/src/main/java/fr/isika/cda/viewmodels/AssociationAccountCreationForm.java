@@ -3,6 +3,9 @@ package fr.isika.cda.viewmodels;
 import fr.isika.cda.model.entities.*;
 import fr.isika.cda.model.factories.implementation.AssociationFactoryImpl;
 
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+
 public class AssociationAccountCreationForm extends AccountCreationForm{
     private Association association;
 
@@ -21,7 +24,7 @@ public class AssociationAccountCreationForm extends AccountCreationForm{
         this.address.setPostalCode("75000");
         this.address.setCity("Paris");
         this.address.setCountry("France");
-        this.account.setPseudonym("assoTest");
+        this.account.setIdentifier("assoTest");
         this.account.setPassword("123456");
     }
 

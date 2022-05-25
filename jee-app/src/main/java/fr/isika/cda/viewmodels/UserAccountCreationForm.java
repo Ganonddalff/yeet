@@ -1,14 +1,7 @@
 package fr.isika.cda.viewmodels;
 
-import fr.isika.cda.model.entities.Account;
-import fr.isika.cda.model.entities.Address;
-import fr.isika.cda.model.entities.Contact;
 import fr.isika.cda.model.entities.Person;
 import fr.isika.cda.model.factories.implementation.PersonFactoryImpl;
-
-import javax.faces.component.UIViewRoot;
-import javax.faces.component.html.HtmlInputText;
-import javax.faces.context.FacesContext;
 import java.sql.Date;
 
 public class UserAccountCreationForm extends AccountCreationForm{
@@ -30,7 +23,7 @@ public class UserAccountCreationForm extends AccountCreationForm{
         this.address.setPostalCode("75000");
         this.address.setCity("Paris");
         this.address.setCountry("France");
-        this.account.setPseudonym("Anatawé");
+        this.account.setIdentifier("Anatawé");
         this.account.setPassword("123456");
     }
 

@@ -3,14 +3,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html" lang="en">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core" lang="en">
 
 <h:head>
     <title>Accueil</title>
 </h:head>
 <body>
+<c:if test="${session.getAttribute('identifier') != null}">
+        <h:outputLabel value="Bienvenue #{session.getAttribute('identifier')}"/>
+</c:if>
+<br />
 <h:link value="Créer un compte" outcome="CreateAccount.xhtml"/>
 <br />
-<h:link value="Créer une association" outcome="CreateAssociationAccount.html"/>
+<h:link value="Créer une association" outcome="CreateAssociationAccount.xhtml"/>
+<br />
+<c:if test="${session.getAttribute('identifier') != null}">
+    <h:form>
+        <h:commandLink value="Se déconnecter" action="#{loginBean.signOut}"/>
+    </h:form>
+</c:if>
+<c:if test="${session.getAttribute('identifier') == null}">
+    <h:link value="Se connecter" outcome="Login.xhtml"/>
+</c:if>
 </body>
 </html>
