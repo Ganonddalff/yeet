@@ -21,12 +21,13 @@ public class UserAccountCreationBean implements Serializable {
     }
 
     public void reset(){
-        this.accountCreationForm.reset();
+        this.accountCreationForm = new UserAccountCreationForm();
     }
 
     public void fill(){
         this.accountCreationForm.fill();
     }
+
     public void create(){
         accountService.createUserAccount(this.accountCreationForm);
     }
