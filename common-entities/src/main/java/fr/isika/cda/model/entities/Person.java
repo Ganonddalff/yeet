@@ -1,5 +1,7 @@
 package fr.isika.cda.model.entities;
 
+import fr.isika.cda.model.enumeration.AccountCategory;
+
 import java.util.Date;
 
 import javax.persistence.*;
