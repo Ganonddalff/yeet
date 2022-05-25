@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" lang="en">
+
+<head>
+    <title>Créer un projet</title>
+</head>
+
+<body>
+<h3>Créer un projet de financement participatif</h3>
+<hr/>
+<h:form id="createProjectForm">
+    <h:panelGrid columns="3">
+
+        <h:outputLabel value="Nom du projet : "/>
+        <h:inputText id="nameInput" value="#{projectCreationBean.projectCreationForm.name}"/>
+        <h:message for="nameInput" style = "color:red" />
+
+        <h:outputLabel value="Date de début du projet: "/>
+        <h:inputText id="startDateInput" value="#{projectCreationBean.projectCreationForm.startDate}"/>
+            <f:convertDateTime pattern="dd-MM-yyyy"/>
+        <h:message for="startDateInput" style = "color:red" />
+
+        <h:outputLabel value="Date de fin du projet : "/>
+        <h:inputText id="finishDateInput" value="#{projectCreationBean.projectCreationForm.finishDate}">
+            <f:convertDateTime pattern="dd-MM-yyyy"/>
+        </h:inputText>
+        <h:message for="finishDateInput" style = "color:red" />
+
+        <h:outputLabel value="Lieu où se produit le projet : "/>
+        <h:inputText id="locationInput" value="#{projectCreationBean.projectCreationForm.}"/>
+        <h:message for="locationInput" style = "color:red" />
+
+        <h:outputLabel value="Catégorie : "/>
+        <h:inputText id="projectTypeInput" value="#{projectCreationBean.projectCreationForm.projectType}"/>
+        <h:message for="projectTypeInput" style = "color:red" />
+
+        <h:outputLabel value="projectAdminId : "/>
+        <h:Text id="projectAdminId" value="#{userId}"/>
+
+
+        <h:outputLabel value="Description : "/>
+        <h:inputText id="descriptionInput" value="#{projectCreationBean.projectCreationForm.description}"/>
+        <h:message for="descriptionInput" style = "color:red" />
+
+
+
+
+        <h:commandButton value="Créer mon compte" action="#{projectCreationBean.create()}"/>
+
+    </h:panelGrid>
+</h:form>
+<hr/>
+</body>
