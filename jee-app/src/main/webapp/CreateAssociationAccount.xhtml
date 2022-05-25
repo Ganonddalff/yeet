@@ -7,11 +7,12 @@
 
 <h:head>
     <title>Création d'un compte association</title>
+    <script src="js/fillAssociationAccountForm.js"></script>
 </h:head>
 <body>
 <h3>Création d'un compte association</h3>
 <hr/>
-<h:form id="createAccountForm">
+<h:form id="createAssociationAccountForm">
     <h:panelGrid columns="3">
 
         <h:outputLabel value="Nom de l'association : "/>
@@ -64,7 +65,7 @@
         <h:inputSecret id="passwordInput" value="#{associationAccountCreationBean.accountCreationForm.account.password}"/>
         <h:message for="passwordInput" style = "color:red" />
 
-        <h:commandButton value="Remplir" immediate="true" action="#{associationAccountCreationBean.fill()}"/>
+        <h:commandButton value="Remplir" immediate="true" onclick="fillAssociationAccountForm()"/>
         <h:commandButton value="Créer mon compte" action="#{associationAccountCreationBean.create()}"/>
         <h:commandButton value="Reset" immediate="true" action="#{associationAccountCreationBean.reset()}"/>
     </h:panelGrid>

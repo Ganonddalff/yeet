@@ -24,10 +24,6 @@ public class UserAccountCreationBean implements Serializable {
         this.accountCreationForm = new UserAccountCreationForm();
     }
 
-    public void fill(){
-        this.accountCreationForm.fill();
-    }
-
     public String create(){
         accountService.createUserAccount(this.accountCreationForm);
         return "index";
