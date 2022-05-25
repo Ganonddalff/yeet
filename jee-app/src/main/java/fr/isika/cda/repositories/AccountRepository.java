@@ -1,10 +1,8 @@
 package fr.isika.cda.repositories;
 
-import fr.isika.cda.model.entities.Account;
-import fr.isika.cda.model.entities.Address;
-import fr.isika.cda.model.entities.Contact;
-import fr.isika.cda.model.entities.Person;
+import fr.isika.cda.model.entities.*;
 import fr.isika.cda.model.enumeration.AccountCategory;
+import fr.isika.cda.viewmodels.AssociationAccountCreationForm;
 import fr.isika.cda.viewmodels.UserAccountCreationForm;
 
 import javax.ejb.Stateless;
@@ -41,5 +39,23 @@ public class AccountRepository {
         entityManager.clear();
 
         return userAccount;
+    }
+
+    public Account create(AssociationAccountCreationForm form) {
+        Contact contact = form.getContact();
+        Address address = form.getAddress();
+        Association association = form.getAssociation();
+        association.setAddress(address);
+        association.setContact(contact);
+        Account associationAccount = form.getAccount();
+        associationAccount.setAccountCategory(AccountCategory.Association);
+        associationAccount.setCreationDate(Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
+        associationAccount.setAssociation(association);
+
+        entityManager.persist(associationAccount);
+        entityManager.flush();
+        entityManager.clear();
+
+        return associationAccount;
     }
 }

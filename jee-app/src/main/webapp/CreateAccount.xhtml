@@ -64,9 +64,9 @@
         <h:inputSecret id="passwordInput" value="#{userAccountCreationBean.accountCreationForm.account.password}"/>
         <h:message for="passwordInput" style = "color:red" />
 
-        <h:commandButton value="Remplir" action="#{userAccountCreationBean.fill()}"/>
+        <h:commandButton value="Remplir" immediate="true" action="#{userAccountCreationBean.fill()}"/>
         <h:commandButton value="Créer mon compte" action="#{userAccountCreationBean.create()}"/>
-        <h:commandButton value="Reset" action="#{userAccountCreationBean.reset()}"/>
+        <h:commandButton value="Reset" immediate="true" action="#{userAccountCreationBean.reset()}"/>
     </h:panelGrid>
 </h:form>
 <hr/>
