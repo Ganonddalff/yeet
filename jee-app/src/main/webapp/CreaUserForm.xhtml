@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:p="http://primefaces.org/ui">
+<head>
+	<meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link rel="/resources/stylesheet" href="css/account1.css"/>
+    <link rel="/resources/stylesheet" href="css/loginSignin_styles.css"/>
+
+	<title>Creation compte utilisateur</title>
+</head>
+<body>
+
+	<div class="contain">
+	
+		
+		<ui:insert name="layout_form">
+			<ui:include src="/WEB-INF/Layouts/Layout_form.xhtml"/>
+		</ui:insert>
+		  
+		
+		<div class="suscribe-souscr">
+            <div class="header-form">
+                <h4>Créer votre compte</h4>
+            </div>
+            <div class="formulaire">
+                <form class="form">
+                    <div class="prenom">
+                        <label for="fname" id="fname" name="fname" style="color: white; margin-left:-180px">Votre prénom</label><br></br>
+                        <h:inputText id="firstNameInput" value="#{userAccountCreationBean.accountCreationForm.person.firstName}"/>
+                         <h:message for="firstNameInput" style = "color:red" />
+                    </div><br></br>
+                    
+                    <div class="nom">
+                        <label for="lname" id="lname" name="lname" style="color: white; margin-left:-190px">Votre nom</label><br></br>
+                        <h:inputText id="lastNameInput" value="#{userAccountCreationBean.accountCreationForm.person.lastName}"/>
+        				<h:message for="lastNameInput" style = "color:red" />
+                    </div><br></br>
+                    
+                    <div class="birthday" >
+                        <label for="birthday" id="birthday" name="birthday" style="color: white; margin-left:-110px">Votre date de naissance</label><br></br>
+                        <h:inputText id="lastNameInput" value="#{userAccountCreationBean.accountCreationForm.person.lastName}"/>
+        				<h:message for="lastNameInput" style = "color:red" />
+                    </div><br></br>
+                    
+                    <div class="email">
+                        <label for="email" id="mail" name="mail" style="color: white; margin-left:-190px">Votre email</label><br></br>
+                        <h:inputText id="emailInput" value="#{userAccountCreationBean.accountCreationForm.contact.email}"/>
+        				<h:message for="emailInput" style = "color:red" />
+                    </div><br></br>
+                    
+                    <div class="pswd">
+                        <label for="pass" id="pass" name="pass" style="color: white; margin-left:-110px">Créer votre mot de passe</label><br></br>
+                        <h:inputSecret id="passwordInput" value="#{userAccountCreationBean.accountCreationForm.account.password}"/>
+        				<h:message for="passwordInput" style = "color:red" />
+                    </div><br></br>
+                    
+                    <div class="confirm" >
+                        <label for="confpass" id="confirm" name="confirm" style="color: white; margin-left:-70px">Confirmer votre mot de passe</label><br></br>
+                        <h:inputSecret id="passwordInput" value="#{userAccountCreationBean.accountCreationForm.account.password}"/>
+        				<h:message for="passwordInput" style = "color:red" />
+                    </div>
+                                        
+                </form>
+         
+                <h:commandButton value="Créer mon compte" action="#{userAccountCreationBean.create()}"/>
+                <div class="nocount">
+                    <label for="creation" name="creation" style="color:white;">Compte déjà créé? <b><a href="">    Se connecter</a></b></label>
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
