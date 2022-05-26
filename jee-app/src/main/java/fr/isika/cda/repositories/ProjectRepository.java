@@ -1,5 +1,6 @@
 package fr.isika.cda.repositories;
 
+import fr.isika.cda.model.entities.FundRaising;
 import fr.isika.cda.model.entities.Project;
 import fr.isika.cda.viewmodels.ProjectCreationForm;
 
@@ -15,7 +16,12 @@ public class ProjectRepository {
     public ProjectRepository(){}
 
     public Project createProject(ProjectCreationForm form){
-        entityManager.persist(form.getProject());
+        FundRaising fr = form.getFundRaising();
+        Project project = form.getProject();
+        project.setFundRaising(fr);
+
+     //   entityManager.persist(fr);
+        entityManager.persist(project);
         entityManager.flush();
         entityManager.clear();
         return form.getProject();

@@ -32,15 +32,19 @@ public class Project {
     @NotNull
     @Enumerated(EnumType.STRING)
     private ProjectType projectType;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private Association association;
 
-    private int projectAdminId;
-
-    private int fundRaisingId;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private FundRaising fundRaising;
 
     private int projectIllustration;
     @NotNull
     @Length(min = 20,max = 150,message = "La description doit comprendre entre 20 et 150 caractères.")
     private String description;
+
+    public Project() {
+    }
 
     public Long getId() {
         return id;
@@ -98,20 +102,12 @@ public class Project {
         this.projectType = projectType;
     }
 
-    public int getProjectAdminId() {
-        return projectAdminId;
+    public Association getAssociation() {
+        return association;
     }
 
-    public void setProjectAdminId(int projectAdminId) {
-        this.projectAdminId = projectAdminId;
-    }
-
-    public int getFundRaisingId() {
-        return fundRaisingId;
-    }
-
-    public void setFundRaisingId(int fundRaisingId) {
-        this.fundRaisingId = fundRaisingId;
+    public void setAssociation(Association association) {
+        this.association = association;
     }
 
     public int getProjectIllustration() {
@@ -128,5 +124,13 @@ public class Project {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public FundRaising getFundRaising() {
+        return fundRaising;
+    }
+
+    public void setFundRaising(FundRaising fundRaising) {
+        this.fundRaising = fundRaising;
     }
 }

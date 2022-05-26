@@ -6,13 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
-
+@Entity
 public class FundRaising {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Size(min = 0,max = 100000)
+
     private Double RaisedFunds;
 
     public Long getId() {
