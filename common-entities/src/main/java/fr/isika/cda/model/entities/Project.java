@@ -20,7 +20,7 @@ public class Project {
     private String name;
 
     @NotNull
-    private int raiseTarget;
+    private double raiseTarget;
 
     @NotNull
     private Date startDate;
@@ -32,8 +32,8 @@ public class Project {
     @NotNull
     @Enumerated(EnumType.STRING)
     private ProjectType projectType;
-    @OneToOne(cascade = {CascadeType.ALL})
-    private Association association;
+
+    private Long associationId;
 
     @OneToOne(cascade = {CascadeType.ALL})
     private FundRaising fundRaising;
@@ -62,11 +62,11 @@ public class Project {
         this.name = name;
     }
 
-    public int getRaiseTarget() {
+    public double getRaiseTarget() {
         return raiseTarget;
     }
 
-    public void setRaiseTarget(int raiseTarget) {
+    public void setRaiseTarget(double raiseTarget) {
         this.raiseTarget = raiseTarget;
     }
 
@@ -102,12 +102,12 @@ public class Project {
         this.projectType = projectType;
     }
 
-    public Association getAssociation() {
-        return association;
+    public Long getAssociationId() {
+        return associationId;
     }
 
-    public void setAssociation(Association association) {
-        this.association = association;
+    public void setAssociationId(Long associationId) {
+        this.associationId = associationId;
     }
 
     public int getProjectIllustration() {

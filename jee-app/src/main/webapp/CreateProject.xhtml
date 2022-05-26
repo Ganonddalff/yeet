@@ -37,8 +37,8 @@
         <h:message for="locationInput" style = "color:red" />
 
         <h:outputLabel value="Objectif de levée de fonds : "/>
-        <h:inputText id="raiseTargetInput" value="#{projectCreationBean.projectCreationForm.project.location}">
-            <f:convertNumber integerOnly="true"/> </h:inputText>
+        <h:inputText id="raiseTargetInput" value="#{projectCreationBean.projectCreationForm.project.raiseTarget}">
+            <f:convertNumber /> </h:inputText>
         <h:message for="raiseTargetInput" style = "color:red" />
 
         <h:outputLabel value="Catégorie : "/>

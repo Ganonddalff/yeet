@@ -7,7 +7,8 @@ import fr.isika.cda.model.factories.implementation.ProjectFactoryImpl;
 
 public class ProjectCreationForm {
     private Project project;
-    protected FundRaising fundRaising;
+    private FundRaising fundRaising;
+
 
     public ProjectCreationForm(){
         this.fundRaising = FundRaisingFactoryImpl.getInstance().getFundRaising();
