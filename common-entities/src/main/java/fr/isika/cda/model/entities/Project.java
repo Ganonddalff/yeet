@@ -3,10 +3,13 @@ import fr.isika.cda.model.enumeration.ProjectType;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
+@Entity
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,8 +20,7 @@ public class Project {
     private String name;
 
     @NotNull
-    @Size(min=100,max=100000,message = "L'objectif doit être compris entre 100 et 100 000€.")
-    private int RaiseTarget;
+    private int raiseTarget;
 
     @NotNull
     private Date startDate;
@@ -57,11 +59,11 @@ public class Project {
     }
 
     public int getRaiseTarget() {
-        return RaiseTarget;
+        return raiseTarget;
     }
 
     public void setRaiseTarget(int raiseTarget) {
-        RaiseTarget = raiseTarget;
+        this.raiseTarget = raiseTarget;
     }
 
     public Date getStartDate() {

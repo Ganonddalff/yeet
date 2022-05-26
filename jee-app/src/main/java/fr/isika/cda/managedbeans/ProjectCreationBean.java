@@ -2,7 +2,7 @@ package fr.isika.cda.managedbeans;
 import fr.isika.cda.services.ProjectCreationService;
 import fr.isika.cda.viewmodels.ProjectCreationForm;
 
-import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import java.io.Serializable;
@@ -15,7 +15,7 @@ public class ProjectCreationBean implements Serializable {
     @Inject
     private ProjectCreationService projectCreationService;
     public ProjectCreationBean(){
-        this.projectCreationForm=new ProjectCreationForm();
+        this.projectCreationForm = new ProjectCreationForm();
     }
     public void create(){
         projectCreationService.createProject(this.projectCreationForm);
