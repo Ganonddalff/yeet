@@ -20,7 +20,7 @@ public class ProjectFactoryImpl implements ProjectFactory {
     }
 
     @Override
-    public Project getProjet() {
+    public Project getProject() {
         return new Project();
     }
 }

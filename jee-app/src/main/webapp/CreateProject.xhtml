@@ -21,25 +21,22 @@
 
         <h:outputLabel value="Date de début du projet: "/>
         <h:inputText id="startDateInput" value="#{projectCreationBean.projectCreationForm.startDate}"/>
-            <f:convertDateTime pattern="dd-MM-yyyy"/>
         <h:message for="startDateInput" style = "color:red" />
 
         <h:outputLabel value="Date de fin du projet : "/>
         <h:inputText id="finishDateInput" value="#{projectCreationBean.projectCreationForm.finishDate}">
-            <f:convertDateTime pattern="dd-MM-yyyy"/>
         </h:inputText>
         <h:message for="finishDateInput" style = "color:red" />
 
         <h:outputLabel value="Lieu où se produit le projet : "/>
-        <h:inputText id="locationInput" value="#{projectCreationBean.projectCreationForm.}"/>
+        <h:inputText id="locationInput" value="#{projectCreationBean.projectCreationForm.location}"/>
         <h:message for="locationInput" style = "color:red" />
 
         <h:outputLabel value="Catégorie : "/>
         <h:inputText id="projectTypeInput" value="#{projectCreationBean.projectCreationForm.projectType}"/>
         <h:message for="projectTypeInput" style = "color:red" />
 
-        <h:outputLabel value="projectAdminId : "/>
-        <h:Text id="projectAdminId" value="#{userId}"/>
+
 
 
         <h:outputLabel value="Description : "/>
@@ -49,9 +46,10 @@
 
 
 
-        <h:commandButton value="Créer mon compte" action="#{projectCreationBean.create()}"/>
+        <h:commandButton value="Créer mon projet" action="#{projectCreationBean.projectCreationForm.create()}"/>
 
     </h:panelGrid>
 </h:form>
 <hr/>
 </body>
+</html>

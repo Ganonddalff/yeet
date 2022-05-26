@@ -1,6 +1,4 @@
 package fr.isika.cda.managedbeans;
-
-
 import fr.isika.cda.services.ProjectCreationService;
 import fr.isika.cda.viewmodels.ProjectCreationForm;
 
