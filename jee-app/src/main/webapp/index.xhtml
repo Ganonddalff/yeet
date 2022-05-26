@@ -16,6 +16,7 @@
 <br />
 <h:link value="Créer un compte" outcome="CreateUserAccount.xhtml"/>
 <br />
+
 <h:link value="Créer une association" outcome="CreateAssociationAccount.xhtml"/>
 <br />
 <c:if test="${session.getAttribute('identifier') != null}">
@@ -26,5 +27,9 @@
 <c:if test="${session.getAttribute('identifier') == null}">
     <h:link value="Se connecter" outcome="Login.xhtml"/>
 </c:if>
+<br/>
+<h:link value="Créer une association" outcome="CreateAssociationAccount.html"/>
+<br/>
+<h:link value="Créer un projet de financement participatif" outcome="CreateProject.html"/>
 </body>
 </html>

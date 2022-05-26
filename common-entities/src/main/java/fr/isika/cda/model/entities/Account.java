@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 import fr.isika.cda.model.enumeration.AccountCategory;
 
 @Entity
-public class Account{
+public class  Account{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
