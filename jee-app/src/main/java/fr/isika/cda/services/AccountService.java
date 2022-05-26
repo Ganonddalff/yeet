@@ -7,6 +7,9 @@ import fr.isika.cda.viewmodels.UserAccountCreationForm;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 @Stateless
 public class AccountService {
@@ -23,5 +26,9 @@ public class AccountService {
 
     public Account createAssociationAccount(AssociationAccountCreationForm associationAccountCreationForm) {
         return accountRepository.create(associationAccountCreationForm);
+    }
+
+    public Optional<Account> findByIdentifier(String identifier) {
+        return accountRepository.findByIdentifier(identifier);
     }
 }

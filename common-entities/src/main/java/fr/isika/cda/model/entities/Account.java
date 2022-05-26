@@ -17,7 +17,8 @@ public class Account{
 
     @NotNull(message = "Ne doit pas être null")
     @Size(min = 4, max = 15, message = "Doit contenir entre 4 et 15 caractères.")
-    private String pseudonym;
+    @Column(unique=true)
+    private String identifier;
 
     @NotNull(message = "Ne doit pas être null")
     @Size(min = 4, max = 15, message = "Doit contenir entre 4 et 15 caractères.")
@@ -43,12 +44,12 @@ public class Account{
         this.id = id;
     }
 
-    public String getPseudonym() {
-        return pseudonym;
+    public String getIdentifier() {
+        return identifier;
     }
 
-    public void setPseudonym(String pseudonym) {
-        this.pseudonym = pseudonym;
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
     }
 
     public AccountCategory getAccountCategory() {
