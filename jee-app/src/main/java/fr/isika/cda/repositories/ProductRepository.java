@@ -6,10 +6,9 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.model.entities.Account;
 import fr.isika.cda.model.entities.Product;
-import fr.isika.cda.viewmodels.ProductCreationForm;
+import fr.isika.cda.viewmodels.ProductCreateForm;
 
 @Stateless
-
 public class ProductRepository {
 	
 	@PersistenceContext
@@ -19,9 +18,8 @@ public class ProductRepository {
 		
 	}
 	
-	public Product ProductCreation(ProductCreationForm form) {
+	public Product create(ProductCreateForm form) {
 		Product product = form.getProduct();
-		Account account = form.getAccount();
 		
 		entityManager.persist(product);
         entityManager.flush();
