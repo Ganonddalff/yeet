@@ -27,6 +27,12 @@
 <c:if test="${session.getAttribute('identifier') == null}">
     <h:link value="Se connecter" outcome="Login.xhtml"/>
 </c:if>
+<br />
+<h:link value="Les associations" outcome="AssociationList.xhtml"/>
+<br />
+<ui:fragment rendered="#{loginBean.isAssociationConnected()}">
+    <h:outputLink value="AssociationProfileManagement.xhtml">Modifier le profil de l'association</h:outputLink>
+</ui:fragment>
 <br/>
 <h:link value="Créer une association" outcome="CreateAssociationAccount.html"/>
 <br/>

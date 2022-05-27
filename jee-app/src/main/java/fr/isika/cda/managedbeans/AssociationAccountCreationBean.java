@@ -19,10 +19,6 @@ public class AssociationAccountCreationBean implements Serializable {
         this.accountCreationForm = new AssociationAccountCreationForm();
     }
 
-    public void reset(){
-        this.accountCreationForm = new AssociationAccountCreationForm();
-    }
-
     public String create(){
         accountService.createAssociationAccount(this.accountCreationForm);
         return "index";
