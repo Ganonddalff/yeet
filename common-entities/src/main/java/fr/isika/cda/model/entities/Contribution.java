@@ -1,13 +1,10 @@
 package fr.isika.cda.model.entities;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
-
+@Entity
 public class Contribution {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,10 +20,12 @@ public class Contribution {
     @NotNull
     private int ContributorId;
 
+    @OneToOne(cascade = CascadeType.ALL)
     private Account account;
 
     private int FundRaisingId;
 
+    @OneToOne(cascade = CascadeType.ALL)
     private FundRaising fundRaising;
 
     public Long getId() {
