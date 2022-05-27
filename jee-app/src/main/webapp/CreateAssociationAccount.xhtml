@@ -7,11 +7,12 @@
 
 <h:head>
     <title>Création d'un compte association</title>
+    <script src="js/fillAssociationAccountForm.js"></script>
 </h:head>
 <body>
 <h3>Création d'un compte association</h3>
 <hr/>
-<h:form id="createAccountForm">
+<h:form id="createAssociationAccountForm">
     <h:panelGrid columns="3">
 
         <h:outputLabel value="Nom de l'association : "/>
@@ -56,19 +57,20 @@
         <h:inputText id="countryInput" value="#{associationAccountCreationBean.accountCreationForm.address.country}"/>
         <h:message for="countryInput" style = "color:red" />
 
-        <h:outputLabel value="Pseudonyme : "/>
-        <h:inputText id="pseudonymInput" value="#{associationAccountCreationBean.accountCreationForm.account.pseudonym}"/>
-        <h:message for="pseudonymInput" style = "color:red" />
+        <h:outputLabel value="Identifiant : "/>
+        <h:inputText id="identifierInput" value="#{associationAccountCreationBean.accountCreationForm.account.identifier}"/>
+        <h:message for="identifierInput" style = "color:red" />
 
         <h:outputLabel value="Mot de passe : "/>
         <h:inputSecret id="passwordInput" value="#{associationAccountCreationBean.accountCreationForm.account.password}"/>
         <h:message for="passwordInput" style = "color:red" />
 
-        <h:commandButton value="Remplir" immediate="true" action="#{associationAccountCreationBean.fill()}"/>
+        <h:commandButton value="Remplir" immediate="true" onclick="fillAssociationAccountForm()"/>
         <h:commandButton value="Créer mon compte" action="#{associationAccountCreationBean.create()}"/>
         <h:commandButton value="Reset" immediate="true" action="#{associationAccountCreationBean.reset()}"/>
     </h:panelGrid>
 </h:form>
 <hr/>
+<h:link outcome="index.xhtml">Revenir à l'accueil</h:link>
 </body>
 </html>

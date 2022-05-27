@@ -1,9 +1,7 @@
 package fr.isika.cda.managedbeans;
-
 import fr.isika.cda.services.AccountService;
 import fr.isika.cda.viewmodels.AssociationAccountCreationForm;
 import fr.isika.cda.viewmodels.UserAccountCreationForm;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
@@ -25,12 +23,9 @@ public class AssociationAccountCreationBean implements Serializable {
         this.accountCreationForm = new AssociationAccountCreationForm();
     }
 
-    public void fill(){
-        this.accountCreationForm.fill();
-    }
-
-    public void create(){
+    public String create(){
         accountService.createAssociationAccount(this.accountCreationForm);
+        return "index";
     }
 
     public AssociationAccountCreationForm getAccountCreationForm() {

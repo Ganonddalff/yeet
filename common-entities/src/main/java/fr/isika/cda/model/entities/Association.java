@@ -14,6 +14,7 @@ public class Association{
 
     @NotNull(message = "Ne doit pas être null")
     @Size(min = 1, max = 50, message = "Doit contenir entre 1 et 50 caractères")
+    @Column(unique=true)
     private String name;
 
     @NotNull
