@@ -20,7 +20,7 @@
         <h:message for="productCategoryInput" style = "color:red" />
 
         <h:outputLabel value="Nom du produit : "/>
-        <h:inputText id="productNameInput" value="#{productCreateBean.productCreateForm.product.productName}"/>
+        <h:inputText id="productNameInput" value="#{productCreateBean.productCreateForm.product.nameProduct}"/>
         <h:message for="productNameInput" style = "color:red" />
 
         <h:outputLabel value="Prix : "/>
@@ -36,6 +36,8 @@
         <h:message for="countryInput" style = "color:red" />
         
         <h:commandButton value="Ajouter" action="#{productCreateBean.create()}"/>
+        
+        <h:commandButton value="Annuler" action="index?faces-redirect=true"/>
 
     </h:panelGrid>
 </h:form>

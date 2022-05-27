@@ -1,11 +1,17 @@
 package fr.isika.cda.managedbeans;
 
 import java.io.Serializable;
+import java.util.Optional;
 
-import javax.annotation.ManagedBean;
+import javax.ejb.SessionContext;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
+import fr.isika.cda.model.entities.Account;
+import fr.isika.cda.services.AccountService;
 import fr.isika.cda.services.ProductService;
 import fr.isika.cda.viewmodels.ProductCreateForm;
 
@@ -18,12 +24,34 @@ public class ProductCreateBean implements Serializable {
 	@Inject
 	private ProductService productService;
 	
+	@Inject
+    private AccountService accountService;
+	
+	
 	public ProductCreateBean() {
 		this.productCreateForm = new ProductCreateForm();
 	}
 	
 	public void create(){
-        productService.createProduct(this.productCreateForm);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		//on recupère l'idenfiant de l'utilisation courante en session
+		String currentUserIdentifier = (String) session.getAttribute("identifier");
+		
+		//vérifier que l'utilisateur est connecté
+		if (currentUserIdentifier != null) {
+			Optional<Account> optional = accountService.findByIdentifier(currentUserIdentifier);
+	        if (optional.isPresent()) {
+	            Account account = optional.get();
+	            productService.createProduct(this.productCreateForm, account.getAssociation());
+	            
+	        } else {
+	        	// cas utilisateur introuvable
+	        }
+		}
+		/*System.out.println("test");
+		System.out.println(session.getAttributeNames().toString());
+		System.out.println(session.getAttribute("identifier"));*/
+        //productService.createProduct(this.productCreateForm);
     }
 
 	public ProductService getProductservice() {

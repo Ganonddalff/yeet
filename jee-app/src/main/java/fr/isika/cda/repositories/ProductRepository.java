@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.model.entities.Account;
+import fr.isika.cda.model.entities.Association;
 import fr.isika.cda.model.entities.Product;
 import fr.isika.cda.viewmodels.ProductCreateForm;
 
@@ -18,15 +19,19 @@ public class ProductRepository {
 		
 	}
 	
-	public Product create(ProductCreateForm form) {
-		Product product = form.getProduct();
-		
+	public Product create(Product product) {
 		entityManager.persist(product);
         entityManager.flush();
         entityManager.clear();
         
         return product;
 	}
+	
+	public Product update(Product product) {
+		entityManager.flush();
+		return product;
+	}
+	
 	
 	
 
