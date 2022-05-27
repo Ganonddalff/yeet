@@ -50,6 +50,9 @@ public class AccountRepository {
         Association association = form.getAssociation();
         association.setAddress(address);
         association.setContact(contact);
+        association.setBanner("/resources/images/banners/standardBanner.png");
+        association.setProfileImage("/resources/images/profileImages/standardProfileImage.png");
+        association.setDescription("");
         Account associationAccount = form.getAccount();
         associationAccount.setAccountCategory(AccountCategory.Association);
         associationAccount.setCreationDate(Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));

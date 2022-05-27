@@ -7,8 +7,6 @@ import fr.isika.cda.viewmodels.UserAccountCreationForm;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
 @Stateless

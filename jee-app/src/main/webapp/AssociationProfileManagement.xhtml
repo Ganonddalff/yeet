@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:head>
+    <title>Accueil</title>
+    <link rel="stylesheet" href="css/AssociationList.css"/>
+</h:head>
+<h:body>
+    <div class="dashboard">
+        <div class="main-sidebar" id="mySidebar">
+            <div class="logo" >
+                <img src="images/logo_transp.png" alt="logo" width="200" height="auto"/>
+            </div>
+            <div class="sidebar">
+                <h3><a href="dashboard.html">Tableau de bord</a></h3>
+                <div class="elements">
+                    <a href="serviceAsso.html" class="dash-bar">Services</a>
+                    <a href="contenuAsso.html" class="dash-bar">Gestion de contenu</a>
+                    <a href="adminAsso.html" class="dash-bar">Gestion de compte</a>
+                    <a href="" class="dash-bar">Statistiques</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-dashboard">
+        </div>
+        <div class="main-dashboard-asso">
+            <div class="suite-main">
+                <h1>Le contenu de votre site </h1>
+            </div>
+            <div class="container">
+                <div class="logo-card">
+                    <div class="header-logo">
+                        <div class="titre-logo">
+                            <h4><b>Votre Logo</b></h4>
+                        </div>
+                    </div>
+                    <div class="cadre-logo">
+                        <h:graphicImage value = "#{associationProfileManagementBean.profileImagePath}"/>
+                        <h:form enctype="multipart/form-data">
+                            <h:inputFile value="#{associationProfileManagementBean.uploadedProfileImage}"/>
+                            <h:commandButton value="Enregistrer" action="#{associationProfileManagementBean.uploadProfileImage()}"/>
+                        </h:form>
+                    </div>
+                </div>
+                <div class="banner-card">
+                    <div class="header-banner">
+                        <div class="titre-banner">
+                            <h4><b>Votre bannière</b></h4>
+                        </div>
+                    </div>
+                    <div class="cadre-banniere">
+                        <h:graphicImage value="#{associationProfileManagementBean.bannerPath}"/>
+                        <h:form enctype="multipart/form-data">
+                            <h:inputFile value="#{associationProfileManagementBean.uploadedBanner}"/>
+                            <h:commandButton value="Enregistrer" action="#{associationProfileManagementBean.uploadBanner()}"/>
+                        </h:form>
+                    </div>
+                </div>
+                <div class="description-asso">
+                    <div class="description-card">
+                        <div class="titre-description" id="editor">
+                            <h4><b>Description de votre association</b></h4>
+                        </div>
+                        <div class="standalone-container">
+                            <h:inputTextarea value="#{associationProfileManagementBean.description}"></h:inputTextarea>
+                        </div>
+                        <h:commandButton value="Enregistrer" action="#{associationProfileManagementBean.saveDescription()}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>

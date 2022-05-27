@@ -1,6 +1,7 @@
 package fr.isika.cda.managedbeans;
 
 import fr.isika.cda.model.entities.Account;
+import fr.isika.cda.model.enumeration.AccountCategory;
 import fr.isika.cda.services.AccountService;
 import fr.isika.cda.viewmodels.LoginForm;
 
@@ -34,6 +35,11 @@ public class LoginBean implements Serializable {
                         getCurrentInstance().getExternalContext().getSession(false);
                 session.setAttribute("typeAccount", account.getAccountCategory().name());
                 session.setAttribute("identifier", account.getIdentifier());
+                if(account.getAccountCategory() == AccountCategory.User || account.getAccountCategory() == AccountCategory.Administrator)
+                    session.setAttribute("id", account.getPerson().getId());
+                else if(account.getAccountCategory() == AccountCategory.Association)
+                    session.setAttribute("id", account.getAssociation().getId());
+                session.setAttribute("idAccount", account.getId());
                 return "index";
             } else {
                 UIComponent formulaire = FacesContext.getCurrentInstance().getViewRoot().findComponent("loginForm");
@@ -55,6 +61,26 @@ public class LoginBean implements Serializable {
                 .getSession(false);
         session.invalidate();
         return "index?faces-redirect=true";
+    }
+
+    public boolean isAssociationConnected(){
+        HttpSession session = (HttpSession) FacesContext
+                .getCurrentInstance()
+                .getExternalContext()
+                .getSession(false);
+        if((String)session.getAttribute("typeAccount") != null)
+            return ((String)session.getAttribute("typeAccount")).equals("Association");
+        return false;
+    }
+
+    public boolean isUserConnected(){
+        HttpSession session = (HttpSession) FacesContext
+                .getCurrentInstance()
+                .getExternalContext()
+                .getSession(false);
+        if((String)session.getAttribute("typeAccount") != null)
+            return ((String)session.getAttribute("typeAccount")).equals("User");
+        return false;
     }
 
     public LoginForm getLoginForm() {

@@ -34,6 +34,13 @@ public class Association{
     @Pattern(regexp = "^[0-9]*$", message = "le SIRET ne peut contenir que des chiffres")
     private String Siret;
 
+    @NotNull
+    private String profileImage;
+    @NotNull
+    private String banner;
+    @NotNull
+    private String description;
+
     public String getName() {
         return name;
     }
@@ -80,5 +87,29 @@ public class Association{
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
+
+    public String getBanner() {
+        return banner;
+    }
+
+    public void setBanner(String banner) {
+        this.banner = banner;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
