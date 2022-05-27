@@ -1,14 +1,12 @@
 package fr.isika.cda.services;
 
-import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import fr.isika.cda.model.entities.Association;
 import fr.isika.cda.model.entities.Product;
 import fr.isika.cda.repositories.ProductRepository;
-import fr.isika.cda.viewmodels.ProductCreateForm;
+import fr.isika.cda.viewmodels.form.shop.ProductCreateForm;
 
 
 @Stateless

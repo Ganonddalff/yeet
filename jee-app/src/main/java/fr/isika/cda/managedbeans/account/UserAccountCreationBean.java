@@ -1,7 +1,7 @@
-package fr.isika.cda.managedbeans;
+package fr.isika.cda.managedbeans.account;
 
 import fr.isika.cda.services.AccountService;
-import fr.isika.cda.viewmodels.UserAccountCreationForm;
+import fr.isika.cda.viewmodels.form.account.UserAccountCreationForm;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;

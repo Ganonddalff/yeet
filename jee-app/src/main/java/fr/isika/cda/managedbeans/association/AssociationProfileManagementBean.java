@@ -1,4 +1,4 @@
-package fr.isika.cda.managedbeans;
+package fr.isika.cda.managedbeans.association;
 
 import fr.isika.cda.model.entities.Association;
 import fr.isika.cda.services.AssociationService;

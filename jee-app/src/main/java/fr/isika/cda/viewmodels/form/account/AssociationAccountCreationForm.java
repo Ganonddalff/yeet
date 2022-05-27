@@ -1,10 +1,7 @@
-package fr.isika.cda.viewmodels;
+package fr.isika.cda.viewmodels.form.account;
 
 import fr.isika.cda.model.entities.*;
 import fr.isika.cda.model.factories.implementation.AssociationFactoryImpl;
-
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
 
 public class AssociationAccountCreationForm extends AccountCreationForm{
     private Association association;

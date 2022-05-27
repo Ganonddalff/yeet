@@ -1,7 +1,7 @@
-package fr.isika.cda.managedbeans;
+package fr.isika.cda.managedbeans.crowdfunding;
 
 import fr.isika.cda.services.ContributionService;
-import fr.isika.cda.viewmodels.ContributionForm;
+import fr.isika.cda.viewmodels.form.crowdfunding.ContributionForm;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;

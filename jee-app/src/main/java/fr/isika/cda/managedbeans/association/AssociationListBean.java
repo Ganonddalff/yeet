@@ -1,10 +1,7 @@
-package fr.isika.cda.managedbeans;
+package fr.isika.cda.managedbeans.association;
 
-import fr.isika.cda.model.entities.Association;
-import fr.isika.cda.services.AccountService;
 import fr.isika.cda.services.AssociationService;
-import fr.isika.cda.viewmodels.AssociationAccountCreationForm;
-import fr.isika.cda.viewmodels.AssociationListViewmodel;
+import fr.isika.cda.viewmodels.association.AssociationListViewmodel;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;

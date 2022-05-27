@@ -2,7 +2,7 @@ package fr.isika.cda.repositories;
 
 import fr.isika.cda.model.entities.FundRaising;
 import fr.isika.cda.model.entities.Project;
-import fr.isika.cda.viewmodels.ProjectCreationForm;
+import fr.isika.cda.viewmodels.form.crowdfunding.ProjectCreationForm;
 
 import javax.ejb.Stateless;
 import javax.faces.context.FacesContext;

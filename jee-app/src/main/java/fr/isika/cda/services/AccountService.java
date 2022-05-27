@@ -2,8 +2,8 @@ package fr.isika.cda.services;
 
 import fr.isika.cda.model.entities.Account;
 import fr.isika.cda.repositories.AccountRepository;
-import fr.isika.cda.viewmodels.AssociationAccountCreationForm;
-import fr.isika.cda.viewmodels.UserAccountCreationForm;
+import fr.isika.cda.viewmodels.form.account.AssociationAccountCreationForm;
+import fr.isika.cda.viewmodels.form.account.UserAccountCreationForm;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

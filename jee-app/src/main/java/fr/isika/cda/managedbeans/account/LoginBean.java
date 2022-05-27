@@ -1,9 +1,9 @@
-package fr.isika.cda.managedbeans;
+package fr.isika.cda.managedbeans.account;
 
 import fr.isika.cda.model.entities.Account;
 import fr.isika.cda.model.enumeration.AccountCategory;
 import fr.isika.cda.services.AccountService;
-import fr.isika.cda.viewmodels.LoginForm;
+import fr.isika.cda.viewmodels.form.account.LoginForm;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;

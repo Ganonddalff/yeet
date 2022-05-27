@@ -1,4 +1,4 @@
-package fr.isika.cda.viewmodels;
+package fr.isika.cda.viewmodels.form.crowdfunding;
 
 import fr.isika.cda.model.entities.Contribution;
 import fr.isika.cda.model.entities.FundRaising;

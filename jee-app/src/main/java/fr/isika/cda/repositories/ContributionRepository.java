@@ -3,7 +3,7 @@ package fr.isika.cda.repositories;
 import fr.isika.cda.model.entities.Contribution;
 import fr.isika.cda.model.entities.FundRaising;
 import fr.isika.cda.model.entities.Project;
-import fr.isika.cda.viewmodels.ContributionForm;
+import fr.isika.cda.viewmodels.form.crowdfunding.ContributionForm;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

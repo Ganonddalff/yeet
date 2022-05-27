@@ -2,7 +2,7 @@ package fr.isika.cda.services;
 
 import fr.isika.cda.model.entities.Contribution;
 import fr.isika.cda.repositories.ContributionRepository;
-import fr.isika.cda.viewmodels.ContributionForm;
+import fr.isika.cda.viewmodels.form.crowdfunding.ContributionForm;
 
 import javax.inject.Inject;
 

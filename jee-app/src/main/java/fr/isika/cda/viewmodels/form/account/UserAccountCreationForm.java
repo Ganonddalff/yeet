@@ -1,8 +1,7 @@
-package fr.isika.cda.viewmodels;
+package fr.isika.cda.viewmodels.form.account;
 
 import fr.isika.cda.model.entities.Person;
 import fr.isika.cda.model.factories.implementation.PersonFactoryImpl;
-import java.sql.Date;
 
 public class UserAccountCreationForm extends AccountCreationForm{
     private Person person;

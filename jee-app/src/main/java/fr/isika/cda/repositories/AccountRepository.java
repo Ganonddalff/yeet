@@ -2,10 +2,8 @@ package fr.isika.cda.repositories;
 
 import fr.isika.cda.model.entities.*;
 import fr.isika.cda.model.enumeration.AccountCategory;
-import fr.isika.cda.model.factories.implementation.AccountFactoryImpl;
-import fr.isika.cda.model.factories.interfaces.AccountFactory;
-import fr.isika.cda.viewmodels.AssociationAccountCreationForm;
-import fr.isika.cda.viewmodels.UserAccountCreationForm;
+import fr.isika.cda.viewmodels.form.account.AssociationAccountCreationForm;
+import fr.isika.cda.viewmodels.form.account.UserAccountCreationForm;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

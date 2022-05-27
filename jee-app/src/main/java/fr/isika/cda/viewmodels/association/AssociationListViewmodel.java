@@ -1,4 +1,4 @@
-package fr.isika.cda.viewmodels;
+package fr.isika.cda.viewmodels.association;
 
 import fr.isika.cda.model.entities.Association;
 

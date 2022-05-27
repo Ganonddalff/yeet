@@ -14,16 +14,16 @@
         <h:outputLabel value="Bienvenue #{session.getAttribute('identifier')}"/>
 </c:if>
 <br />
-<h:link value="Ajouter un produit" outcome="CreateProduct.xhtml"/>
+<h:link value="Ajouter un produit" outcome="shop/CreateProduct.xhtml"/>
 <br />
 
-<h:link value="Modifier les informations d'un produit" outcome="UpdateProduct.xhtml"/>
+<h:link value="Modifier les informations d'un produit" outcome="shop/UpdateProduct.xhtml"/>
 <br />
 
-<h:link value="Créer un compte" outcome="CreateUserAccount.xhtml"/>
+<h:link value="Créer un compte" outcome="account/CreateUserAccount.xhtml"/>
 <br />
 
-<h:link value="Créer une association" outcome="CreateAssociationAccount.xhtml"/>
+<h:link value="Créer une association" outcome="account/CreateAssociationAccount.xhtml"/>
 <br />
 <c:if test="${session.getAttribute('identifier') != null}">
     <h:form>
@@ -31,19 +31,18 @@
     </h:form>
 </c:if>
 <c:if test="${session.getAttribute('identifier') == null}">
-    <h:link value="Se connecter" outcome="Login.xhtml"/>
+    <h:link value="Se connecter" outcome="account/Login.xhtml"/>
 </c:if>
 <br />
-<h:link value="Les associations" outcome="AssociationList.xhtml"/>
+<h:link value="Les associations" outcome="association/AssociationList.xhtml"/>
 <br />
 <ui:fragment rendered="#{loginBean.isAssociationConnected()}">
-    <h:outputLink value="AssociationProfileManagement.xhtml">Modifier le profil de l'association</h:outputLink>
+    <h:outputLink value="association/AssociationProfileManagement.xhtml">Modifier le profil de l'association</h:outputLink>
 </ui:fragment>
 <br/>
-<h:link value="Créer une association" outcome="CreateAssociationAccount.html"/>
+
+<h:link value="Créer un projet de financement participatif" outcome="crowdfunding/CreateProject.xhtml"/>
 <br/>
-<h:link value="Créer un projet de financement participatif" outcome="CreateProject.xhtml"/>
-<br/>
-<h:link value="Voir tous les projets de financements participatifs" outcome="AllProjectsView.xhtml"/>
+<h:link value="Voir tous les projets de financements participatifs" outcome="crowdfunding/AllProjectsView.xhtml"/>
 </body>
 </html>

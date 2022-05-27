@@ -1,4 +1,4 @@
-package fr.isika.cda.viewmodels;
+package fr.isika.cda.viewmodels.form.account;
 
 public class LoginForm {
     private String identifier;
