@@ -12,11 +12,16 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @NotNull
+	@Size(min = 1, max = 25, message = "Le nombre de caractères doit être compris entre 1 et 25")
+	@Pattern(regexp = "[^0-9]*", message = "Le nom ne doit pas contenir de chiffre")
+	private String nameProduct;
 
     @Column(precision=10, scale=2)
     private Double price;
 
-    @NotNull(message = "Ne doit pas être null")
+    @NotNull(message = "Ne doit pas être nul")
     @Size(min = 1, max = 25, message = "Doit contenir entre 1 et 25 caractères.")
     @Pattern(regexp = "[^0-9]*", message = "Ne doit pas contenir de chiffre")
     private String manufacturingCountry;
@@ -77,4 +82,15 @@ public class Product {
     public void setAssociation(Association association) {
         this.association = association;
     }
+
+	public String getNameProduct() {
+		return nameProduct;
+	}
+
+	public void setNameProduct(String nameProduct) {
+		this.nameProduct = nameProduct;
+	}
+    
+    
 }
+
