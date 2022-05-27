@@ -1,5 +1,7 @@
 package fr.isika.cda.services;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -26,5 +28,31 @@ public class ProductService {
 		product.setAssociation(association);
         return productRepository.create(product);
     }
+	
+	//Récuperer tous les produits de la boutique
+	/*public List<Product> finAllProduct(){
+		
+	}
+	
+	//Récupérer la liste des produits par association
+	public List<Product> findAllProductByAssociation(Long id){
+		
+	}
+	
+	public Product findProduct() {
+		
+	}
+	
+	
+	public Product updateProduct(ProductCreateForm productUpdateForm) {
+		Product updateProduct = productUpdateForm.getProduct();
+		updateProduct.setManufacturingCountry(productUpdateForm.getProduct().getManufacturingCountry());
+		updateProduct.setNameProduct(productUpdateForm.getProduct().getNameProduct());
+		updateProduct.setStock(productUpdateForm.getProduct().getStock());
+		updateProduct.setPrice(productUpdateForm.getProduct().getPrice());
+		updateProduct.setCategory(productUpdateForm.getProduct().getCategory());
+		return updateProduct;
+		
+	}*/
 
 }

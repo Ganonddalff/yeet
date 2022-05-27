@@ -53,6 +53,10 @@ public class ProductCreateBean implements Serializable {
 		System.out.println(session.getAttribute("identifier"));*/
         //productService.createProduct(this.productCreateForm);
     }
+	
+	public void update() {
+		productService.updateProduct(this.productCreateForm);
+	}
 
 	public ProductService getProductservice() {
 		return productService;

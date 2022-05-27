@@ -1,5 +1,7 @@
 package fr.isika.cda.repositories;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,10 +29,23 @@ public class ProductRepository {
         return product;
 	}
 	
-	public Product update(Product product) {
+	/*public Product update(Product product) {
+		entityManager.find(Product.class, product);
 		entityManager.flush();
+		entityManager.clear();
+		return product;
+	}*/
+	
+	/*public Product findProduct(Long idProduct){
+		Product product = entityManager.find(Product.class, idProduct);
+		entityManager.flush();
+		entityManager.clear();
 		return product;
 	}
+	
+	public void findAllProducts() {
+			return entityManager.find(Product.class);
+	}*/
 	
 	
 	
