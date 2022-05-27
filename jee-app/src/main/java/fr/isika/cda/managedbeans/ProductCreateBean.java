@@ -55,7 +55,7 @@ public class ProductCreateBean implements Serializable {
     }
 	
 	public void update() {
-		productService.updateProduct(this.productCreateForm);
+		//productService.updateProduct(this.productCreateForm);
 	}
 
 	public ProductService getProductservice() {
