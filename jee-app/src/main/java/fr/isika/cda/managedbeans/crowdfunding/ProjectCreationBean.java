@@ -1,5 +1,5 @@
 package fr.isika.cda.managedbeans.crowdfunding;
-import fr.isika.cda.services.ProjectCreationService;
+import fr.isika.cda.services.ProjectService;
 import fr.isika.cda.viewmodels.form.crowdfunding.ProjectCreationForm;
 
 import javax.faces.bean.ManagedBean;
@@ -13,12 +13,12 @@ public class ProjectCreationBean implements Serializable {
     private ProjectCreationForm projectCreationForm;
 
     @Inject
-    private ProjectCreationService projectCreationService;
+    private ProjectService projectService;
     public ProjectCreationBean(){
         this.projectCreationForm = new ProjectCreationForm();
     }
     public void create(){
-        projectCreationService.createProject(this.projectCreationForm);
+        projectService.createProject(this.projectCreationForm);
     }
 
     public ProjectCreationForm getProjectCreationForm() {
@@ -29,11 +29,11 @@ public class ProjectCreationBean implements Serializable {
         this.projectCreationForm = projectCreationForm;
     }
 
-    public ProjectCreationService getProjectCreationService() {
-        return projectCreationService;
+    public ProjectService getProjectCreationService() {
+        return projectService;
     }
 
-    public void setProjectCreationService(ProjectCreationService projectCreationService) {
-        this.projectCreationService = projectCreationService;
+    public void setProjectCreationService(ProjectService projectService) {
+        this.projectService = projectService;
     }
 }

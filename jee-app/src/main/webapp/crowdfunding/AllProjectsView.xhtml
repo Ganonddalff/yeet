@@ -9,6 +9,16 @@
 <h:head>
     <title>Tous les projets</title>
 </h:head>
-<body>
-</body>
+<h1>Les projets</h1>
+<h:body>
+<div class="row">
+    <ui:repeat value="#{projectsListBean.viewModel.projectsList}" var="project">
+        <div class="card">
+            <div class="info">
+                <h1 class="title">#{project.name}</h1>
+            </div>
+        </div>
+    </ui:repeat>
+</div>
+</h:body>
 </html>

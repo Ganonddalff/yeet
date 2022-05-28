@@ -5,13 +5,18 @@ import fr.isika.cda.repositories.ProjectRepository;
 import fr.isika.cda.viewmodels.form.crowdfunding.ProjectCreationForm;
 
 import javax.inject.Inject;
+import java.util.List;
 
-public class ProjectCreationService {
+public class ProjectService {
     @Inject
     private ProjectRepository projectRepository;
 
-    public ProjectCreationService() {}
+    public ProjectService() {}
     public Project createProject(ProjectCreationForm projectCreationForm){
         return projectRepository.createProject(projectCreationForm);
+    }
+
+    public List<Project> findAll() {
+        return projectRepository.findAll();
     }
 }
