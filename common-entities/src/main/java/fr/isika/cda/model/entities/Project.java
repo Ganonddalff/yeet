@@ -33,7 +33,8 @@ public class Project {
     @Enumerated(EnumType.STRING)
     private ProjectType projectType;
 
-    private Long associationId;
+    @ManyToOne
+    private Association association;
 
     @OneToOne(cascade = {CascadeType.ALL})
     private FundRaising fundRaising;
@@ -102,12 +103,12 @@ public class Project {
         this.projectType = projectType;
     }
 
-    public Long getAssociationId() {
-        return associationId;
+    public Association getAssociation() {
+        return association;
     }
 
-    public void setAssociationId(Long associationId) {
-        this.associationId = associationId;
+    public void setAssociation(Association association) {
+        this.association = association;
     }
 
     public int getProjectIllustration() {

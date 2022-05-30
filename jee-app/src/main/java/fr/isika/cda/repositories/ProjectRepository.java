@@ -5,10 +5,8 @@ import fr.isika.cda.model.entities.Project;
 import fr.isika.cda.viewmodels.form.crowdfunding.ProjectCreationForm;
 
 import javax.ejb.Stateless;
-import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Stateless
@@ -20,19 +18,17 @@ public class ProjectRepository {
 
 
     public Project createProject(ProjectCreationForm form){
-        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        Long associationId = (Long) session.getAttribute("id");
         FundRaising fr = form.getFundRaising();
+        fr.setRaisedFunds(0D);
         Project project = form.getProject();
         project.setFundRaising(fr);
-        project.setAssociationId(associationId);
-
      //   entityManager.persist(fr);
         entityManager.persist(project);
         entityManager.flush();
         entityManager.clear();
         return form.getProject();
     }
+
     public Project updateProject(Project project){
         return this.entityManager.merge(project);
     }
