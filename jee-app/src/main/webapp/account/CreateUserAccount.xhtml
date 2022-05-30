@@ -1,76 +1,100 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html" lang="en">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-<h:head>
-    <title>Création d'un compte utilisateur</title>
-    <script src="../js/fillUserAccountForm.js"></script>
-</h:head>
-<body>
-<h3>Créer un compte utilisateur</h3>
-<hr/>
-<h:form id="createAccountForm">
-    <h:panelGrid columns="3">
+<h:body>
+    <ui:composition template="/template/layout.xhtml">
+        <ui:define name="title">Création de compte</ui:define>
+        <ui:define name="js">
+            <h:outputScript library="js" name="fillUserAccountForm.js"/>
+        </ui:define>
+        <ui:define name="css">
+            <h:outputStylesheet library="css" name="account1.css"/>
+        </ui:define>
+        <ui:define name="content">
+            <div id="contain">
+                <div class="suscribe-souscr">
+                    <div class="header-form">
+                        <h4>Créer votre compte</h4>
+                    </div>
+                    <h:form class="form" id="createAccountForm">
+                        <div class ="formulaire">
+                            <div class="form1">
+                                <h:panelGrid columns="1">
+                                    <h:outputLabel value="Prénom "/>
+                                    <h:inputText id="firstNameInput" value="#{userAccountCreationBean.accountCreationForm.person.firstName}"/>
+                                    <h:message for="firstNameInput" style="color:red" />
 
-        <h:outputLabel value="Prénom : "/>
-        <h:inputText id="firstNameInput" value="#{userAccountCreationBean.accountCreationForm.person.firstName}"/>
-        <h:message for="firstNameInput" style = "color:red" />
+                                    <h:outputLabel value="Nom "/>
+                                    <h:inputText id="lastNameInput" value="#{userAccountCreationBean.accountCreationForm.person.lastName}"/>
+                                    <h:message for="lastNameInput" style="color:red" />
 
-        <h:outputLabel value="Nom: "/>
-        <h:inputText id="lastNameInput" value="#{userAccountCreationBean.accountCreationForm.person.lastName}"/>
-        <h:message for="lastNameInput" style = "color:red" />
+                                    <h:outputLabel value="Date de naissance  "/>
+                                    <h:inputText id="birthdateInput" value="#{userAccountCreationBean.accountCreationForm.person.dateOfBirth}">
+                                        <f:convertDateTime pattern="dd-MM-yyyy" />
+                                    </h:inputText>
+                                    <h:message for="birthdateInput" style="color:red" />
 
-        <h:outputLabel value="Date de naissance : "/>
-        <h:inputText id="birthdateInput" value="#{userAccountCreationBean.accountCreationForm.person.dateOfBirth}">
-            <f:convertDateTime pattern="dd-MM-yyyy"/>
-        </h:inputText>
-        <h:message for="birthdateInput" style = "color:red" />
+                                    <h:outputLabel value="Email  " style="margin-top: 5px;margin-right: 40% ;color: white; " />
+                                    <h:inputText id="emailInput" value="#{userAccountCreationBean.accountCreationForm.contact.email}"/>
+                                    <h:message for="emailInput" style="color:red" />
 
-        <h:outputLabel value="Email : "/>
-        <h:inputText id="emailInput" value="#{userAccountCreationBean.accountCreationForm.contact.email}"/>
-        <h:message for="emailInput" style = "color:red" />
+                                    <h:outputLabel value="Téléphone  "/>
+                                    <h:inputText id="phoneInput" value="#{userAccountCreationBean.accountCreationForm.contact.phoneNumber}" />
+                                    <h:message for="phoneInput" style="color:red" />
+                                </h:panelGrid>
+                            </div>
+                            <div class ="form2">
+                                <h:panelGrid columns="1">
+                                    <h:panelGrid columns="2">
+                                        <h:outputLabel value="Numéro"/>
+                                        <h:outputLabel value="Rue"/>
 
-        <h:outputLabel value="Téléphone : "/>
-        <h:inputText id="phoneInput" value="#{userAccountCreationBean.accountCreationForm.contact.phoneNumber}"/>
-        <h:message for="phoneInput" style = "color:red" />
+                                        <h:inputText id="roadNumberInput" value="#{userAccountCreationBean.accountCreationForm.address.number}" style="width:70px; "/>
+                                        <h:inputText id="roadInput" value="#{userAccountCreationBean.accountCreationForm.address.road}" style="width:230px; "/>
+                                    </h:panelGrid>
+                                    <h:message for="roadNumberInput" style="color:red" />
+                                    <h:message for="roadInput" style="color:red" />
+                                    <h:panelGrid columns="2">
+                                        <h:outputLabel value="Code postal  "/>
+                                        <h:outputLabel value="Ville"/>
 
-        <h:outputLabel value="Numéro de rue : "/>
-        <h:inputText id="roadNumberInput" value="#{userAccountCreationBean.accountCreationForm.address.number}"/>
-        <h:message for="roadNumberInput" style = "color:red" />
+                                        <h:inputText id="postalCodeInput" value="#{userAccountCreationBean.accountCreationForm.address.postalCode}" style="width: 90px;"/>
+                                        <h:inputText id="cityInput" value="#{userAccountCreationBean.accountCreationForm.address.city}" style="width: 210px;"/>
+                                    </h:panelGrid>
+                                    <h:message for="postalCodeInput" style="color:red" />
+                                    <h:message for="cityInput" style="color:red" />
 
-        <h:outputLabel value="Rue : "/>
-        <h:inputText id="roadInput" value="#{userAccountCreationBean.accountCreationForm.address.road}"/>
-        <h:message for="roadInput" style = "color:red" />
+                                    <h:outputLabel value="Pays  "/>
+                                    <h:inputText id="countryInput" value="#{userAccountCreationBean.accountCreationForm.address.country}"/>
+                                    <h:message for="countryInput" style="color:red" />
 
-        <h:outputLabel value="Code postal : "/>
-        <h:inputText id="postalCodeInput" value="#{userAccountCreationBean.accountCreationForm.address.postalCode}"/>
-        <h:message for="postalCodeInput" style = "color:red" />
+                                    <h:outputLabel value="Identifiant "/>
+                                    <h:inputText id="identifierInput" value="#{userAccountCreationBean.accountCreationForm.account.identifier}"/>
+                                    <h:message for="identifierInput" style="color:red" />
 
-        <h:outputLabel value="Ville : "/>
-        <h:inputText id="cityInput" value="#{userAccountCreationBean.accountCreationForm.address.city}"/>
-        <h:message for="cityInput" style = "color:red" />
-
-        <h:outputLabel value="Pays : "/>
-        <h:inputText id="countryInput" value="#{userAccountCreationBean.accountCreationForm.address.country}"/>
-        <h:message for="countryInput" style = "color:red" />
-
-        <h:outputLabel value="Identifiant : "/>
-        <h:inputText id="identifierInput" value="#{userAccountCreationBean.accountCreationForm.account.identifier}"/>
-        <h:message for="identifierInput" style = "color:red" />
-
-        <h:outputLabel value="Mot de passe : "/>
-        <h:inputSecret id="passwordInput" value="#{userAccountCreationBean.accountCreationForm.account.password}"/>
-        <h:message for="passwordInput" style = "color:red" />
-
-        <h:commandButton value="Remplir" immediate="true" onclick="fillUserAccountForm()"/>
-        <h:commandButton value="Créer mon compte" action="#{userAccountCreationBean.create()}"/>
-        <span></span>
-    </h:panelGrid>
-</h:form>
-<hr/>
-<h:link outcome="/index.xhtml">Revenir à l'accueil</h:link>
-</body>
+                                    <h:outputLabel value="Mot de passe  "/>
+                                    <h:inputSecret id="passwordInput" value="#{userAccountCreationBean.accountCreationForm.account.password}"/>
+                                    <h:message for="passwordInput" style="color:red" />
+                                </h:panelGrid>
+                            </div>
+                        </div>
+                        <h:panelGrid columns="2">
+                            <h:commandButton value="Remplir" immediate="true" onclick="fillUserAccountForm()" />
+                            <h:commandButton value="Enregistrer" action="#{userAccountCreationBean.create()}" />
+                        </h:panelGrid>
+                    </h:form>
+                    <div>
+                        <h:outputLabel value="Compte déjà créé?" style="color:white;" />
+                        <h:link value="Se connecter" outcome="/account/Login.xhtml"/>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
 </html>

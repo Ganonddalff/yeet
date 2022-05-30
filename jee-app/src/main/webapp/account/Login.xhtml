@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
@@ -9,22 +8,25 @@
     <title>Connexion</title>
 </h:head>
 <body>
-<h3>Se connecter</h3>
-<hr/>
+    <ui:composition template="/template/layout.xhtml">
+    <ui:define name="content">
+        <h3>Se connecter</h3>
+        <hr/>
+        <h:form id="loginForm">
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Identifiant : "/>
+                <h:inputText id="identifierInput" value="#{loginBean.loginForm.identifier}"/>
 
-<h:form id="loginForm">
-    <h:panelGrid columns="2">
-        <h:outputLabel value="Identifiant : "/>
-        <h:inputText id="identifierInput" value="#{loginBean.loginForm.identifier}"/>
+                <h:outputLabel value="Mot de passe : "/>
+                <h:inputSecret id="passwordInput" value="#{loginBean.loginForm.password}"/>
 
-        <h:outputLabel value="Mot de passe : "/>
-        <h:inputSecret id="passwordInput" value="#{loginBean.loginForm.password}"/>
-
-        <h:commandButton value="Se connecter" action="#{loginBean.login()}"/>
-        <h:message for="loginForm" id="loginFormError" />
-    </h:panelGrid>
-</h:form>
-<hr/>
-<h:link outcome="/index.xhtml">Revenir à l'accueil</h:link>
+                <h:commandButton value="Se connecter" action="#{loginBean.login()}"/>
+                <h:message for="loginForm" id="loginFormError" />
+            </h:panelGrid>
+        </h:form>
+        <hr/>
+        <h:link outcome="/index.xhtml">Revenir à l'accueil</h:link>
+    </ui:define>
+    </ui:composition>
 </body>
 </html>

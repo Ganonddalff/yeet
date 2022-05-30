@@ -1,48 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:c="http://java.sun.com/jstl/core" lang="en">
 
-<h:head>
-    <title>Accueil</title>
-</h:head>
-<body>
-<c:if test="${session.getAttribute('identifier') != null}">
-        <h:outputLabel value="Bienvenue #{session.getAttribute('identifier')}"/>
-</c:if>
-<br />
-<h:link value="Ajouter un produit" outcome="shop/CreateProduct.xhtml"/>
-<br />
-
-<h:link value="Modifier les informations d'un produit" outcome="shop/UpdateProduct.xhtml"/>
-<br />
-
-<h:link value="Créer un compte" outcome="account/CreateUserAccount.xhtml"/>
-<br />
-
-<h:link value="Créer une association" outcome="account/CreateAssociationAccount.xhtml"/>
-<br />
-<c:if test="${session.getAttribute('identifier') != null}">
-    <h:form>
-        <h:commandLink value="Se déconnecter" action="#{loginBean.signOut}"/>
-    </h:form>
-</c:if>
-<c:if test="${session.getAttribute('identifier') == null}">
-    <h:link value="Se connecter" outcome="account/Login.xhtml"/>
-</c:if>
-<br />
-<h:link value="Les associations" outcome="association/AssociationList.xhtml"/>
-<br />
-<ui:fragment rendered="#{loginBean.isAssociationConnected()}">
-    <h:outputLink value="association/AssociationProfileManagement.xhtml">Modifier le profil de l'association</h:outputLink>
-</ui:fragment>
-<br/>
-
-<h:link value="Créer un projet de financement participatif" outcome="crowdfunding/CreateProject.xhtml"/>
-<br/>
-<h:link value="Voir tous les projets de financements participatifs" outcome="crowdfunding/AllProjectsView.xhtml"/>
-</body>
+<h:body>
+    <f:metadata>
+        <f:viewAction action="#{initialisationBean.ping}"/>
+    </f:metadata>
+    <ui:composition template="/template/layout.xhtml">
+        <ui:define name="title">Accueil</ui:define>
+        <ui:define name="content">
+            <h:link value="Ajouter un produit" outcome="shop/CreateProduct.xhtml"/>
+            <br />
+            <h:link value="Modifier les informations d'un produit" outcome="shop/UpdateProduct.xhtml"/>
+            <br />
+            <h:link value="Créer une association" outcome="account/CreateAssociationAccount.xhtml"/>
+            <br />
+            <ui:fragment rendered="#{loginBean.isAssociationConnected()}">
+                <h:outputLink value="association/AssociationProfileManagement.xhtml">Modifier le profil de l'association</h:outputLink>
+            </ui:fragment>
+            <br/>
+            <h:link value="Créer un projet de financement participatif" outcome="crowdfunding/CreateProject.xhtml"/>
+            <br/>
+        </ui:define>
+    </ui:composition>
+</h:body>
 </html>
