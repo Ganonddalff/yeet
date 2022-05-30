@@ -1,76 +1,79 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html" lang="en">
 
-<h:head>
-    <title>Création d'un compte association</title>
-    <h:outputScript library="js" name = "fillUserAccountForm.js"/>
-</h:head>
 <body>
-<h3>Création d'un compte association</h3>
-<hr/>
-<h:form id="createAssociationAccountForm">
-    <h:panelGrid columns="3">
+<ui:composition template="/template/layout.xhtml">
+    <ui:define name="title">Création association</ui:define>
+    <ui:define name="js">
+        <h:outputScript library="js" name="fillAssociationAccountForm.js"/>
+    </ui:define>
+    <ui:define name="content">
+        <h3>Création d'un compte association</h3>
+        <hr/>
+        <h:form id="createAssociationAccountForm">
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Nom de l'association : "/>
+                <h:inputText id="nameInput" value="#{associationAccountCreationBean.accountCreationForm.association.name}"/>
+                <h:message for="nameInput" style = "color:red" />
 
-        <h:outputLabel value="Nom de l'association : "/>
-        <h:inputText id="nameInput" value="#{associationAccountCreationBean.accountCreationForm.association.name}"/>
-        <h:message for="nameInput" style = "color:red" />
+                <h:outputLabel value="Siret: "/>
+                <h:inputText id="siretInput" value="#{associationAccountCreationBean.accountCreationForm.association.siret}"/>
+                <h:message for="siretInput" style = "color:red" />
 
-        <h:outputLabel value="Siret: "/>
-        <h:inputText id="siretInput" value="#{associationAccountCreationBean.accountCreationForm.association.siret}"/>
-        <h:message for="siretInput" style = "color:red" />
+                <h:outputLabel value="Date de création : "/>
+                <h:inputText id="creationdateInput" value="#{associationAccountCreationBean.accountCreationForm.association.creationDate}">
+                    <f:convertDateTime pattern="dd-MM-yyyy"/>
+                </h:inputText>
+                <h:message for="creationdateInput" style = "color:red" />
 
-        <h:outputLabel value="Date de création : "/>
-        <h:inputText id="creationdateInput" value="#{associationAccountCreationBean.accountCreationForm.association.creationDate}">
-            <f:convertDateTime pattern="dd-MM-yyyy"/>
-        </h:inputText>
-        <h:message for="creationInput" style = "color:red" />
+                <h:outputLabel value="Email : "/>
+                <h:inputText id="emailInput" value="#{associationAccountCreationBean.accountCreationForm.contact.email}"/>
+                <h:message for="emailInput" style = "color:red" />
 
-        <h:outputLabel value="Email : "/>
-        <h:inputText id="emailInput" value="#{associationAccountCreationBean.accountCreationForm.contact.email}"/>
-        <h:message for="emailInput" style = "color:red" />
+                <h:outputLabel value="Téléphone : "/>
+                <h:inputText id="phoneInput" value="#{associationAccountCreationBean.accountCreationForm.contact.phoneNumber}"/>
+                <h:message for="phoneInput" style = "color:red" />
 
-        <h:outputLabel value="Téléphone : "/>
-        <h:inputText id="phoneInput" value="#{associationAccountCreationBean.accountCreationForm.contact.phoneNumber}"/>
-        <h:message for="phoneInput" style = "color:red" />
+                <h:outputLabel value="Numéro de rue : "/>
+                <h:inputText id="roadNumberInput" value="#{associationAccountCreationBean.accountCreationForm.address.number}"/>
+                <h:message for="roadNumberInput" style = "color:red" />
 
-        <h:outputLabel value="Numéro de rue : "/>
-        <h:inputText id="roadNumberInput" value="#{associationAccountCreationBean.accountCreationForm.address.number}"/>
-        <h:message for="roadNumberInput" style = "color:red" />
+                <h:outputLabel value="Rue : "/>
+                <h:inputText id="roadInput" value="#{associationAccountCreationBean.accountCreationForm.address.road}"/>
+                <h:message for="roadInput" style = "color:red" />
 
-        <h:outputLabel value="Rue : "/>
-        <h:inputText id="roadInput" value="#{associationAccountCreationBean.accountCreationForm.address.road}"/>
-        <h:message for="roadInput" style = "color:red" />
+                <h:outputLabel value="Code postal : "/>
+                <h:inputText id="postalCodeInput" value="#{associationAccountCreationBean.accountCreationForm.address.postalCode}"/>
+                <h:message for="postalCodeInput" style = "color:red" />
 
-        <h:outputLabel value="Code postal : "/>
-        <h:inputText id="postalCodeInput" value="#{associationAccountCreationBean.accountCreationForm.address.postalCode}"/>
-        <h:message for="postalCodeInput" style = "color:red" />
+                <h:outputLabel value="Ville : "/>
+                <h:inputText id="cityInput" value="#{associationAccountCreationBean.accountCreationForm.address.city}"/>
+                <h:message for="cityInput" style = "color:red" />
 
-        <h:outputLabel value="Ville : "/>
-        <h:inputText id="cityInput" value="#{associationAccountCreationBean.accountCreationForm.address.city}"/>
-        <h:message for="cityInput" style = "color:red" />
+                <h:outputLabel value="Pays : "/>
+                <h:inputText id="countryInput" value="#{associationAccountCreationBean.accountCreationForm.address.country}"/>
+                <h:message for="countryInput" style = "color:red" />
 
-        <h:outputLabel value="Pays : "/>
-        <h:inputText id="countryInput" value="#{associationAccountCreationBean.accountCreationForm.address.country}"/>
-        <h:message for="countryInput" style = "color:red" />
+                <h:outputLabel value="Identifiant : "/>
+                <h:inputText id="identifierInput" value="#{associationAccountCreationBean.accountCreationForm.account.identifier}"/>
+                <h:message for="identifierInput" style = "color:red" />
 
-        <h:outputLabel value="Identifiant : "/>
-        <h:inputText id="identifierInput" value="#{associationAccountCreationBean.accountCreationForm.account.identifier}"/>
-        <h:message for="identifierInput" style = "color:red" />
+                <h:outputLabel value="Mot de passe : "/>
+                <h:inputSecret id="passwordInput" value="#{associationAccountCreationBean.accountCreationForm.account.password}"/>
+                <h:message for="passwordInput" style = "color:red" />
 
-        <h:outputLabel value="Mot de passe : "/>
-        <h:inputSecret id="passwordInput" value="#{associationAccountCreationBean.accountCreationForm.account.password}"/>
-        <h:message for="passwordInput" style = "color:red" />
-
-        <h:commandButton value="Remplir" immediate="true" onclick="fillAssociationAccountForm()"/>
-        <h:commandButton value="Créer mon compte" action="#{associationAccountCreationBean.create()}"/>
-        <span></span>
-    </h:panelGrid>
-</h:form>
-<hr/>
-<h:link outcome="/index.xhtml">Revenir à l'accueil</h:link>
+                <h:commandButton value="Remplir" immediate="true" onclick="fillAssociationAccountForm()"/>
+                <h:commandButton value="Créer mon compte" action="#{associationAccountCreationBean.create()}"/>
+                <span></span>
+            </h:panelGrid>
+        </h:form>
+        <hr/>
+        <h:link outcome="/index.xhtml">Revenir à l'accueil</h:link>
+    </ui:define>
+</ui:composition>
 </body>
 </html>

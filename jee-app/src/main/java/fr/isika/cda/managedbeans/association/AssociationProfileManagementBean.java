@@ -40,7 +40,7 @@ public class AssociationProfileManagementBean {
         this.profileImagePath = getProfileImage();
     }
 
-    public void uploadProfileImage(){
+    public String uploadProfileImage(){
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         String fileName = "profileImage_" + ((Long) session.getAttribute("id")).toString() + "." +
                 uploadedProfileImage.getSubmittedFileName().substring(uploadedProfileImage.getSubmittedFileName().lastIndexOf('.') + 1);
@@ -50,7 +50,6 @@ public class AssociationProfileManagementBean {
             File newFile = new File(servletContext.getRealPath("/resources/images/profileImages"), fileName);
             newFile.createNewFile();
             Path newPath = newFile.toPath();
-            System.out.println(newPath);
             Files.copy(myInputStream, newPath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,28 +58,34 @@ public class AssociationProfileManagementBean {
         association.setProfileImage("/resources/images/profileImages/" + fileName);
         associationService.update(association);
         this.profileImagePath = getProfileImage();
+        return "/association/AssociationProfileManagement.xhtml?faces-redirect=true";
     }
 
-    public void uploadBanner() {
+    public String uploadBanner() {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         String fileName = "banner_" + ((Long) session.getAttribute("id")).toString() + "." +
                 uploadedBanner.getSubmittedFileName().substring(uploadedBanner.getSubmittedFileName().lastIndexOf('.') + 1);
-        File savedFile = new File("/resources/images/banners", fileName);
-        try (InputStream input = uploadedBanner.getInputStream()) {
-            Files.copy(input, savedFile.toPath());
-        }
-        catch (IOException e) {
+        try {
+            InputStream myInputStream = uploadedBanner.getInputStream();
+            ServletContext servletContext = ((ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext());
+            File newFile = new File(servletContext.getRealPath("/resources/images/banners"), fileName);
+            newFile.createNewFile();
+            Path newPath = newFile.toPath();
+            Files.copy(myInputStream, newPath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         Association association = associationService.findById((Long) session.getAttribute("id")).get();
         association.setBanner("/resources/images/banners/" + fileName);
         associationService.update(association);
         this.bannerPath = getBanner();
+        return "/association/AssociationProfileManagement.xhtml?faces-redirect=true";
     }
 
     public void saveDescription() {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         Association association = associationService.findById((Long) session.getAttribute("id")).get();
-        association.setDescription("test");
+        association.setDescription(this.description);
         associationService.update(association);
         this.description = getDescription();
     }

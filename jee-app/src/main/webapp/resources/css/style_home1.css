@@ -14,8 +14,8 @@
     margin-left : -2%;
     margin-top: -1%;
 }
-.menu-home1 a{
-	
+#menu-home1 a{
+
     text-decoration: none;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: normal;
@@ -40,11 +40,16 @@
     font-style: normal;
     font-size: 15px;
     color:white;
-    
+
    }
    
+<<<<<<< HEAD
 .menu-links-home1 a{
 	
+=======
+#menu-links-home1 a{
+
+>>>>>>> main
     text-decoration: none;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: normal;
@@ -387,7 +392,7 @@ pre{
 }
 
 .footer-distributed .footer-links a:before {
-  content: "·";
+  content: "ï¿½";
   font-size: 20px;
   left: 0;
   color: #fff;
