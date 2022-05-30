@@ -1,5 +1,5 @@
 body{
-    background-image: url(../images/LoginSignin_layout.png);
+    background-image : url("#{resource['images/LoginSignin_layout.png']}");
     background-size: cover;
     height: 100vh;
     background-repeat: no-repeat;
