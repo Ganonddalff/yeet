@@ -1,0 +1,34 @@
+#logo{
+    float:left;
+    margin-left : 30px;
+    margin-top: -1%;
+}
+
+#navbar{
+	display: inline-block;
+    width:100%;
+}
+
+#divLinks{
+    width:100%;
+    gap : 1em;
+    font-size: 18px;
+    margin-top: 1%;
+    margin-left: 100px;
+    font-weight:bolder;
+}
+
+.elt{
+    display: inline-block;
+    border-radius: 5px;
+    color:white;
+    padding:20px 20px 20px 20px;
+}
+
+.elt a{
+    text-decoration: none;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    color:white;
+}

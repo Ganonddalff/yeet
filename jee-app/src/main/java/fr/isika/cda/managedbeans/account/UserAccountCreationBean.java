@@ -22,7 +22,7 @@ public class UserAccountCreationBean implements Serializable {
 
     public String create(){
         accountService.createUserAccount(this.accountCreationForm);
-        return "index";
+        return "/account/Login.xhtml";
     }
 
     public UserAccountCreationForm getAccountCreationForm() {

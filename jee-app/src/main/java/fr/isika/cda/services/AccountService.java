@@ -1,12 +1,16 @@
 package fr.isika.cda.services;
 
-import fr.isika.cda.model.entities.Account;
+import fr.isika.cda.model.entities.*;
+import fr.isika.cda.model.enumeration.AccountCategory;
 import fr.isika.cda.repositories.AccountRepository;
 import fr.isika.cda.viewmodels.form.account.AssociationAccountCreationForm;
 import fr.isika.cda.viewmodels.form.account.UserAccountCreationForm;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.Optional;
 
 @Stateless
@@ -18,12 +22,33 @@ public class AccountService {
     public AccountService() {
     }
 
-    public Account createUserAccount(UserAccountCreationForm userAccountCreationForm) {
-        return accountRepository.create(userAccountCreationForm);
+    public Account createUserAccount(UserAccountCreationForm form) {
+        Contact contact = form.getContact();
+        Address address = form.getAddress();
+        Person person = form.getPerson();
+        person.setAddress(address);
+        person.setContact(contact);
+        Account userAccount = form.getAccount();
+        userAccount.setAccountCategory(AccountCategory.User);
+        userAccount.setCreationDate(Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
+        userAccount.setPerson(person);
+        return accountRepository.create(userAccount);
     }
 
-    public Account createAssociationAccount(AssociationAccountCreationForm associationAccountCreationForm) {
-        return accountRepository.create(associationAccountCreationForm);
+    public Account createAssociationAccount(AssociationAccountCreationForm form) {
+        Contact contact = form.getContact();
+        Address address = form.getAddress();
+        Association association = form.getAssociation();
+        association.setAddress(address);
+        association.setContact(contact);
+        association.setBanner("/resources/images/banners/standardBanner.png");
+        association.setProfileImage("/resources/images/profileImages/standardProfileImage.png");
+        association.setDescription("");
+        Account associationAccount = form.getAccount();
+        associationAccount.setAccountCategory(AccountCategory.Association);
+        associationAccount.setCreationDate(Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
+        associationAccount.setAssociation(association);
+        return accountRepository.create(associationAccount);
     }
 
     public Optional<Account> findByIdentifier(String identifier) {

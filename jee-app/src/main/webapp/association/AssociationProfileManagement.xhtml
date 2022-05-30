@@ -13,22 +13,6 @@
 </h:head>
 <h:body>
     <div class="dashboard">
-        <div class="main-sidebar" id="mySidebar">
-            <div class="logo" >
-                <img src="images/logo_transp.png" alt="logo" width="200" height="auto"/>
-            </div>
-            <div class="sidebar">
-                <h3><a href="dashboard.html">Tableau de bord</a></h3>
-                <div class="elements">
-                    <a href="serviceAsso.html" class="dash-bar">Services</a>
-                    <a href="contenuAsso.html" class="dash-bar">Gestion de contenu</a>
-                    <a href="adminAsso.html" class="dash-bar">Gestion de compte</a>
-                    <a href="" class="dash-bar">Statistiques</a>
-                </div>
-            </div>
-        </div>
-        <div class="header-dashboard">
-        </div>
         <div class="main-dashboard-asso">
             <div class="suite-main">
                 <h1>Le contenu de votre site </h1>
@@ -41,7 +25,7 @@
                         </div>
                     </div>
                     <div class="cadre-logo">
-                        <h:graphicImage value = "#{associationProfileManagementBean.profileImagePath}"/>
+                        <p:graphicImage cache="false" value ="#{associationProfileManagementBean.profileImagePath}" height="150px" width="150px"/>
                         <h:form enctype="multipart/form-data">
                             <h:inputFile value="#{associationProfileManagementBean.uploadedProfileImage}"/>
                             <h:commandButton value="Enregistrer" action="#{associationProfileManagementBean.uploadProfileImage()}"/>
@@ -55,7 +39,7 @@
                         </div>
                     </div>
                     <div class="cadre-banniere">
-                        <h:graphicImage value="#{associationProfileManagementBean.bannerPath}"/>
+                        <p:graphicImage cache="false" value ="#{associationProfileManagementBean.bannerPath}" height="150px" width="500px"/>
                         <h:form enctype="multipart/form-data">
                             <h:inputFile value="#{associationProfileManagementBean.uploadedBanner}"/>
                             <h:commandButton value="Enregistrer" action="#{associationProfileManagementBean.uploadBanner()}"/>
@@ -68,9 +52,13 @@
                             <h4><b>Description de votre association</b></h4>
                         </div>
                         <div class="standalone-container">
-                            <h:inputTextarea value="#{associationProfileManagementBean.description}"></h:inputTextarea>
+                            <h:form>
+                                <h:panelGrid columns="1">
+                                    <h:inputTextarea value="#{associationProfileManagementBean.description}" style="height:300px; width:500px"></h:inputTextarea>
+                                    <h:commandButton value="Enregistrer" action="#{associationProfileManagementBean.saveDescription()}"/>
+                                </h:panelGrid>
+                            </h:form>
                         </div>
-                        <h:commandButton value="Enregistrer" action="#{associationProfileManagementBean.saveDescription()}"/>
                     </div>
                 </div>
             </div>

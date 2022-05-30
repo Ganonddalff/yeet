@@ -21,7 +21,7 @@ public class AssociationAccountCreationBean implements Serializable {
 
     public String create(){
         accountService.createAssociationAccount(this.accountCreationForm);
-        return "index";
+        return "/account/Login.xhtml";
     }
 
     public AssociationAccountCreationForm getAccountCreationForm() {

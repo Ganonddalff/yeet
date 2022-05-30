@@ -30,7 +30,7 @@ public class LoginBean implements Serializable {
         Optional<Account> optional = accountService.findByIdentifier(loginForm.getIdentifier());
         if (optional.isPresent()) {
             Account account = optional.get();
-            if (account.getPassword().equals(loginForm.getPassword())) {
+            if (account.getPassword().equals(loginForm.getPassword()) && account.getIdentifier().equals(loginForm.getIdentifier())) {
                 HttpSession session = (HttpSession) FacesContext.
                         getCurrentInstance().getExternalContext().getSession(false);
                 session.setAttribute("typeAccount", account.getAccountCategory().name());
@@ -40,7 +40,7 @@ public class LoginBean implements Serializable {
                 else if(account.getAccountCategory() == AccountCategory.Association)
                     session.setAttribute("id", account.getAssociation().getId());
                 session.setAttribute("idAccount", account.getId());
-                return "index";
+                return "/index?faces-redirect=true";
             } else {
                 UIComponent formulaire = FacesContext.getCurrentInstance().getViewRoot().findComponent("loginForm");
                 FacesContext.getCurrentInstance().addMessage(formulaire.getClientId(),
@@ -51,35 +51,37 @@ public class LoginBean implements Serializable {
             FacesContext.getCurrentInstance().addMessage(formulaire.getClientId(),
                     new FacesMessage("L'identifiant et/ou le mot de passe ne correspondent pas à un compte existant"));
         }
-        return "login";
+        return "account/login?faces-redirect=true";
     }
 
     public String signOut() {
-        HttpSession session = (HttpSession) FacesContext
-                .getCurrentInstance()
-                .getExternalContext()
-                .getSession(false);
+        HttpSession session = (HttpSession) FacesContext.
+                getCurrentInstance().getExternalContext().getSession(false);
         session.invalidate();
-        return "index?faces-redirect=true";
+        return "/index.xhtml?faces-redirect=true";
     }
 
     public boolean isAssociationConnected(){
-        HttpSession session = (HttpSession) FacesContext
-                .getCurrentInstance()
-                .getExternalContext()
-                .getSession(false);
+        HttpSession session = (HttpSession) FacesContext.
+                getCurrentInstance().getExternalContext().getSession(false);
         if((String)session.getAttribute("typeAccount") != null)
-            return ((String)session.getAttribute("typeAccount")).equals("Association");
+            return ((String)session.getAttribute("typeAccount")).equalsIgnoreCase("Association");
         return false;
     }
 
     public boolean isUserConnected(){
-        HttpSession session = (HttpSession) FacesContext
-                .getCurrentInstance()
-                .getExternalContext()
-                .getSession(false);
+        HttpSession session = (HttpSession) FacesContext.
+                getCurrentInstance().getExternalContext().getSession(false);
         if((String)session.getAttribute("typeAccount") != null)
-            return ((String)session.getAttribute("typeAccount")).equals("User");
+            return ((String)session.getAttribute("typeAccount")).equalsIgnoreCase("User");
+        return false;
+    }
+
+    public boolean isNobodyConnected(){
+        HttpSession session = (HttpSession) FacesContext.
+                getCurrentInstance().getExternalContext().getSession(false);
+        if((String)session.getAttribute("typeAccount") == null)
+            return true;
         return false;
     }
 
