@@ -1,5 +1,8 @@
 package fr.isika.cda.services;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -52,5 +55,17 @@ public class ProductService {
 		return updateProduct;
 		
 	}*/
+	
+	public Product findProductById(Long id) {
+        return productRepository.findById(id);
+    }
+
+    public List<Product> findAllProductsShop() {
+        return productRepository.findAllProducts();
+    }
+    
+    public Product update(Product product){
+        return productRepository.update(product);
+    }
 
 }
