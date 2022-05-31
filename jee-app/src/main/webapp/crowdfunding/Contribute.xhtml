@@ -1,44 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-<h:head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      xmlns:h="http://java.sun.com/jsf/html" lang="en">
 
-    <h:outputStylesheet library="css" name="account1.css"/>
-
-
-    <title>Contribuer à un projet</title>
-</h:head>
-<h:body>
-
-    <div id="header">
-<!--        <ui:insert name="header">
-            &lt;!&ndash;  Header area.  See comments below this line in the source.&ndash;&gt;
-            &lt;!&ndash;  include your header file or uncomment the include below and create header.xhtml in this directory &ndash;&gt;
-            <ui:include src="../resources/template/header.xhtml"/>
-        </ui:insert>-->
-    </div>
-
-    <div id="contain">
-
-        <div class="form"
-             style="width: 50%; margin-left: 25%; height: 600px; background-color: #abe9cd; background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);">
-            <div class="header-form">
-                <h4> Contribuer à <h:outputLabel value="#{contributionBean.projectId}"/></h4>
-
-            </div>
-            <f:metadata>
-                <f:viewParam name="projectId" value="#{contributionBean.projectId}"/>
-                <f:viewAction action="#{contributionBean.init()}" />
-            </f:metadata>
-
-            <div class="formulaire">
-                <div class ="form2">
+<body>
+<ui:composition template="/template/layout.xhtml">
+    <ui:define name="title">Contribuer à un projet</ui:define>
+    <f:metadata>
+        <f:viewParam name="projectId" value="#{contributionBean.projectId}"/>
+        <f:viewAction action="#{contributionBean.init()}" />
+    </f:metadata>
+    <ui:define name="content">
+        <h3>Contribuer au projet</h3>
+        <hr/>
                     <h:form class="form">
                         <f:viewParam name="id" value="#{contributionBean.contributionForm.project.id}"/>
                         <h:outputLabel value="Je souhaite donner :" />
@@ -56,24 +32,9 @@
                                          action="#{contributionBean.create()}" />
                     </h:form>
                     <h:button class="linkButton" value="Annuler" outcome="AllProjectsView.xhtml"/>
-
-
-                </div>
-                <div style="clear:both"></div>
-
-
-
-
-
-            </div>
-        </div>
-    </div>
-    <div id="footer" style="position:sticky">
-<!--        <ui:insert name="footer">
-
-            &lt;!&ndash;  include your header file or uncomment the include below and create footer.xhtml in this directory &ndash;&gt;
-            <ui:include src="/resources/template/Footer.html"/>
-        </ui:insert>-->
-    </div>
-</h:body>
-</html>
+                    <hr/>
+                    <h:link outcome="/index.xhtml">Revenir à l'accueil</h:link>
+                            </ui:define>
+                            </ui:composition>
+                            </body>
+                            </html>
