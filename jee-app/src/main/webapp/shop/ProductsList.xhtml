@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
@@ -7,18 +6,28 @@
       xmlns:c="http://java.sun.com/jstl/core"
       xmlns:p="http://primefaces.org/ui" lang="en">
 
-<h:head>
-    <title>Accueil</title>
-    <link rel="stylesheet" href="../css/AssociationList.css"/>
-</h:head>
 <h:body>
-<div class="row">
-    <ui:repeat value="#{productsListBean.viewModel.productsList}" var="produit">
-        <div class='card'>
-            <div class='info'>
+    <ui:composition template="/template/layout.xhtml">
+        <ui:define name="title">Boutique</ui:define>
+        <ui:define name="css">
+            <h:outputStylesheet library="css" name="AssociationList.css"/>
+        </ui:define>
+        <ui:define name="content">
+            <div class="row">
+                <ui:repeat value="#{productsListBean.viewModel.productsList}" var="product">
+                    <h:panelGroup layout="block" class="card"
+                                  style="background-image: url('#{facesContext.externalContext.requestContextPath}#{asso.getProfileImage()}');">
+                        <h:panelGroup layout="block" class="info">
+                            <h1 class='title'>#{product.nameProduct}</h1>
+                            <p class="category">#{product.category}</p>
+                            <h:button class="linkButton" value="Détails de l'article" outcome="ProductDetails.xhtml?faces-redirect=true" >
+                                <f:param name="id" value="#{product.id}"/>
+                            </h:button>
+                        </h:panelGroup>
+                    </h:panelGroup>
+                </ui:repeat>
             </div>
-        </div>
-    </ui:repeat>
-</div>
+        </ui:define>
+    </ui:composition>
 </h:body>
 </html>

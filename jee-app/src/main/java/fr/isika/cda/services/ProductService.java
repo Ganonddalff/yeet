@@ -22,39 +22,12 @@ public class ProductService {
 	public ProductService() {
 		
 	}
-	//Avant de faire appel au repo récupérer la session du compte association
-	//service responsable de la règle métier 
+
 	public Product createProduct(ProductCreateForm productCreateForm, Association association) {
 		Product product = productCreateForm.getProduct();
 		product.setAssociation(association);
         return productRepository.create(product);
     }
-	
-	//Récuperer tous les produits de la boutique
-	/*public List<Product> finAllProduct(){
-		
-	}
-	
-	//Récupérer la liste des produits par association
-	public List<Product> findAllProductByAssociation(Long id){
-		
-	}
-	
-	public Product findProduct() {
-		
-	}
-	
-	
-	public Product updateProduct(ProductCreateForm productUpdateForm) {
-		Product updateProduct = productUpdateForm.getProduct();
-		updateProduct.setManufacturingCountry(productUpdateForm.getProduct().getManufacturingCountry());
-		updateProduct.setNameProduct(productUpdateForm.getProduct().getNameProduct());
-		updateProduct.setStock(productUpdateForm.getProduct().getStock());
-		updateProduct.setPrice(productUpdateForm.getProduct().getPrice());
-		updateProduct.setCategory(productUpdateForm.getProduct().getCategory());
-		return updateProduct;
-		
-	}*/
 	
 	public Product findProductById(Long id) {
         return productRepository.findById(id);
@@ -64,7 +37,7 @@ public class ProductService {
         return productRepository.findAllProducts();
     }
     
-    public Product update(Product product){
+    public Product updateProduct(Product product){
         return productRepository.update(product);
     }
 

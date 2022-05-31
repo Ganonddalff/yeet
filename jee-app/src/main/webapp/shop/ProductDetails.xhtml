@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:body>
+    <f:metadata>
+        <f:viewParam name="id" value="#{productDetailsBean.id}"/>
+        <f:viewAction action="#{productDetailsBean.init}" />
+    </f:metadata>
+    <ui:composition template="/template/layout.xhtml">
+        <ui:define name="title">Détails du produit</ui:define>
+        <ui:define name="css">
+            <h:outputStylesheet library="css" name="AssociationProfile.css"/>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGrid id="grid" column="1">
+            	<h:graphicImage id="image"
+                                    value="#{productDetailsBean.product.image}"/>
+
+                <h:outputLabel value="#{productDetailsBean.product.nameProduct}"/>
+                <h:outputLabel value="#{productDetailsBean.product.category}"/>
+                <h:outputLabel value="#{productDetailsBean.product.price}"/>
+                <h:outputLabel value="#{productDetailsBean.product.stock}"/>
+            </h:panelGrid>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
