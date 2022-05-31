@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:body>
+    <f:metadata>
+        <f:viewParam name="id" value="#{projectProfileBean.id}"/>
+        <f:viewAction action="#{projectProfileBean.init}" />
+    </f:metadata>
+    <ui:composition template="/template/layout.xhtml">
+        <ui:define name="title">Le projet</ui:define>
+        <ui:define name="css">
+            <h:outputStylesheet library="css" name="AssociationProfile.css"/>
+        </ui:define>
+        <ui:define name="content">
+            <!--<ui:param name="projectId" value="#{projectProfileBean.id}" var="projectId">-->
+            <h:panelGrid id="grid" column="1">
+                <h:panelGroup layout="block" id="banner"
+                              style="background-image: url('#{facesContext.externalContext.requestContextPath}#{associationProfileBean.association.banner}');">
+                    <h:graphicImage id="profileImage"
+                                    value="#{associationProfileBean.association.profileImage}"/>
+                </h:panelGroup>
+                Id : <h:outputLabel value="#{projectProfileBean.id}"/>
+                project.id : <h:outputLabel value="#{projectProfileBean.project.id}" />
+                <h:outputLabel value="#{projectProfileBean.project.name}"/>
+                <h:outputLabel value="#{projectProfileBean.project.fundRaising.raisedFunds}"/>
+                <h:outputLabel value="#{projectProfileBean.project.startDate}"/>
+                <h:outputLabel value="#{projectProfileBean.project.finishDate}"/>
+                <h:outputLabel value="#{projectProfileBean.project.projectType}"/>
+                <h:outputLabel value="#{projectProfileBean.project.description}"/>
+                <h:button class="linkButton" value="Contribuer" outcome="Contribute.xhtml?faces-redirect=true" >
+                    <f:param name="projectId" value="#{projectProfileBean.id}"/></h:button>
+
+            </h:panelGrid>
+            <h:button class="linkButton" value="Retour" outcome="AllProjectsView.xhtml"/>
+           <!-- </ui:param>-->
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

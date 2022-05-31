@@ -11,21 +11,15 @@ public class Contribution {
     private Long id;
 
     @NotNull(message = "Ne doit pas être nulle.")
-    @Size(min=1,max=100000,message = "1 euro au minimum, fais pas ton radin.")
     private Double ContributionAmount;
 
     @NotNull
     private Date DateContribution;
 
-    @NotNull
-    private int ContributorId;
-
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Account account;
 
-    private int FundRaisingId;
-
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private FundRaising fundRaising;
 
     public Long getId() {
@@ -52,13 +46,6 @@ public class Contribution {
         DateContribution = dateContribution;
     }
 
-    public int getContributorId() {
-        return ContributorId;
-    }
-
-    public void setContributorId(int contributorId) {
-        ContributorId = contributorId;
-    }
 
     public Account getAccount() {
         return account;
@@ -67,15 +54,6 @@ public class Contribution {
     public void setAccount(Account account) {
         this.account = account;
     }
-
-    public int getFundRaisingId() {
-        return FundRaisingId;
-    }
-
-    public void setFundRaisingId(int fundRaisingId) {
-        FundRaisingId = fundRaisingId;
-    }
-
     public FundRaising getFundRaising() {
         return fundRaising;
     }

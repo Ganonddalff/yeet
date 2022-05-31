@@ -19,6 +19,8 @@ public class FundRaisingFactoryImpl implements FundRaisingFactory {
     }
     @Override
     public FundRaising getFundRaising(){
-        return new FundRaising();
+        FundRaising fundRaising = new FundRaising();
+        fundRaising.setRaisedFunds(0D);
+        return fundRaising;
     }
 }

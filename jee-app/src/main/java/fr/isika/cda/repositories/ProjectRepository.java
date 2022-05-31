@@ -1,13 +1,16 @@
 package fr.isika.cda.repositories;
 
-import fr.isika.cda.model.entities.FundRaising;
 import fr.isika.cda.model.entities.Project;
+import fr.isika.cda.services.ProjectService;
+import fr.isika.cda.viewmodels.form.crowdfunding.ContributionForm;
 import fr.isika.cda.viewmodels.form.crowdfunding.ProjectCreationForm;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Optional;
 
 @Stateless
 public class ProjectRepository {
@@ -15,14 +18,8 @@ public class ProjectRepository {
     private EntityManager entityManager;
 
     public ProjectRepository(){}
-
-
     public Project createProject(ProjectCreationForm form){
-        FundRaising fr = form.getFundRaising();
-        fr.setRaisedFunds(0D);
         Project project = form.getProject();
-        project.setFundRaising(fr);
-     //   entityManager.persist(fr);
         entityManager.persist(project);
         entityManager.flush();
         entityManager.clear();
@@ -31,6 +28,11 @@ public class ProjectRepository {
 
     public Project updateProject(Project project){
         return this.entityManager.merge(project);
+    }
+
+    public Project contributeProject(ContributionForm contributionForm){
+        Project project = contributionForm.getProject();
+        return this.updateProject(project);
     }
     public Project getProjectById(Long id){
         return this.entityManager.find(Project.class,id);
@@ -44,5 +46,17 @@ public class ProjectRepository {
         this.entityManager.remove(project);
         this.entityManager.flush();
         this.entityManager.clear();
+    }
+
+    public Optional<Project> findById(Long id) {
+        try {
+            Project project = this.entityManager
+                    .createQuery("select project from Project project where project.id = :id", Project.class)
+                    .setParameter("id", id)
+                    .getSingleResult();
+            return Optional.ofNullable(project);
+        } catch (NoResultException e){
+            return Optional.empty();
+        }
     }
 }

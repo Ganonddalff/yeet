@@ -15,14 +15,13 @@ public class ContributionRepository {
     private EntityManager entityManager;
     public ContributionRepository(){}
     public Contribution createContribution(ContributionForm form){
-        FundRaising fr = form.getFundRaising();
-        Project project = form.getProject();
         Contribution contribution = form.getContribution();
-        fr.setRaisedFunds(fr.getRaisedFunds()+contribution.getContributionAmount());
-        entityManager.persist(contribution);
+        FundRaising fr = form.getFundRaising();
+        fr.addContribution(contribution);
+        entityManager.merge(fr);
         entityManager.flush();
-        entityManager.clear();
-        return  form.getContribution();
+        /*entityManager.clear();*/
+        return  contribution;
 
     }
 }
