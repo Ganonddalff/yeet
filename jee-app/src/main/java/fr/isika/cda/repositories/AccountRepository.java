@@ -43,4 +43,15 @@ public class AccountRepository {
         } catch (NoResultException ex) {}
         return Optional.empty();
     }
+
+    public Optional<Account> findById(Long id) {
+        try {
+            Account account = this.entityManager
+                    .createQuery("select a from Account a where a.id = :id", Account.class)
+                    .setParameter("id", id)
+                    .getSingleResult();
+            return Optional.ofNullable(account);
+        } catch (NoResultException ex) {}
+        return Optional.empty();
+    }
 }

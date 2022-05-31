@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:body>
+    <f:metadata>
+        <f:viewAction action="#{creditCardPaymentBean.init}" />
+    </f:metadata>
+    <ui:composition template="/template/layout.xhtml">
+        <ui:define name="js">
+            <h:outputScript library="js" name="fillCreditCardForm.js"/>
+        </ui:define>
+        <ui:define name="title">Paiement par carte bancaire</ui:define>
+        <ui:define name="content">
+            <h:form id="creditCardForm">
+                <h:panelGrid columns="1">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Numéro : "/>
+                        <h:inputText id="cardNumberInput" value="#{creditCardPaymentBean.paymentVm.creditCard.cardNumber}"/>
+                    </h:panelGrid>
+                    <h:message for="cardNumberInput" style="color:red" />
+
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Prénom : "/>
+                        <h:inputText id="firstNameInput" value="#{creditCardPaymentBean.paymentVm.creditCard.firstName}"/>
+                    </h:panelGrid>
+                    <h:message for="firstNameInput" style="color:red" />
+
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Nom : "/>
+                        <h:inputText id="lastNameInput" value="#{creditCardPaymentBean.paymentVm.creditCard.lastName}"/>
+                    </h:panelGrid>
+                    <h:message for="lastNameInput" style="color:red" />
+
+                    <h:panelGrid columns="3">
+                        <h:outputLabel value="CVC:"/>
+                        <h:outputLabel value="Mois exp:"/>
+                        <h:outputLabel value="Année exp:"/>
+
+                        <h:inputText id="cvcInput" value="#{creditCardPaymentBean.paymentVm.creditCard.cvc}" />
+                        <h:inputText id="monthInput" value="#{creditCardPaymentBean.paymentVm.creditCard.expirationMonth}" />
+                        <h:inputText id="yearInput" value="#{creditCardPaymentBean.paymentVm.creditCard.expirationYear}" />
+                    </h:panelGrid>
+                    <h:message for="cvcInput" style="color:red" />
+                    <h:message for="monthInput" style="color:red" />
+                    <h:message for="yearInput" style="color:red" />
+                    <h:panelGrid columns="3">
+                        <h:outputLabel value="Sauvegarder la carte"/>
+                        <h:selectBooleanCheckbox  value="#{creditCardPaymentBean.saveCard}">
+                            <f:ajax />
+                        </h:selectBooleanCheckbox>
+                    </h:panelGrid>
+                    <h:commandButton value="Remplir" immediate="true" onclick="fillCreditCardForm()"/>
+                    <h:commandButton value="Valider" action="#{creditCardPaymentBean.validate}"/>
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

@@ -24,6 +24,11 @@
                                     value="#{associationProfileBean.association.profileImage}"/>
                 </h:panelGroup>
                 <h:outputLabel value="#{associationProfileBean.association.description}"/>
+                <ui:fragment rendered="#{loginBean.isUserConnected()}">
+                    <h:button value="Adhérer" outcome="/adhesion/Adhesion?faces-redirect=true" >
+                        <f:param name="id" value="#{associationProfileBean.association.id}"/>
+                    </h:button>
+                </ui:fragment>
             </h:panelGrid>
         </ui:define>
     </ui:composition>

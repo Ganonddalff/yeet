@@ -20,7 +20,7 @@
                         <h:panelGroup layout="block" class="info">
                             <h1 class='title'>#{asso.name}</h1>
                             <p class="description">#{asso.description}</p>
-                            <h:button class="linkButton" value="Page de l'association" outcome="AssociationProfile.xhtml?faces-redirect=true" >
+                            <h:button class="linkButton" value="Page de l'association" outcome="/association/AssociationProfile?faces-redirect=true" >
                                 <f:param name="id" value="#{asso.id}"/>
                             </h:button>
                         </h:panelGroup>

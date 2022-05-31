@@ -16,9 +16,7 @@ public class AssociationRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public AssociationRepository(){
-
-    }
+    public AssociationRepository(){}
 
     public Optional<Association> findById(Long id){
         try {

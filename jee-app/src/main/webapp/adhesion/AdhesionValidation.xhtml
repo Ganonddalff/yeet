@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:body>
+    <f:metadata>
+        <f:viewParam name="id" value="#{adhesionValidationBean.adhesionId}"/>
+        <f:viewAction action="#{adhesionValidationBean.init}" />
+    </f:metadata>
+    <ui:composition template="/template/layout.xhtml">
+        <ui:define name="title">Validation d'adhésion</ui:define>
+        <ui:define name="css">
+            <h:outputStylesheet library="css" name="adhesion.css"/>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGrid column="1">
+                <h:outputLabel value="Votre adhésion à #{adhesionValidationBean.association.name} a bien été prise en compte, merci !"/>
+                <h:link value="Retourner sur la page de l'association" outcome="/association/AssociationProfile?faces-redirect=true">
+                    <f:param name="id" value="#{adhesionValidationBean.association.id}"/>
+                </h:link>
+            </h:panelGrid>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

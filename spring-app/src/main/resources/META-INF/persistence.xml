@@ -6,12 +6,25 @@
     version="2.1">
      
     <persistence-unit name="yeet_DS">
-    	<class>fr.isika.cda.entities.TestEntity</class>
-    	<class>fr.isika.cda.entities.AnotherTestEntity</class>
+    	<class>fr.isika.cda.model.entities.Account</class>
+    	<class>fr.isika.cda.model.entities.Association</class>
+        <class>fr.isika.cda.model.entities.CreditCard</class>
+        <class>fr.isika.cda.model.entities.Address</class>
+        <class>fr.isika.cda.model.entities.Command</class>
+        <class>fr.isika.cda.model.entities.CommandLine</class>
+        <class>fr.isika.cda.model.entities.Contact</class>
+        <class>fr.isika.cda.model.entities.Contribution</class>
+        <class>fr.isika.cda.model.entities.Delivery</class>
+        <class>fr.isika.cda.model.entities.FundRaising</class>
+        <class>fr.isika.cda.model.entities.Payment</class>
+        <class>fr.isika.cda.model.entities.Person</class>
+        <class>fr.isika.cda.model.entities.Product</class>
+        <class>fr.isika.cda.model.entities.Project</class>
+
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/yeet_db?serverTimezone=Europe/Paris" />
-            <property name="javax.persistence.jdbc.user" value="matt" />
-            <property name="javax.persistence.jdbc.password" value="loki" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="rrrrr"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.show_sql" value="true" />

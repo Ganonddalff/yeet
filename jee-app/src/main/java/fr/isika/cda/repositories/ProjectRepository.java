@@ -20,12 +20,10 @@ public class ProjectRepository {
 
 
     public Project createProject(ProjectCreationForm form){
-        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        Long associationId = (Long) session.getAttribute("id");
         FundRaising fr = form.getFundRaising();
+        fr.setRaisedFunds(0D);
         Project project = form.getProject();
         project.setFundRaising(fr);
-        project.setAssociationId(associationId);
 
      //   entityManager.persist(fr);
         entityManager.persist(project);

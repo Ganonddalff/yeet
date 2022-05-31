@@ -1,10 +1,13 @@
 package fr.isika.cda.managedbeans.crowdfunding;
+import fr.isika.cda.services.AssociationService;
 import fr.isika.cda.services.ProjectService;
 import fr.isika.cda.viewmodels.form.crowdfunding.ProjectCreationForm;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 
 @ManagedBean
@@ -13,11 +16,16 @@ public class ProjectCreationBean implements Serializable {
     private ProjectCreationForm projectCreationForm;
 
     @Inject
+    private AssociationService associationService;
+    @Inject
     private ProjectService projectService;
+
     public ProjectCreationBean(){
         this.projectCreationForm = new ProjectCreationForm();
     }
     public void create(){
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        this.projectCreationForm.getProject().setAssociation(associationService.findById((Long)session.getAttribute("id")).get());
         projectService.createProject(this.projectCreationForm);
     }
 

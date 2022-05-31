@@ -9,7 +9,7 @@
 	<display-name>Yeet</display-name>
 	
 	<welcome-file-list>
-		<welcome-file>index.xhtml</welcome-file>
+		<welcome-file>views/index.html</welcome-file>
 	</welcome-file-list>
 	
 

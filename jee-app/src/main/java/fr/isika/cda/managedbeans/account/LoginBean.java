@@ -35,10 +35,11 @@ public class LoginBean implements Serializable {
                         getCurrentInstance().getExternalContext().getSession(false);
                 session.setAttribute("typeAccount", account.getAccountCategory().name());
                 session.setAttribute("identifier", account.getIdentifier());
+                session.setAttribute("idAccount", account.getId());
                 if(account.getAccountCategory() == AccountCategory.User || account.getAccountCategory() == AccountCategory.Administrator)
-                    session.setAttribute("id", account.getPerson().getId());
+                    session.setAttribute("idPerson", account.getPerson().getId());
                 else if(account.getAccountCategory() == AccountCategory.Association)
-                    session.setAttribute("id", account.getAssociation().getId());
+                    session.setAttribute("idAssociation", account.getAssociation().getId());
                 session.setAttribute("idAccount", account.getId());
                 return "/index?faces-redirect=true";
             } else {
