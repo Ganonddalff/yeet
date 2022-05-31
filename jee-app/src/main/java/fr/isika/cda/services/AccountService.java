@@ -54,4 +54,8 @@ public class AccountService {
     public Optional<Account> findByIdentifier(String identifier) {
         return accountRepository.findByIdentifier(identifier);
     }
+
+    public Optional<Account> findById(Long id){
+        return accountRepository.findById(id);
+    }
 }

@@ -24,6 +24,10 @@
                 <h:inputText id="siretInput" value="#{associationAccountCreationBean.accountCreationForm.association.siret}"/>
                 <h:message for="siretInput" style = "color:red" />
 
+                <h:outputLabel value="Prix de l'adhésion mensuelle: "/>
+                <h:inputText id="adhesionPriceInput" value="#{associationAccountCreationBean.accountCreationForm.association.adhesionPrice}"/>
+                <h:message for="adhesionPriceInput" style = "color:red" />
+
                 <h:outputLabel value="Date de création : "/>
                 <h:inputText id="creationdateInput" value="#{associationAccountCreationBean.accountCreationForm.association.creationDate}">
                     <f:convertDateTime pattern="dd-MM-yyyy"/>

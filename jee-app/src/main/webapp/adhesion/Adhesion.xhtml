@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:body>
+    <f:metadata>
+        <f:viewParam name="id" value="#{adhesionBean.associationId}"/>
+        <f:viewAction action="#{adhesionBean.init}" />
+    </f:metadata>
+    <ui:composition template="/template/layout.xhtml">
+        <ui:define name="title">Adhésion</ui:define>
+        <ui:define name="css">
+            <h:outputStylesheet library="css" name="adhesion.css"/>
+        </ui:define>
+        <ui:define name="content">
+            <ui:fragment rendered="#{adhesionBean.isFree()}">
+                <h:panelGrid column="1">
+                    <h:outputLabel value="L'adhésion à l'association #{adhesionBean.association.name} est gratuite."/>
+                    <h:outputLabel value="Souhaitez vous adhérer ?"/>
+                    <h:button value="Valider l'adhésion" outcome="/adhesion/AdhesionValidation?faces-redirect=true" >
+                        <f:param name="id" value="#{adhesionBean.association.id}"/>
+                    </h:button>
+                </h:panelGrid>
+            </ui:fragment>
+            <ui:fragment rendered="#{!adhesionBean.isFree()}">
+                <h:panelGrid column="1">
+                    <h:outputLabel value="La cotisation mensuelle demandée par l'association
+                        #{adhesionBean.association.name} est de #{adhesionBean.association.adhesionPrice}€"/>
+                    <h:outputLabel value="Quelle est votre méthode de paiement ?"/>
+                    <h:panelGrid column="3">
+                        <h:form>
+                            <h:commandButton value="Carte bancaire" action="#{adhesionBean.validate()}">
+                                <f:param name="id" value="#{adhesionBean.associationId}"/>
+                            </h:commandButton>
+                        </h:form>
+                    </h:panelGrid>
+                </h:panelGrid>
+            </ui:fragment>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

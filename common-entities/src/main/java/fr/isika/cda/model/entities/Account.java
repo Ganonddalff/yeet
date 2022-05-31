@@ -24,6 +24,9 @@ public class  Account{
     @Size(min = 4, max = 15, message = "Doit contenir entre 4 et 15 caractères.")
     private String password;
 
+    @OneToOne
+    private CreditCard creditCard;
+
     @NotNull
     @Enumerated(EnumType.STRING)
     private AccountCategory accountCategory;
@@ -90,5 +93,13 @@ public class  Account{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public CreditCard getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(CreditCard creditCard) {
+        this.creditCard = creditCard;
     }
 }

@@ -4,7 +4,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Association{
@@ -28,6 +30,9 @@ public class Association{
     @NotNull
     @Temporal(TemporalType.DATE)
     private Date creationDate;
+
+    @NotNull
+    private double adhesionPrice;
 
     @NotNull
     @Column(length=14)
@@ -111,5 +116,13 @@ public class Association{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public double getAdhesionPrice() {
+        return adhesionPrice;
+    }
+
+    public void setAdhesionPrice(double adhesionPrice) {
+        this.adhesionPrice = adhesionPrice;
     }
 }

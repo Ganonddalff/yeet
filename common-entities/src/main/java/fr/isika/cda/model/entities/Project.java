@@ -33,6 +33,7 @@ public class Project {
     @Enumerated(EnumType.STRING)
     private ProjectType projectType;
 
+    @NotNull
     @ManyToOne
     private Association association;
 
