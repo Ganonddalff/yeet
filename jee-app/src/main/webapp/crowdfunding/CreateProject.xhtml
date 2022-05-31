@@ -7,14 +7,17 @@
 
 <head>
     <title>Créer un projet</title>
+    <h:outputScript library="js" name="fillProjectCreationForm.js"/>
 </head>
 
 <body>
 <h3>Créer un projet de financement participatif</h3>
 <hr/>
-<h:form id="createProjectForm">
-    <h:panelGrid columns="3">
 
+
+
+<h:form id="createProjectForm">
+        <h:panelGrid columns="3">
         <h:outputLabel value="Nom du projet : "/>
         <h:inputText id="nameInput" value="#{projectCreationBean.projectCreationForm.project.name}"/>
         <h:message for="nameInput" style = "color:red" />
@@ -54,12 +57,13 @@
 
 
 
-        <h:commandButton value="Remplir" immediate="true"
-                         action="#{associationAccountCreationBean.fill()}" />
+        <h:commandButton value="Remplir" immediate="true" onclick="fillProjectCreationForm()" />
         <h:commandButton value="Créer mon projet" action="#{projectCreationBean.create()}"/>
 
-    </h:panelGrid>
+
+        </h:panelGrid>
 </h:form>
+
 <hr/>
 </body>
 </html>
