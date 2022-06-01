@@ -38,11 +38,10 @@
         <h:inputText id="descriptionInput" value="#{productCreateBean.productCreateForm.product.description}"/>
         <h:message for="descriptionInput" style = "color:red" />
         <h:outputLabel value="Image : "/>
-        <h:inputText id="imageInput" value="#{productCreateBean.productCreateForm.product.image}"/>
+        <h:inputFile id="imageInput" value="#{productCreateBean.uploadedProductImage}"/>
         <h:message for="imageInput" style = "color:red" />
         
         <h:commandButton value="Ajouter" action="#{productCreateBean.create()}"/>
-        
         <h:commandButton value="Annuler" action="index?faces-redirect=true"/>
 
     </h:panelGrid>
