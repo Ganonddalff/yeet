@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 @Entity
 public class Address {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull(message = "Ne doit pas être null")

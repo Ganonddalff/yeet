@@ -11,16 +11,13 @@
 <body>
 	<ui:composition template="/template/layout.xhtml">
 		<ui:define name="content">
-
 			<div id="contain">
-
 				<div class="login">
 					<div class="header-form">
 						<h4>Connexion</h4>
 					</div>
 					<div class="formulaire">
-
-						<h:form class="form">
+						<h:form id="loginForm" class="form">
 
 			                <h:outputLabel value="Identifiant" style="MARGIN-LEFT: 25%;"/><br />
 			                <h:inputText id="identifierInput" value="#{loginBean.loginForm.identifier}"/><br /><br />
@@ -35,8 +32,6 @@
 					</div>
 				</div>
 			</div>
-
-
 		</ui:define>
 	</ui:composition>
 </body>

@@ -30,6 +30,7 @@ public class AssociationProfileManagementBean {
 
     @Inject
     private AssociationService associationService;
+
     public AssociationProfileManagementBean(){
     }
 
@@ -42,7 +43,7 @@ public class AssociationProfileManagementBean {
 
     public String uploadProfileImage(){
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        String fileName = "profileImage_" + ((Long) session.getAttribute("id")).toString() + "." +
+        String fileName = "profileImage_" + ((Long) session.getAttribute("idAssociation")).toString() + "." +
                 uploadedProfileImage.getSubmittedFileName().substring(uploadedProfileImage.getSubmittedFileName().lastIndexOf('.') + 1);
         try {
             InputStream myInputStream = uploadedProfileImage.getInputStream();
@@ -54,7 +55,7 @@ public class AssociationProfileManagementBean {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Association association = associationService.findById((Long) session.getAttribute("id")).get();
+        Association association = associationService.findById((Long) session.getAttribute("idAssociation")).get();
         association.setProfileImage("/resources/images/profileImages/" + fileName);
         associationService.update(association);
         this.profileImagePath = getProfileImage();
@@ -63,7 +64,7 @@ public class AssociationProfileManagementBean {
 
     public String uploadBanner() {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        String fileName = "banner_" + ((Long) session.getAttribute("id")).toString() + "." +
+        String fileName = "banner_" + ((Long) session.getAttribute("idAssociation")).toString() + "." +
                 uploadedBanner.getSubmittedFileName().substring(uploadedBanner.getSubmittedFileName().lastIndexOf('.') + 1);
         try {
             InputStream myInputStream = uploadedBanner.getInputStream();
@@ -75,7 +76,7 @@ public class AssociationProfileManagementBean {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Association association = associationService.findById((Long) session.getAttribute("id")).get();
+        Association association = associationService.findById((Long) session.getAttribute("idAssociation")).get();
         association.setBanner("/resources/images/banners/" + fileName);
         associationService.update(association);
         this.bannerPath = getBanner();
@@ -84,7 +85,7 @@ public class AssociationProfileManagementBean {
 
     public void saveDescription() {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        Association association = associationService.findById((Long) session.getAttribute("id")).get();
+        Association association = associationService.findById((Long) session.getAttribute("idAssociation")).get();
         association.setDescription(this.description);
         associationService.update(association);
         this.description = getDescription();
@@ -92,17 +93,17 @@ public class AssociationProfileManagementBean {
 
     public String getProfileImage() {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        return associationService.findById((Long)session.getAttribute("id")).get().getProfileImage();
+        return associationService.findById((Long)session.getAttribute("idAssociation")).get().getProfileImage();
     }
 
     public String getBanner(){
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        return associationService.findById((Long)session.getAttribute("id")).get().getBanner();
+        return associationService.findById((Long)session.getAttribute("idAssociation")).get().getBanner();
     }
 
     public String getDescription(){
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        return associationService.findById((Long)session.getAttribute("id")).get().getDescription();
+        return associationService.findById((Long)session.getAttribute("idAssociation")).get().getDescription();
     }
 
     public Part getUploadedBanner() {

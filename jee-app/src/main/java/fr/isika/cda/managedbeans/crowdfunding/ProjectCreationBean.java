@@ -23,10 +23,12 @@ public class ProjectCreationBean implements Serializable {
     public ProjectCreationBean(){
         this.projectCreationForm = new ProjectCreationForm();
     }
-    public void create(){
+
+    public String create(){
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        this.projectCreationForm.getProject().setAssociation(associationService.findById((Long) session.getAttribute("id")).get());
+        this.projectCreationForm.getProject().setAssociation(associationService.findById((Long) session.getAttribute("idAssociation")).get());
         projectService.createProject(this.projectCreationForm);
+        return "/crowdfunding/CrowdfundingManagement?faces-redirect=true";
     }
 
     public ProjectCreationForm getProjectCreationForm() {

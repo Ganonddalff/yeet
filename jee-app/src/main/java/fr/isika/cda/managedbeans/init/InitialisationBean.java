@@ -55,13 +55,13 @@ public class InitialisationBean implements Serializable {
          */
         Association asso = newAssociationAccount("E-enfance", "11/12/1995", "45976249851697", 39.99D,
                 "Protection des enfants et des adolescents contre les risques liés à l'utilisation de tous moyens de communication interactifs (internet, téléphone mobile, ordinateur, télévision)",
-                "/resources/images/profileImages/profileImage_1.jpeg",
+                "/resources/images/profileImages/standardProfileImage.jpeg",
                 "/resources/images/banners/standardBanner.png",
                 "eenfance", "123456", "eenfance@gmail.com", "0156915656",
                 "11", "Rue des halles", "75000", "Paris","France");
         Association asso2 = newAssociationAccount("Terres d'amitié", "17/02/2001", "45976249851697", 0D,
                 "Lutter contre la faim et la malnutrition, informer le public sur les problèmes concernant le tiers monde, coopérer sanitairement en faveur du tiers monde.",
-                "/resources/images/profileImages/profileImage_2.jpg",
+                "/resources/images/profileImages/profileImage_1.jpg",
                 "/resources/images/banners/standardBanner.png",
                 "terreamitie", "aaaa", "terramitie@gmail.com", "0478950181",
                 "327", "Rue André Phillip", "69003", "Lyon", "France");
@@ -72,13 +72,12 @@ public class InitialisationBean implements Serializable {
         newProject("Permettre à tous les enfants de E-Enfance l'accès à un club de sport pour la rentrée 2022.",
                 "Pour l'enfance", ProjectType.Sport, asso, "22/06/2022", "29/06/2022",
                 "Paris", 17000);
+
         //Initialisation de la boutique
         newProductInShop("Tableau", ProductCategory.Decoration, "/resources/images/produits/tableau.jpeg",
-                (double) 100, "France", (long) 45, (long)2, "Tableau avec un cadre flamme, ludique pour la "
+                100D, "France", 45L, asso, "Tableau avec un cadre flamme, ludique pour la "
                         + "décoration murale de votre petit bout'chou");
     }
-
-}
 
     public Association newAssociationAccount(String name, String date, String siret, Double adhesionPrice,
                                       String description, String profileImage, String banner,
@@ -152,7 +151,7 @@ public class InitialisationBean implements Serializable {
     }
 
 	public void newProductInShop(String name, ProductCategory category, String image, Double price, String manufacturingCountry,
-			Long stock, Long associationId, String description){
+			Long stock, Association asso, String description){
 
 		ProductCreateForm form = new ProductCreateForm();
 		form.getProduct().setNameProduct(name);
@@ -162,9 +161,8 @@ public class InitialisationBean implements Serializable {
 		form.getProduct().setPrice(price);
 		form.getProduct().setStock(stock);
 		form.getProduct().setDescription(description);
-		Association association =  associationService.findById(associationId).get();
-		Product product = productService.createProduct(form, association);
-
+		productService.createProduct(form, asso);
 	}
+
 	public void ping(){}
 }

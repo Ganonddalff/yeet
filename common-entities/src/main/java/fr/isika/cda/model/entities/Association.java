@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 public class Association{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull(message = "Ne doit pas être null")

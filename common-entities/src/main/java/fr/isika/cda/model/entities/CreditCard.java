@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 @Entity
 public class CreditCard {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
     @NotNull

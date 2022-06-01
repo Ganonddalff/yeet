@@ -7,9 +7,10 @@
      
     <persistence-unit name="yeet_DS">
     	<class>fr.isika.cda.model.entities.Account</class>
+        <class>fr.isika.cda.model.entities.Adhesion</class>
+        <class>fr.isika.cda.model.entities.Address</class>
     	<class>fr.isika.cda.model.entities.Association</class>
         <class>fr.isika.cda.model.entities.CreditCard</class>
-        <class>fr.isika.cda.model.entities.Address</class>
         <class>fr.isika.cda.model.entities.Command</class>
         <class>fr.isika.cda.model.entities.CommandLine</class>
         <class>fr.isika.cda.model.entities.Contact</class>
@@ -20,6 +21,7 @@
         <class>fr.isika.cda.model.entities.Person</class>
         <class>fr.isika.cda.model.entities.Product</class>
         <class>fr.isika.cda.model.entities.Project</class>
+
 
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/yeet_db?serverTimezone=Europe/Paris" />

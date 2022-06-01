@@ -12,7 +12,7 @@ import fr.isika.cda.model.enumeration.AccountCategory;
 public class  Account{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull(message = "Ne doit pas être null")

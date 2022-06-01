@@ -8,7 +8,7 @@ import java.util.Date;
 @Entity
 public class Delivery {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Temporal(TemporalType.DATE)

@@ -42,7 +42,7 @@ public class AccountService {
         association.setAddress(address);
         association.setContact(contact);
         association.setBanner("/resources/images/banners/standardBanner.png");
-        association.setProfileImage("/resources/images/profileImages/standardProfileImage.png");
+        association.setProfileImage("/resources/images/profileImages/standardProfileImage.jpeg");
         association.setDescription("");
         Account associationAccount = form.getAccount();
         associationAccount.setAccountCategory(AccountCategory.Association);

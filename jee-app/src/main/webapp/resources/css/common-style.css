@@ -2,7 +2,11 @@ body{
     background-image : url("#{resource['images/LoginSignin_layout.png']}");
     background-size: cover;
     height: 100vh;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
+}
+
+#header{
+    height:181px;
 }
 
 #page{

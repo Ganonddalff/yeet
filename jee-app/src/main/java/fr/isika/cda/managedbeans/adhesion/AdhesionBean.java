@@ -31,7 +31,6 @@ public class AdhesionBean {
     public AdhesionBean(){}
 
     public void init(){
-        System.out.println("8888888888888888" + this.associationId + "8888888888888888888888888888888888888888888");
         this.association = associationService.findById(associationId).get();
     }
 

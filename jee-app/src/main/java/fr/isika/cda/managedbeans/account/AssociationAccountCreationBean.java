@@ -21,7 +21,7 @@ public class AssociationAccountCreationBean implements Serializable {
 
     public String create(){
         accountService.createAssociationAccount(this.accountCreationForm);
-        return "/account/Login.xhtml";
+        return "/account/Login?faces-redirect=true";
     }
 
     public AssociationAccountCreationForm getAccountCreationForm() {

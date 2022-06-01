@@ -7,7 +7,7 @@ import java.util.Date;
 @Entity
 public class Contribution {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull(message = "Ne doit pas être nulle.")
@@ -16,10 +16,10 @@ public class Contribution {
     @NotNull
     private Date DateContribution;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Account account;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private FundRaising fundRaising;
 
     public Long getId() {
