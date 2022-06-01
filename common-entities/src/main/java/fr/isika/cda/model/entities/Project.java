@@ -42,7 +42,7 @@ public class Project {
     @NotNull
     private String projectIllustration;
 
-
+    @NotNull
     String projectBanner;
     @NotNull
     @Length(min = 20,max = 150,message = "La description doit comprendre entre 20 et 150 caractères.")
