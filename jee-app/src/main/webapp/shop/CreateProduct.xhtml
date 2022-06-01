@@ -11,7 +11,7 @@
 <body>
 <h3>Ajouter un produit dans la boutique</h3>
 <hr/>
-<h:form id="createProductForm">
+<h:form id="createProductForm" enctype="multipart/form-data">
     <h:panelGrid columns="3">
     
     	<h:outputLabel value="Catégorie de produit : "/>
@@ -33,6 +33,12 @@
 
         <h:outputLabel value="Pays de fabrication : "/>
         <h:inputText id="countryInput" value="#{productCreateBean.productCreateForm.product.manufacturingCountry}"/>
+        <h:message for="countryInput" style = "color:red" />
+        <h:outputLabel value="Description : "/>
+        <h:inputText id="countryInput" value="#{productCreateBean.productCreateForm.product.description}"/>
+        <h:message for="countryInput" style = "color:red" />
+        <h:outputLabel value="Image : "/>
+        <h:inputText id="countryInput" value="#{productCreateBean.productCreateForm.product.image}"/>
         <h:message for="countryInput" style = "color:red" />
         
         <h:commandButton value="Ajouter" action="#{productCreateBean.create()}"/>

@@ -20,6 +20,7 @@
 					<li class="elt"><h:link value="Les associations" outcome="/association/AssociationList.xhtml"/></li>
 					<li class="elt"><h:link value="Boutique" outcome="/shop/ProductsList.xhtml"/></li>
 					<li class="elt"><h:link value="Crowdfunding" outcome="/crowdfunding/AllProjectsView.xhtml"/></li>
+					<li class="elt"><h:link value="Panier" outcome="/shop/ProductDetails.xhtml"/></li>
 					<ui:fragment rendered="#{loginBean.isAssociationConnected()}">
 						<li class="elt">
 							<h:outputLabel value="#{session.getAttribute('identifier')}"/>

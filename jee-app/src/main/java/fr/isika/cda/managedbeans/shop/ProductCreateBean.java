@@ -1,15 +1,25 @@
 package fr.isika.cda.managedbeans.shop;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.Optional;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import fr.isika.cda.model.entities.Account;
+import fr.isika.cda.model.entities.Association;
+import fr.isika.cda.model.entities.Product;
 import fr.isika.cda.services.AccountService;
 import fr.isika.cda.services.ProductService;
 import fr.isika.cda.viewmodels.form.shop.ProductCreateForm;
@@ -19,6 +29,8 @@ import fr.isika.cda.viewmodels.form.shop.ProductCreateForm;
 public class ProductCreateBean implements Serializable {
 	
 	private ProductCreateForm productCreateForm;
+	private Part uploadedProductImage;
+	private String imagePath;
 	
 	@Inject
 	private ProductService productService;
@@ -41,21 +53,31 @@ public class ProductCreateBean implements Serializable {
 			Optional<Account> optional = accountService.findByIdentifier(currentUserIdentifier);
 	        if (optional.isPresent()) {
 	            Account account = optional.get();
-	            productService.createProduct(this.productCreateForm, account.getAssociation());
+	      
+	            Product product = productService.createProduct(this.productCreateForm, account.getAssociation());
+	            
+	            String fileName = "productImage_" + product.getId() + "." +
+	                    uploadedProductImage.getSubmittedFileName().substring(uploadedProductImage.getSubmittedFileName().lastIndexOf('.') + 1);
+	            try {
+	                InputStream myInputStream = uploadedProductImage.getInputStream();
+	                ServletContext servletContext = ((ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext());
+	                File newFile = new File(servletContext.getRealPath("/resources/images/produits"), fileName);
+	                newFile.createNewFile();
+	                Path newPath = newFile.toPath();
+	                Files.copy(myInputStream, newPath, StandardCopyOption.REPLACE_EXISTING);
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            }
+	            product.setImage("/resources/images/produits/" + fileName);
+	            productService.updateProduct(product); 
 	            
 	        } else {
 	        	// cas utilisateur introuvable
 	        }
 		}
-		/*System.out.println("test");
-		System.out.println(session.getAttributeNames().toString());
-		System.out.println(session.getAttribute("identifier"));*/
-        //productService.createProduct(this.productCreateForm);
+		
+		
     }
-	
-	public void update() {
-		//productService.updateProduct(this.productCreateForm);
-	}
 
 	public ProductService getProductservice() {
 		return productService;
@@ -74,6 +96,26 @@ public class ProductCreateBean implements Serializable {
 
 	public void setProductCreateForm(ProductCreateForm productCreateForm) {
 		this.productCreateForm = productCreateForm;
+		
+	}
+
+	public Part getUploadedProductImage() {
+		return uploadedProductImage;
+		
+	}
+
+	public void setUploadedProductImage(Part uploadedProductImage) {
+		this.uploadedProductImage = uploadedProductImage;
+		
+	}
+
+	public String getImagePath() {
+		return imagePath;
+		
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 		
 	}
 
