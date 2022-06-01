@@ -10,44 +10,56 @@ public class CommandLine {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany
-    private List<Product> products = new ArrayList<>();
+    @ManyToOne
+    private Product product;
+    
+    
+    private Integer quantity;
+    
+    @Column(precision=10, scale=2)
+    private Double unitPrice;
 
     @Column(precision=10, scale=2)
     private Double totalPrice;
 
-    @ManyToOne
-    private Command command;
+	public Long getId() {
+		return id;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Product getProduct() {
+		return product;
+	}
 
-    public List<Product> getProducts() {
-        return products;
-    }
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
+	public Integer getQuantity() {
+		return quantity;
+	}
 
-    public Double getTotalPrice() {
-        return totalPrice;
-    }
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
 
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
+	public Double getUnitPrice() {
+		return unitPrice;
+	}
 
-    public Command getCommand() {
-        return command;
-    }
+	public void setUnitPrice(Double unitPrice) {
+		this.unitPrice = unitPrice;
+	}
 
-    public void setCommand(Command command) {
-        this.command = command;
-    }
+	public Double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(Double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
 }

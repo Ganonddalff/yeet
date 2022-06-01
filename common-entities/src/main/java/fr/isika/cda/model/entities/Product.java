@@ -14,6 +14,9 @@ public class Product {
     private Long id;
     
     @NotNull
+    private String image;
+    
+    @NotNull
 	@Size(min = 1, max = 25, message = "Le nombre de caractères doit être compris entre 1 et 25")
 	@Pattern(regexp = "[^0-9]*", message = "Le nom ne doit pas contenir de chiffre")
 	private String nameProduct;
@@ -25,6 +28,10 @@ public class Product {
     @Size(min = 1, max = 25, message = "Doit contenir entre 1 et 25 caractères.")
     @Pattern(regexp = "[^0-9]*", message = "Ne doit pas contenir de chiffre")
     private String manufacturingCountry;
+    
+    @NotNull(message = "Ne doit pas être nul")
+    @Size(max = 500, message = "Doit contenir au plus 500 caractères.")
+    private String description;
 
     @Basic
     private Long stock;
@@ -90,7 +97,26 @@ public class Product {
 	public void setNameProduct(String nameProduct) {
 		this.nameProduct = nameProduct;
 	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
     
+	
     
 }
 
