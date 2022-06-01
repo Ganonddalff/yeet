@@ -13,6 +13,7 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.Map;
 
 @ManagedBean
@@ -36,6 +37,15 @@ public class AdhesionBean {
 
     public boolean isFree(){
         return association.getAdhesionPrice() == 0D;
+    }
+
+    public void validateFree() throws IOException {
+        this.association = associationService.findById(associationId).get();
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        Adhesion adhesion = adhesionService.
+                create(this.association, accountService.findById((Long)session.getAttribute("idAccount")).get());
+        String url = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/adhesion/AdhesionValidation.xhtml?id=" + adhesion.getId();
+        FacesContext.getCurrentInstance().getExternalContext().redirect(url);
     }
 
     public String validate(){

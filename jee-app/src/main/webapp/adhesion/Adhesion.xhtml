@@ -21,9 +21,9 @@
                 <h:panelGrid column="1">
                     <h:outputLabel value="L'adhésion à l'association #{adhesionBean.association.name} est gratuite."/>
                     <h:outputLabel value="Souhaitez vous adhérer ?"/>
-                    <h:button value="Valider l'adhésion" outcome="/adhesion/AdhesionValidation?faces-redirect=true" >
-                        <f:param name="id" value="#{adhesionBean.association.id}"/>
-                    </h:button>
+                    <h:form>
+                        <h:commandButton value="Valider l'adhésion" action="#{adhesionBean.validateFree()}"/>
+                    </h:form>
                 </h:panelGrid>
             </ui:fragment>
             <ui:fragment rendered="#{!adhesionBean.isFree()}">
@@ -33,9 +33,7 @@
                     <h:outputLabel value="Quelle est votre méthode de paiement ?"/>
                     <h:panelGrid column="3">
                         <h:form>
-                            <h:commandButton value="Carte bancaire" action="#{adhesionBean.validate()}">
-                                <f:param name="id" value="#{adhesionBean.associationId}"/>
-                            </h:commandButton>
+                            <h:commandButton value="Carte bancaire" action="#{adhesionBean.validate()}"/>
                         </h:form>
                     </h:panelGrid>
                 </h:panelGrid>
