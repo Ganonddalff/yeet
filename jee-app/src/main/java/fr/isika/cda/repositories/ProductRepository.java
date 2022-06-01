@@ -41,7 +41,7 @@ public class ProductRepository {
                 .getResultList();
 	}
 	
-	/*public List<Product> findAllProductsByAssociation() {
+	/*public List<Product> findAllProductsByAssociation(Long idAssociation) {
 		return this.entityManager
                 .createQuery("SELECT produit FROM Product produit", Product.class)
                 .getResultList();

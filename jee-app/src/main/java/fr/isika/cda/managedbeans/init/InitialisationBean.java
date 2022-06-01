@@ -3,12 +3,16 @@ package fr.isika.cda.managedbeans.init;
 import fr.isika.cda.model.entities.Account;
 import fr.isika.cda.model.entities.Association;
 import fr.isika.cda.model.enumeration.ProjectType;
+import fr.isika.cda.model.entities.Product;
+import fr.isika.cda.model.enumeration.ProductCategory;
 import fr.isika.cda.services.AccountService;
 import fr.isika.cda.services.AssociationService;
 import fr.isika.cda.services.ProjectService;
+import fr.isika.cda.services.ProductService;
 import fr.isika.cda.viewmodels.form.account.AssociationAccountCreationForm;
 import fr.isika.cda.viewmodels.form.account.UserAccountCreationForm;
 import fr.isika.cda.viewmodels.form.crowdfunding.ProjectCreationForm;
+import fr.isika.cda.viewmodels.form.shop.ProductCreateForm;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
@@ -27,6 +31,8 @@ public class InitialisationBean implements Serializable {
     private AssociationService associationService;
     @Inject
     private ProjectService projectService;
+    @Inject
+    private ProductService productService;
 
     @PostConstruct
     public void startup() {
@@ -66,7 +72,13 @@ public class InitialisationBean implements Serializable {
         newProject("Permettre à tous les enfants de E-Enfance l'accès à un club de sport pour la rentrée 2022.",
                 "Pour l'enfance", ProjectType.Sport, asso, "22/06/2022", "29/06/2022",
                 "Paris", 17000);
+        //Initialisation de la boutique
+        newProductInShop("Tableau", ProductCategory.Decoration, "/resources/images/produits/tableau.jpeg",
+                (double) 100, "France", (long) 45, (long)2, "Tableau avec un cadre flamme, ludique pour la "
+                        + "décoration murale de votre petit bout'chou");
     }
+
+}
 
     public Association newAssociationAccount(String name, String date, String siret, Double adhesionPrice,
                                       String description, String profileImage, String banner,
@@ -139,5 +151,20 @@ public class InitialisationBean implements Serializable {
         projectService.createProject(form);
     }
 
-    public void ping(){}
+	public void newProductInShop(String name, ProductCategory category, String image, Double price, String manufacturingCountry,
+			Long stock, Long associationId, String description){
+
+		ProductCreateForm form = new ProductCreateForm();
+		form.getProduct().setNameProduct(name);
+		form.getProduct().setCategory(category);
+		form.getProduct().setImage(image);
+		form.getProduct().setManufacturingCountry(manufacturingCountry);
+		form.getProduct().setPrice(price);
+		form.getProduct().setStock(stock);
+		form.getProduct().setDescription(description);
+		Association association =  associationService.findById(associationId).get();
+		Product product = productService.createProduct(form, association);
+
+	}
+	public void ping(){}
 }

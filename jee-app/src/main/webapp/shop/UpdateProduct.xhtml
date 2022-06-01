@@ -6,10 +6,10 @@
       xmlns:h="http://java.sun.com/jsf/html" lang="en">
 
 <h:head>
-    <title>Ajout de produit dans la boutique</title>
+    <title>Modifier un produit</title>
 </h:head>
 <body>
-<h3>Ajouter un produit dans la boutique</h3>
+<h3>Je souhaite modifier les information d'un produit</h3>
 <hr/>
 <h:form id="createProductForm">
     <h:panelGrid columns="3">
@@ -35,9 +35,9 @@
         <h:inputText id="countryInput" value="#{productCreateBean.productCreateForm.product.manufacturingCountry}"/>
         <h:message for="countryInput" style = "color:red" />
         
-        <h:commandButton value="Ajouter" action="#{productCreateBean.update()}"/>
+        <h:commandButton value="Modifier" action="#{productCreateBean.update()}"/>
         
-        <h:commandButton value="Annuler" action="index?faces-redirect=true"/>
+        <h:commandButton value="Annuler" action="AsossociationProfile.xhtml?faces-redirect=true"/>
 
     </h:panelGrid>
 </h:form>
