@@ -35,11 +35,11 @@
         <h:inputText id="countryInput" value="#{productCreateBean.productCreateForm.product.manufacturingCountry}"/>
         <h:message for="countryInput" style = "color:red" />
         <h:outputLabel value="Description : "/>
-        <h:inputText id="countryInput" value="#{productCreateBean.productCreateForm.product.description}"/>
-        <h:message for="countryInput" style = "color:red" />
+        <h:inputText id="descriptionInput" value="#{productCreateBean.productCreateForm.product.description}"/>
+        <h:message for="descriptionInput" style = "color:red" />
         <h:outputLabel value="Image : "/>
-        <h:inputText id="countryInput" value="#{productCreateBean.productCreateForm.product.image}"/>
-        <h:message for="countryInput" style = "color:red" />
+        <h:inputText id="imageInput" value="#{productCreateBean.productCreateForm.product.image}"/>
+        <h:message for="imageInput" style = "color:red" />
         
         <h:commandButton value="Ajouter" action="#{productCreateBean.create()}"/>
         
