@@ -1,36 +1,93 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:c="http://java.sun.com/jstl/core"
-      xmlns:p="http://primefaces.org/ui" lang="en">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.org/ui" lang="en">
 
 <h:body>
-    <f:metadata>
-        <f:viewParam name="id" value="#{associationProfileBean.id}"/>
-        <f:viewAction action="#{associationProfileBean.init}" />
-    </f:metadata>
-    <ui:composition template="/template/layout.xhtml">
-        <ui:define name="title">Création de compte</ui:define>
-        <ui:define name="css">
-            <h:outputStylesheet library="css" name="AssociationProfile.css"/>
-        </ui:define>
-        <ui:define name="content">
-            <h:panelGrid id="grid" column="1">
-                <h:panelGroup layout="block" id="banner"
-                              style="background-image: url('#{facesContext.externalContext.requestContextPath}#{associationProfileBean.association.banner}');">
-                    <h:graphicImage id="profileImage"
-                                    value="#{associationProfileBean.association.profileImage}"/>
-                </h:panelGroup>
-                <h:outputLabel value="#{associationProfileBean.association.description}"/>
-                <ui:fragment rendered="#{loginBean.isUserConnected()}">
-                    <h:button value="Adhérer" outcome="/adhesion/Adhesion?faces-redirect=true" >
-                        <f:param name="id" value="#{associationProfileBean.association.id}"/>
-                    </h:button>
-                </ui:fragment>
-            </h:panelGrid>
-        </ui:define>
-    </ui:composition>
+	<f:metadata>
+		<f:viewParam name="id" value="#{associationProfileBean.id}" />
+		<f:viewAction action="#{associationProfileBean.init}" />
+	</f:metadata>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="title">Création de compte</ui:define>
+		<ui:define name="css">
+			<h:outputStylesheet library="css" name="AssociationProfile.css" />
+		</ui:define>
+		<ui:define name="content">
+
+			<div class="profil">
+
+				<div class="intro">
+					<h:panelGrid id="grid" column="1">
+						<h:panelGroup layout="block" id="banner"
+							style="background-image: url('#{facesContext.externalContext.requestContextPath}#{associationProfileBean.association.banner}');">
+							<h:graphicImage id="profileImage"
+								value="#{associationProfileBean.association.profileImage}" />
+						</h:panelGroup>
+						<h:outputLabel
+							value="#{associationProfileBean.association.description}" />
+
+					</h:panelGrid>
+
+				</div>
+
+				<div class="activities">
+					<div class="crumbs">
+						<ol>
+							<li class ="crumb"><a href="" >Adhésion</a></li>
+							<li class ="crumb"><a href="" >Crowdfunding</a></li>
+							<li class ="crumb"><a href="" >Produits en vente</a></li>
+							<li class ="crumb"><a href="" >Nous contacter</a></li>
+
+						</ol>
+					</div>
+
+					<!-- Partie Crowdfunding -->
+
+					<div id = "Crowdfunding">
+
+						<h4>Les évènements en cours</h4>
+
+
+						<div class="in-progress">
+
+						<!-- à renseigner ici : Crowdfunding de l'Asso en cours -->
+
+						</div>
+
+					</div>
+
+					<!-- Partie Vente en ligne -->
+
+					<div id ="Items">
+						<h4>Nos produits en vente</h4>
+
+
+						<div class="sell">
+						<!-- à renseigner ici : Vente de l'Asso en cours -->
+						</div>
+
+					</div>
+
+						<h4>Nous contacter</h4>
+					<div id="Contact">
+
+					</div>
+
+
+
+
+				</div>
+			</div>
+            <ui:fragment rendered="#{loginBean.isUserConnected()}">
+                <h:button value="Adhérer" outcome="/adhesion/Adhesion?faces-redirect=true" >
+                    <f:param name="id" value="#{associationProfileBean.association.id}"/>
+                </h:button>
+            </ui:fragment>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>

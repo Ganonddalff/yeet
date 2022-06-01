@@ -1,9 +1,7 @@
 package fr.isika.cda.managedbeans.account;
 
-import fr.isika.cda.model.entities.Account;
-import fr.isika.cda.model.enumeration.AccountCategory;
-import fr.isika.cda.services.AccountService;
-import fr.isika.cda.viewmodels.form.account.LoginForm;
+import java.io.Serializable;
+import java.util.Optional;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -12,8 +10,11 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
-import java.io.Serializable;
-import java.util.Optional;
+
+import fr.isika.cda.model.entities.Account;
+import fr.isika.cda.model.enumeration.AccountCategory;
+import fr.isika.cda.services.AccountService;
+import fr.isika.cda.viewmodels.form.account.LoginForm;
 
 @ManagedBean
 @ViewScoped
@@ -38,8 +39,10 @@ public class LoginBean implements Serializable {
                 session.setAttribute("idAccount", account.getId());
                 if(account.getAccountCategory() == AccountCategory.User || account.getAccountCategory() == AccountCategory.Administrator)
                     session.setAttribute("idPerson", account.getPerson().getId());
-                else if(account.getAccountCategory() == AccountCategory.Association)
+                else if(account.getAccountCategory() == AccountCategory.Association) {
                     session.setAttribute("idAssociation", account.getAssociation().getId());
+                    return "/association/AssociationDashBoard.xhtml?faces-redirect=true";
+                }
                 session.setAttribute("idAccount", account.getId());
                 return "/index?faces-redirect=true";
             } else {

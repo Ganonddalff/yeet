@@ -18,10 +18,17 @@ body{
 }
 
 #footer{
+	position: fixed;
     width: 100%;
-    position: absolute;
     bottom: 0;
     padding-right: 250px;
     padding-left: 250px;
 }
+
+/*#header{
+	position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}*/
 

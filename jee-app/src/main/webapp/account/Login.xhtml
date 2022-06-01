@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html" lang="en">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" lang="en">
 
 <h:head>
-    <title>Connexion</title>
+	<title>Connexion</title>
 </h:head>
 <body>
-    <ui:composition template="/template/layout.xhtml">
-    <ui:define name="content">
-        <h3>Se connecter</h3>
-        <hr/>
-        <h:form id="loginForm">
-            <h:panelGrid columns="2">
-                <h:outputLabel value="Identifiant : "/>
-                <h:inputText id="identifierInput" value="#{loginBean.loginForm.identifier}"/>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="content">
 
-                <h:outputLabel value="Mot de passe : "/>
-                <h:inputSecret id="passwordInput" value="#{loginBean.loginForm.password}"/>
+			<div id="contain">
 
-                <h:commandButton value="Se connecter" action="#{loginBean.login()}"/>
-                <h:message for="loginForm" id="loginFormError" />
-            </h:panelGrid>
-        </h:form>
-        <hr/>
-        <h:link outcome="/index.xhtml">Revenir à l'accueil</h:link>
-    </ui:define>
-    </ui:composition>
+				<div class="login">
+					<div class="header-form">
+						<h4>Connexion</h4>
+					</div>
+					<div class="formulaire">
+
+						<h:form class="form">
+
+			                <h:outputLabel value="Identifiant" style="MARGIN-LEFT: 25%;"/><br />
+			                <h:inputText id="identifierInput" value="#{loginBean.loginForm.identifier}"/><br /><br />
+			
+			                <h:outputLabel value="Mot de passe" style="MARGIN-LEFT: 25%;"/><br />
+			                <h:inputSecret id="passwordInput" value="#{loginBean.loginForm.password}"/><br />
+			
+							<h:commandButton value="Se connecter" action="#{loginBean.login()}"/><br />
+			                <h:message for="loginForm" id="loginFormError" />
+						</h:form>
+						<br />
+					</div>
+				</div>
+			</div>
+
+
+		</ui:define>
+	</ui:composition>
 </body>
 </html>

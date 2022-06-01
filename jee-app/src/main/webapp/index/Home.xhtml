@@ -9,6 +9,9 @@
 <h:head>
   
   <h:outputStylesheet library="css" name="style_home1.css"/>
+  <h:outputStylesheet library="css" name="Home.css"/>
+  <h:outputStylesheet library="css" name="page1.css"/>
+  <h:outputStylesheet library="css" name="AssociationList.css" />
   
   <title><ui:insert name="title">Home</ui:insert></title>
 </h:head>
@@ -16,48 +19,48 @@
 <body>
 <ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
 
-<div id="header">
+<div id ="header">
     <ui:insert name="header">
     	<!--  Header area.  See comments below this line in the source.-->
     	<!--  include your header file or uncomment the include below and create header.xhtml in this directory -->
-    		<ui:include src="/resources/template/header.xhtml"/> 
+    		<ui:include src="../resources/template/header.xhtml"/> 
     </ui:insert>
 </div>
 
 
-<div id="content" style="z-index:2;">
+<div id="content" >
   <ui:insert name="content">
 
-    	<!--  include your content file or uncomment the include below and create content.xhtml in this directory -->
-	  	<!-- <div> -->
-    	<ui:include src=""/>	 
-    	<!-- </div> -->
-	<section class="section1" id="accueil" style ="z-index:1;">
-		<ui:include src="Page1.xhtml"/>
+	
+   <!-- intro site -->
+   
+    
+	<section class="section1">
+		<ui:include src="/index/Page1.xhtml"/>
 	</section>
     	
-    <section class="section2" id="presentation">
-		<ui:include src="Presentation.xhtml"/>
+    <section class="section2" id="presentation" styleClass="box-shadow: 10px 5px 5px red;">
+		<ui:include src="/index/Presentation.xhtml"/>
 	</section>
     	
     <section class="section3" id="Associations">
-		<ui:include src="ListAssociations.xhtml"/>
+		<ui:include src="/association/ListAssociations.xhtml"/>
 	</section>
     	
     <section class="section4" id="Boutique">
-		<ui:include src="Boutique.xhtml"/>
+		<ui:include src="/shop/Boutique.xhtml"/>
 	</section>
 	
 	<section class="section5" id="Crowdfunding">
-		<ui:include src="Crowdfunding.xhtml"/>
+		<ui:include src="/crowdfunding/Crowdfunding.xhtml"/>
 	</section>
 	
 	<section class="section6" id="Equipe">
-		<ui:include src="Equipe.xhtml"/>
+		<ui:include src="/index/Equipe.xhtml"/>
 	</section>
 	
 	<section class="section7" id="Contact">
-		<ui:include src="Contact.xhtml"/>
+		<ui:include src="/index/Contact.xhtml"/>
 	</section>
     	
   </ui:insert>
@@ -67,7 +70,7 @@
   <ui:insert name="footer">
 
     	<!--  include your header file or uncomment the include below and create footer.xhtml in this directory -->
-		<ui:include src="/resources/template/Footer.html"/>  
+		<ui:include src="../resources/template/Footer.html"/>  
   </ui:insert>
 </div>
 

@@ -8,11 +8,10 @@
 	display: inline-block;
     text-align: center;
 }
-
 #logo
 {
     float:left;
-    margin-left : 30px;
+    margin-left : -2%;
     margin-top: -1%;
 }
 #menu-home1 a{
@@ -24,16 +23,17 @@
     color:white;
    }
 
-#menu-home1{
-    display:inline-block;
+.menu-home1{
+    /*display:inline-block;*/
     gap : 1em;
     font-size: 18px;
     margin-top: 1%;
-    margin-left: 80px;
+    margin-left: 15%;
+    float:left;
     font-weight:bolder;
 }
 
-#elt1 a {
+.elt a {
     
     text-decoration: none;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -43,6 +43,8 @@
 
    }
    
+
+
 #menu-links-home1 a{
 
     text-decoration: none;
@@ -75,21 +77,15 @@
 }
 
 
-#elt1{
+.elt{
     display: inline-block;
     padding:20px 20px 20px 20px;
     border-radius: 5px;
     color:white;
 }
 
-.elt2{
-    display: inline-block;
-    padding:0;
-    color: orange;
-    border-radius: 5px;
-}
 
-.section1{
+#section1{
     /*background-image: ;*/
     background-size: cover;
     height: 100vh;
@@ -101,13 +97,14 @@
     margin-top: 150px;
 }
 
-.middle-button
+.top-button
 {
-    margin-left: 180px; 
-    margin-top: 30px;
+    float:right;
+    margin-top:2%;
+    margin-right:-25%;
 }
 
-.middle-button a{
+.top-button a{
     text-decoration: none;
     color: white;
 }
@@ -118,45 +115,7 @@
     font-family :'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.rgst-btn{
-    border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    border-radius: 10px;
-    background-color: gold;
-    background-image: linear-gradient(to top left,
-                                      rgba(0, 0, 0, .2),
-                                      rgba(0, 0, 0, .2) 30%,
-                                      rgba(0, 0, 0, 0));
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-                inset -2px -2px 3px rgba(0, 0, 0, .6);
-}
-
-.con-btn{
-    border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    border-radius: 10px;
-    background-color: green;
-    background-image: linear-gradient(to top left,
-                                      rgba(0, 0, 0, .2),
-                                      rgba(0, 0, 0, .2) 30%,
-                                      rgba(0, 0, 0, 0));
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-                inset -2px -2px 3px rgba(0, 0, 0, .6);
-}
-
-.section2{
+#section2{
     
     /*background-image: url();*/
     background-size: cover;
@@ -168,7 +127,7 @@
     color: black;
     text-align: center;
     font-family :'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding-top: 25px;
+    padding-top: 7%;
     font-size:40px;
 }
 
@@ -202,7 +161,7 @@
 }
 
 .arguments{
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .services{
@@ -221,7 +180,7 @@
     margin-left: 40px;
 }
 
-.section3{
+#section3{
     /*background-image: url();*/
     background-size: cover;
     height: 100vh;
@@ -278,7 +237,7 @@ pre{
     float: right;
 }
 
-.section4{
+#section4{
     /*background-image: url(../images/green_geometric.png);*/
     background-size: cover;
     height: 100vh;

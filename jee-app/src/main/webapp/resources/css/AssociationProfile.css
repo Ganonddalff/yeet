@@ -24,3 +24,42 @@
     border: 3px solid black;
 }
 
+.crumbs{
+	width:100%;
+	height:50px;
+	text-align : center;
+	background-color:gray;
+}
+
+.crumbs ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.crumb a{
+    color:white;
+    display: inline-block;
+    text-decoration:none;
+    /*padding: 20px 20px 20px 20px;*/
+    padding: 0 3px;
+}
+
+/*.crumb a::after {
+    display: inline;
+    color:white;
+    font-size: 80%;
+    font-weight: bold;
+    padding: 0 3px;
+}*/
+
+.crumb {
+    display: inline;
+    color:white;
+    text-decoration:none;
+     padding: 20px 20px 20px 20px;
+}
+
+
+
+
+

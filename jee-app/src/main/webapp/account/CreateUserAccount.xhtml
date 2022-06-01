@@ -60,7 +60,7 @@
                                     <h:message for="roadNumberInput" style="color:red" />
                                     <h:message for="roadInput" style="color:red" />
                                     <h:panelGrid columns="2">
-                                        <h:outputLabel value="Code postal  "/>
+                                        <h:outputLabel value="Code postal  " style="width:150px; text-align:center"/>
                                         <h:outputLabel value="Ville"/>
 
                                         <h:inputText id="postalCodeInput" value="#{userAccountCreationBean.accountCreationForm.address.postalCode}" style="width: 90px;"/>
@@ -88,10 +88,7 @@
                             <h:commandButton value="Enregistrer" action="#{userAccountCreationBean.create()}" />
                         </h:panelGrid>
                     </h:form>
-                    <div>
-                        <h:outputLabel value="Compte déjà créé?" style="color:white;" />
-                        <h:link value="Se connecter" outcome="/account/Login.xhtml"/>
-                    </div>
+                   
                 </div>
             </div>
         </ui:define>

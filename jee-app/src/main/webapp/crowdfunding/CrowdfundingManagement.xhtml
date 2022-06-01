@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:body>
+    
+	<ui:composition template="/template/layout_dashboard.xhtml">
+		<ui:define name="title">Gestion Crowdfunding</ui:define>
+
+		<ui:define name="css">
+			<h:outputStylesheet library="css" name="AssociationProfile.css" />
+			<h:outputStylesheet library="css" name="dashboard_styles1.css" />
+			<h:outputStylesheet library="css" name="loginSignin_styles.css" />
+			<h:outputStylesheet library="css" name="style_home1.css" />
+
+		</ui:define>
+
+		<ui:define name="content">
+
+				<div class="main-dashboard-asso">
+					<div class="suite-main">
+						<!-- <h1>Espace association</h1> -->
+					</div>
+					<div class="container">
+						
+				<!-- INSERER LES ELEMENTS ICI ... -->
+						
+						<a href="../crowdfunding/CreateProject.xhtml" >Créer un projet de financement participatif</a> <br />
+						<a href="../crowdfunding/AllProjectsView.xhtml" >Voir les campagnes créés</a> <br />
+						<a href="../crowdfunding/Crowdfunding.xhtml">Parmi les campagnes de Crowdfunding en cours</a> <br />
+						<a href="../crowdfunding/DonateContribution.xhtml">Contribuer au projet</a> <br />
+						
+					</div>
+				</div>
+
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

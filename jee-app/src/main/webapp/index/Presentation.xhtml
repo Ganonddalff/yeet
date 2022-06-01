@@ -1,11 +1,53 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-<h:head></h:head> 
-<body> 
-	<h1>Présentation</h1>
-</body> 
-</html>
+	<h:outputStylesheet library="css" name="page1.css" />
+
+	<div id="content">
+		<h2 class="title1">
+			<strong>Nos services pour les Associations</strong>
+		</h2>
+
+		<div class="services">
+			<div class="card-services">
+				<h:graphicImage value="/resources/images/member.png" alt="adherent"
+					width="300" height="auto" />
+				<h1>Gestion des adhésions</h1>
+				<p class="arguments">Votre association se modernise et passe aux
+					formulaires en ligne pour vos adhésions.</p>
+				<br /> <h:outputText value="15 €" /> <span>ttc/mois</span>
+				<p>
+					<button>Souscrire</button>
+				</p>
+			</div>
+
+			<div class="card-services">
+				<h:graphicImage value="/resources/images/crowdfunding.png"
+					alt="adherent" width="300" height="auto" />
+				<h1>Crowdfunding</h1>
+				<p class="arguments">Obtenez facilement le soutien du grand
+					public pour la levée de fonds de votre association.</p>
+				<br /> <h:outputText value="15 €" /> <span>ttc/mois</span>
+				<p>
+					<button>Souscrire</button>
+				</p>
+			</div>
+
+			<div class="card-services">
+				<h:graphicImage value="/resources/images/shopping.png"
+					alt="adherent" width="300" height="auto" />
+				<h1>Boutique en ligne</h1>
+				<p class="arguments">Proposez des articles à vendre sur notre
+					site pour financer les engagements de votre association.</p>
+				<br /> <h:outputText value="15 €" /> <span>ttc/mois</span>
+				<p>
+					<button>Souscrire</button>
+				</p>
+			</div>
+		</div>
+	</div>
+
+</ui:composition>

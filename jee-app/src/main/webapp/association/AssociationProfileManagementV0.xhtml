@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:body>
+
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="title">Espace Association</ui:define>
+
+		<ui:define name="css">
+			<h:outputStylesheet library="css" name="AssociationProfile.css" />
+			<h:outputStylesheet library="css" name="dashboard_styles1.css" />
+			<h:outputStylesheet library="css" name="loginSignin_styles.css" />
+			<h:outputStylesheet library="css" name="style_home1.css" />
+
+		</ui:define>
+
+		<ui:define name="content">
+
+			<div class="dashboard">
+				<div class="main-sidebar" id="mySidebar">
+
+					<div class="sidebar">
+						<h3>
+							<a href="dashboard.html">Tableau de bord</a>
+						</h3>
+						<div class="elements">
+							<a href="AssociationDashBoard.xhtml" class="dash-bar">Gestion de Services</a> 
+							<a href="AssociationProfileManagement.xhtml" class="dash-bar">Gestion de contenu</a> 
+							<a href="" class="dash-bar">Gestion de compte</a> 
+							<a href="" class="dash-bar">Statistiques</a>
+						</div>
+					</div>
+				</div>
+
+				<ui:fragment rendered="#{loginBean.isAssociationConnected()}">
+					<div class="header-dashboard">
+						<SPAN class="welcome"> BIENVENUE </SPAN>
+						<h:outputLabel class="nom-asso"
+							value="#{session.getAttribute('identifier')}" />
+					</div>
+				</ui:fragment>
+
+
+				<div class="main-dashboard-asso">
+					<div class="suite-main">
+						<!-- <h1>Espace association</h1> -->
+					</div>
+					<div class="container">
+						<div class="logo-card">
+							<div class="header-logo">
+								<div class="titre-logo">
+									<h4>
+										<b>Votre Logo</b>
+									</h4>
+								</div>
+							</div>
+							<div class="cadre-logo">
+								<p:graphicImage cache="false"
+									value="#{associationProfileManagementBean.profileImagePath}"
+									height="150px" width="150px" />
+								<h:form enctype="multipart/form-data">
+									<h:inputFile
+										value="#{associationProfileManagementBean.uploadedProfileImage}" />
+									<h:commandButton value="Enregistrer"
+										action="#{associationProfileManagementBean.uploadProfileImage()}" />
+								</h:form>
+							</div>
+						</div>
+						<div class="banner-card">
+							<div class="header-banner">
+								<div class="titre-banner">
+									<h4>
+										<b>Votre bannière</b>
+									</h4>
+								</div>
+							</div>
+							<div class="cadre-banniere">
+								<p:graphicImage cache="false"
+									value="#{associationProfileManagementBean.bannerPath}"
+									height="150px" width="500px" />
+								<h:form enctype="multipart/form-data">
+									<h:inputFile
+										value="#{associationProfileManagementBean.uploadedBanner}" />
+									<br />
+									<h:commandButton value="Enregistrer"
+										action="#{associationProfileManagementBean.uploadBanner()}" />
+								</h:form>
+							</div>
+						</div>
+						<div class="description-asso">
+							<div class="description-card">
+								<div class="titre-description" id="editor">
+									<h4>
+										<b>Description de votre association</b>
+									</h4>
+								</div>
+
+								<div class="standalone-container">
+									<h:form>
+										<h:panelGrid columns="1">
+											<h:inputTextarea
+												value="#{associationProfileManagementBean.description}"
+												style="height:150px; width:1010px"></h:inputTextarea>
+											<h:commandButton value="Enregistrer"
+												action="#{associationProfileManagementBean.saveDescription()}" />
+										</h:panelGrid>
+									</h:form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>
