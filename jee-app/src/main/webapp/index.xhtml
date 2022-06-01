@@ -1,30 +1,153 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:c="http://java.sun.com/jstl/core" lang="en">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jstl/core" lang="en">
 
 <h:body>
-    <f:metadata>
-        <f:viewAction action="#{initialisationBean.ping}"/>
-    </f:metadata>
-    <ui:composition template="/template/layout.xhtml">
-        <ui:define name="title">Accueil</ui:define>
-        <ui:define name="content">
-            <h:link value="Ajouter un produit" outcome="shop/CreateProduct.xhtml"/>
-            <br />
-            <h:link value="Modifier les informations d'un produit" outcome="shop/UpdateProduct.xhtml"/>
-            <br />
-            <h:link value="Créer une association" outcome="account/CreateAssociationAccount.xhtml"/>
-            <br />
-            <ui:fragment rendered="#{loginBean.isAssociationConnected()}">
-                <h:outputLink value="association/AssociationProfileManagement.xhtml">Modifier le profil de l'association</h:outputLink>
-            </ui:fragment>
-            <br/>
-            <h:link value="Créer un projet de financement participatif" outcome="crowdfunding/CreateProject.xhtml"/>
-            <br/>
-        </ui:define>
-    </ui:composition>
+	<f:metadata>
+		<f:viewAction action="#{initialisationBean.ping}" />
+	</f:metadata>
+
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="title">Accueil</ui:define>
+
+		<ui:define name="css">
+			<h:outputStylesheet library="css" name="AssociationProfile.css" />
+			<h:outputStylesheet library="css" name="dashboard_styles1.css" />
+			<h:outputStylesheet library="css" name="loginSignin_styles.css" />
+			<h:outputStylesheet library="css" name="style_home1.css" />
+			<h:outputStylesheet library="css" name="page1.css" />
+			<h:outputStylesheet library="css" name="AssociationList.css" />
+			<h:outputStylesheet library="css" name="Home.css" />
+
+		</ui:define>
+
+		<ui:define name="content">
+
+			<!-- PAGE D'ACCUEIL -->
+
+			<section id="section1">
+				<div class="container">
+					<div class="wrapper">
+						<div class="image-slider">
+							<h:graphicImage styleClass="img"
+								value="/resources/images/children.png" alt="child" width="100%"
+								height="auto" />
+							<h:graphicImage styleClass="img"
+								value="/resources/images/ocean.png" alt="ocean" width="100%"
+								height="auto" />
+							<h:graphicImage styleClass="img"
+								value="/resources/images/ola.png" alt="ola" width="100%"
+								height="auto" />
+							<h:graphicImage styleClass="img"
+								value="/resources/images/aqua.png" alt="aqua" width="100%"
+								height="auto" />
+						</div>
+
+					</div>
+
+				</div>
+			</section>
+
+
+			<!-- PRESENTATION AVEC PRIX -->
+			<div id="content">
+				<h2 class="title1">
+					<strong>Nos services pour les Associations</strong>
+				</h2>
+
+				<div class="services">
+					<div class="card-services">
+						<h:graphicImage value="/resources/images/member.png"
+							alt="adherent" width="300" height="auto" />
+						<h1>Gestion des adhésions</h1>
+						<p class="arguments">Votre association se modernise et passe
+							aux formulaires en ligne pour vos adhésions.</p>
+						<br />
+						<h:outputText value="15 €" />
+						<span>ttc/mois</span>
+						<p>
+							<button>Souscrire</button>
+						</p>
+					</div>
+
+					<div class="card-services">
+						<h:graphicImage value="/resources/images/crowdfunding.png"
+							alt="adherent" width="300" height="auto" />
+						<h1>Crowdfunding</h1>
+						<p class="arguments">Obtenez facilement le soutien du grand
+							public pour la levée de fonds de votre association.</p>
+						<br />
+						<h:outputText value="15 €" />
+						<span>ttc/mois</span>
+						<p>
+							<button>Souscrire</button>
+						</p>
+					</div>
+
+					<div class="card-services">
+						<h:graphicImage value="/resources/images/shopping.png"
+							alt="adherent" width="300" height="auto" />
+						<h1>Boutique en ligne</h1>
+						<p class="arguments">Proposez des articles à vendre sur notre
+							site pour financer les engagements de votre association.</p>
+						<br />
+						<h:outputText value="15 €" />
+						<span>ttc/mois</span>
+						<p>
+							<button>Souscrire</button>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- PARMI NOS ASSOCIATIONS -->
+
+			<section id="section3">
+
+
+				<ui:include src="/association/ListAssociations.xhtml" />
+			</section>
+
+			<!-- PARMI LES PRODUITS EN VENTE -->
+
+			<section id="section4">
+				<h2 class="title1">
+					<strong>Parmi les produits des Associations</strong>
+				</h2>
+				<ui:include src="/shop/ProductsList.xhtml" />
+			</section>
+
+			<!-- PARMI LES CAMPAGNES DE CROWDFUNDING EN COURS -->
+
+			<section id="section5">
+				<h2 class="title1">
+					<strong>Parmi les campagnes de Crowdfunding en cours</strong>
+				</h2>
+				<ui:include src="/crowdfunding/AllProjectsView.xhtml" />
+			</section>
+
+			<!-- EQUIPE YEET -->
+
+			<section id="section6">
+				<h2 class="title1">
+					<strong>Notre Equipe</strong>
+				</h2>
+			</section>
+
+			<!--NOUS CONTACTER -->
+
+			<section id="section7">
+				<h2 class="title1">
+					<strong>Pour nous contacter</strong>
+				</h2>
+
+			</section>
+
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>

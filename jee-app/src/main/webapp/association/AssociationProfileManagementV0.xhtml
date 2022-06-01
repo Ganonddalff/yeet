@@ -8,7 +8,7 @@
 
 <h:body>
 
-	<ui:composition template="/template/layout_dashboard.xhtml">
+	<ui:composition template="/template/layout.xhtml">
 		<ui:define name="title">Espace Association</ui:define>
 
 		<ui:define name="css">
@@ -20,6 +20,31 @@
 		</ui:define>
 
 		<ui:define name="content">
+
+			<div class="dashboard">
+				<div class="main-sidebar" id="mySidebar">
+
+					<div class="sidebar">
+						<h3>
+							<a href="dashboard.html">Tableau de bord</a>
+						</h3>
+						<div class="elements">
+							<a href="AssociationDashBoard.xhtml" class="dash-bar">Gestion de Services</a> 
+							<a href="AssociationProfileManagement.xhtml" class="dash-bar">Gestion de contenu</a> 
+							<a href="" class="dash-bar">Gestion de compte</a> 
+							<a href="" class="dash-bar">Statistiques</a>
+						</div>
+					</div>
+				</div>
+
+				<ui:fragment rendered="#{loginBean.isAssociationConnected()}">
+					<div class="header-dashboard">
+						<SPAN class="welcome"> BIENVENUE </SPAN>
+						<h:outputLabel class="nom-asso"
+							value="#{session.getAttribute('identifier')}" />
+					</div>
+				</ui:fragment>
+
 
 				<div class="main-dashboard-asso">
 					<div class="suite-main">
@@ -90,6 +115,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 
 		</ui:define>
 

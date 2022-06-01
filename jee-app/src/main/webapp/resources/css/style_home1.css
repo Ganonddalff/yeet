@@ -43,13 +43,10 @@
 
    }
    
-<<<<<<< HEAD
-.menu-links-home1 a{
-	
-=======
+
+
 #menu-links-home1 a{
 
->>>>>>> main
     text-decoration: none;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: normal;
@@ -88,7 +85,7 @@
 }
 
 
-.section1{
+#section1{
     /*background-image: ;*/
     background-size: cover;
     height: 100vh;
@@ -118,45 +115,7 @@
     font-family :'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.rgst-btn{
-    border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    border-radius: 10px;
-    background-color: gold;
-    background-image: linear-gradient(to top left,
-                                      rgba(0, 0, 0, .2),
-                                      rgba(0, 0, 0, .2) 30%,
-                                      rgba(0, 0, 0, 0));
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-                inset -2px -2px 3px rgba(0, 0, 0, .6);
-}
-
-.con-btn{
-    border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    border-radius: 10px;
-    background-color: green;
-    background-image: linear-gradient(to top left,
-                                      rgba(0, 0, 0, .2),
-                                      rgba(0, 0, 0, .2) 30%,
-                                      rgba(0, 0, 0, 0));
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-                inset -2px -2px 3px rgba(0, 0, 0, .6);
-}
-
-.section2{
+#section2{
     
     /*background-image: url();*/
     background-size: cover;
@@ -221,7 +180,7 @@
     margin-left: 40px;
 }
 
-.section3{
+#section3{
     /*background-image: url();*/
     background-size: cover;
     height: 100vh;
@@ -278,7 +237,7 @@ pre{
     float: right;
 }
 
-.section4{
+#section4{
     /*background-image: url(../images/green_geometric.png);*/
     background-size: cover;
     height: 100vh;

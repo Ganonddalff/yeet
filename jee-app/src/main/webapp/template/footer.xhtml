@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:f="http://java.sun.com/jsf/core"
-	  xmlns:p="http://primefaces.org/ui"
-	  xmlns:h="http://xmlns.jcp.org/jsf/html"
-	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:body>
 	<ui:composition>
-		<p>YEET 2022</p>
+
+		<ui:define name="css">
+			<h:outputStylesheet library="css" name="AssociationProfile.css" />
+			<h:outputStylesheet library="css" name="dashboard_styles1.css" />
+			<h:outputStylesheet library="css" name="loginSignin_styles.css" />
+			<h:outputStylesheet library="css" name="style_home1.css" />
+
+		</ui:define>
+
+			<div class="bas">
+
+				<div class="yeet" >
+					<span class="marque">YEET</span>
+				</div>
+
+				<div class="menu-home1" style="float: right; margin-right: -6%">
+					<ul class="menu-links-home1">
+						<li class="elt"><strong><a href="">Notre équipe</a></strong></li>
+						<li class="elt"><strong><a href="">Nous contacter</a></strong></li>
+					</ul>
+				</div>
+
+				<div style="clear: both"></div>
+
+
+			</div>
 	</ui:composition>
 </h:body>
 </html>

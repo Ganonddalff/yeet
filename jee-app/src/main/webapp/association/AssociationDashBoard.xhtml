@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:body>
+
+	<ui:composition template="/template/layout_dashboard.xhtml">
+		<ui:define name="title">Espace Association</ui:define>
+
+		<ui:define name="css">
+			<h:outputStylesheet library="css" name="AssociationProfile.css" />
+			<h:outputStylesheet library="css" name="dashboard_styles1.css" />
+			<h:outputStylesheet library="css" name="loginSignin_styles.css" />
+			<h:outputStylesheet library="css" name="style_home1.css" />
+			
+		</ui:define>
+
+		<ui:define name="content">
+
+			<!-- Liste des services -->
+
+			<div class="main-dashboard-asso">
+				<div class="suite-main">
+					<!-- <h1>Espace association</h1> -->
+				</div>
+				<div class="container-services">
+					<div class="bloc" id="bloc">
+						<h4 class="elt-bloc" id="elt-block">Crowdfunding</h4>
+						<p class="elt-paraph">Gérer vos activités de Crowdfunding</p>
+						<button class="btn-elt">
+							<a href="../crowdfunding/CrowdfundingManagement.xhtml"
+								style="text-decoration: none; color: white;">Crowdfunding</a>
+						</button>
+					</div>
+					<p:spacer width="20" height="20" />
+					<div class="bloc" id="bloc">
+						<h4 class="elt-bloc" id="elt-block">Boutique en ligne</h4>
+						<p class="elt-paraph">Gérer la vente de vos produits sur notre
+							plateforme</p>
+						<button class="btn-elt">
+							<a href="../shop/ShopManagement.xhtml"
+								style="text-decoration: none; color: white;">Vente</a>
+						</button>
+					</div>
+					<p:spacer width="20" height="20" />
+					<div class="bloc" id="bloc">
+						<h4 class="elt-bloc" id="elt-block">Adhésion</h4>
+						<p class="elt-paraph">Gérer vos activités d'adhésion</p>
+						<button class="btn-elt">
+							<a href="" style="text-decoration: none; color: white;">Adhésion</a>
+						</button>
+					</div>
+					<p:spacer width="20" height="20" />
+					<div class="bloc" id="bloc">
+						<h4 class="elt-bloc" id="elt-block">Votre abonnement</h4>
+						<p class="elt-paraph">Gérer votre abonnement à nos services</p>
+						<button class="btn-elt">
+							<a href="" style="text-decoration: none; color: white;">Abonnement</a>
+						</button>
+					</div>
+					<p:spacer width="20" height="20" />
+
+				</div>
+			</div>
+
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

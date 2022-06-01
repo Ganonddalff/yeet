@@ -10,11 +10,8 @@
 }
 
 #divLinks{
-    width:100%;
-    gap : 1em;
     font-size: 18px;
     margin-top: 1%;
-    margin-left: 100px;
     font-weight:bolder;
 }
 
@@ -29,6 +26,6 @@
     text-decoration: none;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: normal;
-    font-size: 15px;
+    font-size: 16px;
     color:white;
 }

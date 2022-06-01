@@ -21,42 +21,42 @@ body{
     font-size:40px;
 }
 
-.section2{
-    background-image : url("#{resource['images/LoginSignin_layout.png']}");
+#section2{
+    background-image : url("#{resource['images/green.png']}");
     background-size: cover;
     height: 100vh;
     background-repeat: no-repeat;
 }
 
-.section3{
-    background-image : url("#{resource['images/LoginSignin_layout.png']}");
+#section3{
+    background-image : url("#{resource['images/green.png']}");
     background-size: cover;
     height: 100vh;
     background-repeat: no-repeat;
 }
 
-.section4 {
-    background-image : url("#{resource['images/LoginSignin_layout.png']}");
+#section4 {
+    background-image : url("#{resource['images/green.png']}");
     background-size: cover;
     height: 100vh;
     background-repeat: no-repeat;
 }
 
-.section5{
-    background-image : url("#{resource['images/LoginSignin_layout.png']}");
+#section5{
+    background-image : url("#{resource['images/green.png']}");
     background-size: cover;
     height: 100vh;
     background-repeat: no-repeat;
 }
-.section6{
-    background-image : url("#{resource['images/LoginSignin_layout.png']}");
+#section6{
+    background-image : url("#{resource['images/green.png']}");
     background-size: cover;
     height: 100vh;
     background-repeat: no-repeat;
 }
 
-.section7{
-    background-image : url("#{resource['images/LoginSignin_layout.png']}");
+#section7{
+    background-image : url("#{resource['images/green.png']}");
     background-size: cover;
     height: 100vh;
     background-repeat: no-repeat;
