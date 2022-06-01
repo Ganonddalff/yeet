@@ -43,7 +43,8 @@ public class InitialisationBean implements Serializable {
 		
 		//Initialisation de la boutique
 		newProductInShop("Tableau", ProductCategory.Decoration, "/resources/images/produits/tableau.jpeg",
-				(double) 100, "France", (long) 45, (long)2);
+				(double) 100, "France", (long) 45, (long)2, "Tableau avec un cadre flamme, ludique pour la "
+						+ "décoration murale de votre petit bout'chou");
 	}
 
 	@PreDestroy
@@ -82,7 +83,7 @@ public class InitialisationBean implements Serializable {
 	}
 
 	public void newProductInShop(String name, ProductCategory category, String image, Double price, String manufacturingCountry,
-			Long stock, Long associationId){
+			Long stock, Long associationId, String description){
 
 		ProductCreateForm form = new ProductCreateForm();
 		form.getProduct().setNameProduct(name);
@@ -91,6 +92,7 @@ public class InitialisationBean implements Serializable {
 		form.getProduct().setManufacturingCountry(manufacturingCountry);
 		form.getProduct().setPrice(price);
 		form.getProduct().setStock(stock);
+		form.getProduct().setDescription(description);
 		Association association =  associationService.findById(associationId).get();
 		Product product = productService.createProduct(form, association);
 

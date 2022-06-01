@@ -16,7 +16,7 @@
             <div class="row">
                 <ui:repeat value="#{productsListBean.viewModel.productsList}" var="product">
                     <h:panelGroup layout="block" class="card"
-                                  style="background-image: url('#{facesContext.externalContext.requestContextPath}#{asso.getProfileImage()}');">
+                                  style="background-image: url('#{facesContext.externalContext.requestContextPath}#{product.getImage()}');">
                         <h:panelGroup layout="block" class="info">
                             <h1 class='title'>#{product.nameProduct}</h1>
                             <p class="category">#{product.category}</p>

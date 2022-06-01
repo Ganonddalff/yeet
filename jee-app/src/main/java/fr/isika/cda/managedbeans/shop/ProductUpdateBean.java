@@ -41,7 +41,7 @@ public class ProductUpdateBean implements Serializable{
 			Optional<Account> optional = accountService.findByIdentifier(currentUserIdentifier);
 			if (optional.isPresent()) {
 				Account account = optional.get();
-				productService.createProduct(this.productCreateForm, account.getAssociation());
+				productService.updateProduct(null);
 
 			} else {
 				// cas utilisateur introuvable

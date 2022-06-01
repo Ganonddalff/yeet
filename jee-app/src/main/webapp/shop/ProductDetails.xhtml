@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:c="http://java.sun.com/jstl/core"
-      xmlns:p="http://primefaces.org/ui" lang="en">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.org/ui" lang="en">
 
 <h:body>
-    <f:metadata>
-        <f:viewParam name="id" value="#{productDetailsBean.id}"/>
-        <f:viewAction action="#{productDetailsBean.init}" />
-    </f:metadata>
-    <ui:composition template="/template/layout.xhtml">
-        <ui:define name="title">Détails du produit</ui:define>
-        <ui:define name="css">
-            <h:outputStylesheet library="css" name="AssociationProfile.css"/>
-        </ui:define>
-        <ui:define name="content">
-            <h:panelGrid id="grid" column="1">
-            	<h:graphicImage id="image"
-                                    value="#{productDetailsBean.product.image}"/>
-
-                <h:outputLabel value="#{productDetailsBean.product.nameProduct}"/>
-                <h:outputLabel value="#{productDetailsBean.product.category}"/>
-                <h:outputLabel value="#{productDetailsBean.product.price}"/>
-                <h:outputLabel value="#{productDetailsBean.product.stock}"/>
-            </h:panelGrid>
-        </ui:define>
-    </ui:composition>
+	<f:metadata>
+		<f:viewParam name="id" value="#{productDetailsBean.id}" />
+		<f:viewAction action="#{productDetailsBean.init}" />
+	</f:metadata>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="title">Détails du produit</ui:define>
+		<ui:define name="css">
+			<h:outputStylesheet library="css" name="product.css" />
+		</ui:define>
+		<ui:define name="content">
+			<div class="card">
+				<h:graphicImage id="image"
+					value="#{productDetailsBean.product.image}" style="width:100%" />
+				<h3 value="#{productDetailsBean.product.nameProduct}" />
+				<p class="price">#{productDetailsBean.product.price}</p>
+				<p>#{productDetailsBean.product.description}</p>
+				<h:form>
+					<h:outputLabel value="Quantité" />
+					<h:inputText id="quantityInput" value="1">
+					</h:inputText>
+					<h:inputHidden id="stockInput" value="#{productDetailsBean.product.stock}">
+					</h:inputHidden>
+				</h:form>
+				<h:commandButton class="card button" value="Ajouter" action="#{basketBean.AddInBasket(productDetailsBean.product, 1)}" />
+			</div>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>
