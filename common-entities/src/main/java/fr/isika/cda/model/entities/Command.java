@@ -4,12 +4,16 @@ import fr.isika.cda.model.enumeration.CommandStatus;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Command {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @OneToMany
+    private List<CommandLine> commandLine;
 
     @Temporal(TemporalType.DATE)
     private Date date;
@@ -21,7 +25,7 @@ public class Command {
     private Delivery delivery;
 
     @Column(precision=10, scale=2)
-    private Double totalPrice;
+    private Double totalAmount;
 
     public Date getDate() {
         return date;
@@ -55,11 +59,23 @@ public class Command {
         this.delivery = delivery;
     }
 
-    public Double getTotalPrice() {
-        return totalPrice;
-    }
+	public Double getTotalAmount() {
+		return totalAmount;
+	}
 
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
+	public void setTotalAmount(Double totalAmount) {
+		this.totalAmount = totalAmount;
+	}
+
+	public List<CommandLine> getCommandLine() {
+		return commandLine;
+	}
+
+	public void setCommandLine(List<CommandLine> commandLine) {
+		this.commandLine = commandLine;
+	}
+	
+	
+    
+    
 }
