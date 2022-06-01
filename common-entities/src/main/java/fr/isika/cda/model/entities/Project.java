@@ -39,8 +39,11 @@ public class Project {
 
     @OneToOne(cascade = {CascadeType.ALL})
     private FundRaising fundRaising;
+    @NotNull
+    private String projectIllustration;
 
-    private int projectIllustration;
+
+    String projectBanner;
     @NotNull
     @Length(min = 20,max = 150,message = "La description doit comprendre entre 20 et 150 caractères.")
     private String description;
@@ -112,12 +115,20 @@ public class Project {
         this.association = association;
     }
 
-    public int getProjectIllustration() {
+    public String getProjectIllustration() {
         return projectIllustration;
     }
 
-    public void setProjectIllustration(int projectIllustration) {
+    public void setProjectIllustration(String projectIllustration) {
         this.projectIllustration = projectIllustration;
+    }
+
+    public String getProjectBanner() {
+        return projectBanner;
+    }
+
+    public void setProjectBanner(String projectBanner) {
+        this.projectBanner = projectBanner;
     }
 
     public String getDescription() {

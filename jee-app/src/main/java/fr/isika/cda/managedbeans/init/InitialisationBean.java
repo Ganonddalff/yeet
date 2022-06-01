@@ -71,7 +71,7 @@ public class InitialisationBean implements Serializable {
          */
         newProject("Permettre à tous les enfants de E-Enfance l'accès à un club de sport pour la rentrée 2022.",
                 "Pour l'enfance", ProjectType.Sport, asso, "22/06/2022", "29/06/2022",
-                "Paris", 17000);
+                "Paris", 17000,"/resources/images/crowdfunding/kidSoccer.jpg","/resources/images/crowdfunding/KidSportBanner.jpg");
 
         //Initialisation de la boutique
         newProductInShop("Tableau", ProductCategory.Decoration, "/resources/images/produits/tableau.jpeg",
@@ -134,7 +134,7 @@ public class InitialisationBean implements Serializable {
     }
 
     public void newProject(String description, String name, ProjectType projectType, Association asso,
-                           String startingDate, String finishDate, String location, double raiseTarget){
+                           String startingDate, String finishDate, String location, double raiseTarget, String illustration, String banner){
         ProjectCreationForm form = new ProjectCreationForm();
         form.getProject().setDescription(description);
         form.getProject().setName(name);
@@ -147,6 +147,8 @@ public class InitialisationBean implements Serializable {
         } catch (ParseException e) {}
         form.getProject().setLocation(location);
         form.getProject().setRaiseTarget(raiseTarget);
+        form.getProject().setProjectIllustration(illustration);
+        form.getProject().setProjectBanner(banner);
         projectService.createProject(form);
     }
 

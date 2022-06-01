@@ -14,7 +14,7 @@
         <ui:define name="content">
                 <h3>Création d'un projet de financement participatif</h3>
                 <hr/>
-<h:form id="createProjectForm">
+<h:form id="createProjectForm" enctype="multipart/form-data">
         <h:panelGrid columns="3">
         <h:outputLabel value="Nom du projet : "/>
         <h:inputText id="nameInput" value="#{projectCreationBean.projectCreationForm.project.name}"/>
@@ -53,6 +53,13 @@
         <h:inputText id="descriptionInput" value="#{projectCreationBean.projectCreationForm.project.description}"/>
         <h:message for="descriptionInput" style = "color:red" />
 
+        <h:outputLabel value="Image d'illustration : "/>
+        <h:inputFile id="illustrationInput" value="#{projectCreationBean.uploadedIllustration}" />
+        <h:message for="illustrationInput" style="color: red"/>
+
+        <h:outputLabel value="Image de bannière : "/>
+        <h:inputFile id="bannerInput" value="#{projectCreationBean.uploadedBanner}"/>
+        <h:message for="bannerInput" style="color:red"/>
 
 
         <h:commandButton value="Remplir" immediate="true" onclick="fillProjectCreationForm()" />

@@ -20,14 +20,13 @@
             <!--<ui:param name="projectId" value="#{projectProfileBean.id}" var="projectId">-->
             <h:panelGrid id="grid" column="1">
                 <h:panelGroup layout="block" id="banner"
-                              style="background-image: url('#{facesContext.externalContext.requestContextPath}#{associationProfileBean.association.banner}');">
+                              style="background-image: url('#{facesContext.externalContext.requestContextPath}#{projectProfileBean.project.projectBanner}');">
                     <h:graphicImage id="profileImage"
-                                    value="#{associationProfileBean.association.profileImage}"/>
+                                    value="#{projectProfileBean.project.projectIllustration}"/>
                 </h:panelGroup>
-                Id : <h:outputLabel value="#{projectProfileBean.id}"/>
-                project.id : <h:outputLabel value="#{projectProfileBean.project.id}" />
+
                 <h:outputLabel value="#{projectProfileBean.project.name}"/>
-                <h:outputLabel value="#{projectProfileBean.project.fundRaising.raisedFunds}"/>
+                <h:outputLabel value="#{projectProfileBean.project.fundRaising.raisedFunds}"/> € / <h:outputLabel value="#{projectProfileBean.project.raiseTarget}" />€
                 <h:outputLabel value="#{projectProfileBean.project.startDate}"/>
                 <h:outputLabel value="#{projectProfileBean.project.finishDate}"/>
                 <h:outputLabel value="#{projectProfileBean.project.projectType}"/>
