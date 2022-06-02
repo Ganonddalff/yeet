@@ -33,6 +33,13 @@ public class ProjectService {
         return projectRepository.contributeProject(contributionForm);
     }
 
+    public Project updateProject(Project project){
+        return this.projectRepository.updateProject(project);
+    }
+    public void deleteProject(Project project){
+        this.projectRepository.deleteProject(project);
+    }
+
     public List<Project> findAll() {
         return projectRepository.findAll();
     }

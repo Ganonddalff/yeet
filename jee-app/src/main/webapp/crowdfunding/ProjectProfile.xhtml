@@ -33,10 +33,14 @@
                 <h:outputLabel value="#{projectProfileBean.project.description}"/>
                 <h:button class="linkButton" value="Contribuer" outcome="Contribute.xhtml?faces-redirect=true" >
                     <f:param name="projectId" value="#{projectProfileBean.id}"/></h:button>
+                <h:button class="linkButton" value="Modifier mon projet" outcome="ProjectManagement.xhtml?faces-redirect=true">
+                    <f:param name="projectId" value="#{projectProfileBean.id}"/></h:button>
 
             </h:panelGrid>
-            <h:button class="linkButton" value="Retour" outcome="AllProjectsView.xhtml"/>
-           <!-- </ui:param>-->
+            <h:button class="linkButton" value="Retour" outcome="AllProjectsView.xhtml"/><br />
+
+
+            <!-- </ui:param>-->
         </ui:define>
     </ui:composition>
 </h:body>

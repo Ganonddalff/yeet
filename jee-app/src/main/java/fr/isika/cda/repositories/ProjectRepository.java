@@ -43,6 +43,7 @@ public class ProjectRepository {
         return this.entityManager.createQuery("SELECT project FROM Project project", Project.class).getResultList();
     }
     public void deleteProject(Project project){
+        project = entityManager.merge(project);
         this.entityManager.remove(project);
         this.entityManager.flush();
         this.entityManager.clear();

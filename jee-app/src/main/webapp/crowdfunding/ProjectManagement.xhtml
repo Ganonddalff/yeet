@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:body>
+    <ui:composition template="/template/layout_dashboard.xhtml">
+    <ui:define name="title">Modifier votre projet</ui:define>
+
+    <ui:define name="css">
+        <h:outputStylesheet library="css" name="AssociationProfile.css" />
+        <h:outputStylesheet library="css" name="dashboard_styles1.css" />
+        <h:outputStylesheet library="css" name="loginSignin_styles.css" />
+        <h:outputStylesheet library="css" name="style_home1.css" />
+
+    </ui:define>
+    <f:metadata>
+        <f:viewParam name="projectId" value="#{projectManagementBean.id}"/>
+        <f:viewAction action="#{projectManagementBean.init}" />
+    </f:metadata>
+    <ui:define name="content">
+
+        <h:form id="updateProjectForm" enctype="multipart/form-data">
+            <h:panelGrid columns="3">
+
+            <h:outputLabel value="Date de début du projet: "/>
+            <h:inputText id="startDateInput" value="#{projectManagementBean.projectManagementForm.project.startDate}">
+                <f:convertDateTime pattern="dd-MM-yyyy"/>
+            </h:inputText>
+            <h:message for="startDateInput" style = "color:red" />
+
+            <h:outputLabel value="Date de fin du projet : "/>
+            <h:inputText id="finishDateInput" value="#{projectManagementBean.projectManagementForm.project.finishDate}">
+                <f:convertDateTime pattern="dd-MM-yyyy"/>
+            </h:inputText>
+            <h:message for="finishDateInput" style = "color:red" />
+
+            <h:outputLabel value="Lieu où se produit le projet : "/>
+            <h:inputText id="locationInput" value="#{projectManagementBean.projectManagementForm.project.location}"/>
+            <h:message for="locationInput" style = "color:red" />
+
+            <h:outputLabel value="Objectif de levée de fonds : "/>
+            <h:inputText id="raiseTargetInput" value="#{projectManagementBean.projectManagementForm.project.raiseTarget}">
+                <f:convertNumber /> </h:inputText>
+            <h:message for="raiseTargetInput" style = "color:red" />
+
+            <h:outputLabel value="Catégorie : "/>
+            <h:inputText id="projectTypeInput" value="#{projectManagementBean.projectManagementForm.project.projectType}"/>
+            <h:message for="projectTypeInput" style = "color:red" />
+
+            <h:outputLabel value="Description : "/>
+            <h:inputTextarea id="descriptionInput" value="#{projectManagementBean.projectManagementForm.project.description}"/>
+            <h:message for="descriptionInput" style = "color:red" />
+
+            <h:commandButton value="Modifier" action="#{projectManagementBean.updateProject()}"/>
+            <h:commandButton value="Effacer" action="#{projectManagementBean.deleteProject()}"/>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+    </ui:composition>
+</h:body>
+</html>
