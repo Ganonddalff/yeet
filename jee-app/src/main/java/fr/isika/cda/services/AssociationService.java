@@ -26,4 +26,8 @@ public class AssociationService {
     public List<Association> findAll() {
         return associationRepository.findAll();
     }
+
+    public List<Association> search(String keyword) {
+        return associationRepository.search(keyword);
+    }
 }
