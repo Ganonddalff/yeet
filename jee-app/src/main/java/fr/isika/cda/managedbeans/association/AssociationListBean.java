@@ -25,6 +25,10 @@ public class AssociationListBean implements Serializable{
                 this.viewmodel = new AssociationListViewmodel(associationService.findAll());
         }
 
+        public void search(){
+                this.viewmodel.setAssociationList(associationService.search(this.viewmodel.getKeyword()));
+        }
+
         public AssociationListViewmodel getViewmodel() {
                 return viewmodel;
         }

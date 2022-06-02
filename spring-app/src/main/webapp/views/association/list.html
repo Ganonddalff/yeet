@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Liste des associations</title>
+</head>
+<body>
+    <h1>Liste des associations</h1>
+    <table border="1">
+        <tr>
+            <th>Nom</th>
+        </tr>
+        <tr th:each ="account : ${listAssociationAccount}">
+            <td th:utext="${account.association.name}">...</td>
+        </tr>
+    </table>
+</body>
+</html>

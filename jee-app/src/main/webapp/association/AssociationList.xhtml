@@ -8,11 +8,16 @@
 
 <h:body>
     <ui:composition template="/template/layout.xhtml">
-        <ui:define name="title">Création de compte</ui:define>
+        <ui:define name="title">Liste des associations</ui:define>
         <ui:define name="css">
             <h:outputStylesheet library="css" name="AssociationList.css"/>
         </ui:define>
         <ui:define name="content">
+            <h:form>
+                <h:outputLabel value="Recherche :"/>
+                <h:inputText value="#{associationListBean.viewmodel.keyword}"/>
+                <h:commandButton value="Rechercher" action="#{associationListBean.search}"/>
+            </h:form>
             <div class="row">
                 <ui:repeat value="#{associationListBean.viewmodel.associationList}" var="asso">
                     <h:panelGroup layout="block" class="card"

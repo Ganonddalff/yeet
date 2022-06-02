@@ -38,4 +38,13 @@ public class AssociationRepository {
     public Association update(Association association) {
         return this.entityManager.merge(association);
     }
+
+    public List<Association> search(String keyword) {
+        return this.entityManager
+                .createQuery("SELECT a FROM Association a JOIN a.address ad WHERE a.name LIKE :keyword" +
+                        " OR a.description LIKE :keyword" +
+                        " OR ad.city LIKE :keyword", Association.class)
+                .setParameter("keyword", '%' + keyword + '%').
+                getResultList();
+    }
 }
