@@ -44,6 +44,9 @@ public class AccountService {
         association.setBanner("/resources/images/banners/standardBanner.png");
         association.setProfileImage("/resources/images/profileImages/standardProfileImage.jpeg");
         association.setDescription("");
+        association.setAdhesionSubscription(false);
+        association.setCrowdfundingSubscription(false);
+        association.setShopSubscription(false);
         Account associationAccount = form.getAccount();
         associationAccount.setAccountCategory(AccountCategory.Association);
         associationAccount.setCreationDate(Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));

@@ -78,6 +78,10 @@ public class CreditCardPaymentBean {
                 url = "/crowdfunding/ContributionValidation.xhtml?id=" + payment.getIdReason();
                 FacesContext.getCurrentInstance().getExternalContext().redirect(url);
                 break;
+            case Subscription:
+                url="/association/AssociationDashBoard.xhtml?id="+payment.getIdReason();
+                FacesContext.getCurrentInstance().getExternalContext().redirect(url);
+                break;
         }
     }
 

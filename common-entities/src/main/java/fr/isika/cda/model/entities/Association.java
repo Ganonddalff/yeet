@@ -1,5 +1,7 @@
 package fr.isika.cda.model.entities;
 
+import jdk.jfr.BooleanFlag;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -45,6 +47,13 @@ public class Association{
     private String banner;
     @NotNull
     private String description;
+
+    private Boolean AdhesionSubscription;
+
+    private Boolean CrowdfundingSubscription;
+
+    private Boolean ShopSubscription;
+
 
     public String getName() {
         return name;
@@ -124,5 +133,29 @@ public class Association{
 
     public void setAdhesionPrice(double adhesionPrice) {
         this.adhesionPrice = adhesionPrice;
+    }
+
+    public Boolean getAdhesionSubscription() {
+        return AdhesionSubscription;
+    }
+
+    public void setAdhesionSubscription(Boolean adhesionSubscription) {
+        AdhesionSubscription = adhesionSubscription;
+    }
+
+    public Boolean getCrowdfundingSubscription() {
+        return CrowdfundingSubscription;
+    }
+
+    public void setCrowdfundingSubscription(Boolean crowdfundingSubscription) {
+        CrowdfundingSubscription = crowdfundingSubscription;
+    }
+
+    public Boolean getShopSubscription() {
+        return ShopSubscription;
+    }
+
+    public void setShopSubscription(Boolean shopSubscription) {
+        ShopSubscription = shopSubscription;
     }
 }

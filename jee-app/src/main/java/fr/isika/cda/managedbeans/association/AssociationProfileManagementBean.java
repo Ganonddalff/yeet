@@ -2,7 +2,6 @@ package fr.isika.cda.managedbeans.association;
 
 import fr.isika.cda.model.entities.Association;
 import fr.isika.cda.services.AssociationService;
-import jdk.jfr.Description;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -27,6 +26,9 @@ public class AssociationProfileManagementBean {
     private String bannerPath;
     private String profileImagePath;
     private String description;
+    private Boolean wantAdhesion;
+    private Boolean wantCrowdfunding;
+    private Boolean wantShop;
 
     @Inject
     private AssociationService associationService;
@@ -39,6 +41,34 @@ public class AssociationProfileManagementBean {
         this.description = getDescription();
         this.bannerPath = getBanner();
         this.profileImagePath = getProfileImage();
+    }
+    public String subscribe(){
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        Association association = associationService.findById((Long) session.getAttribute("idAssociation")).get();
+
+        if(!association.getAdhesionSubscription() && wantAdhesion){
+            subscribeToAdhesion(association);
+        }
+        if (!association.getCrowdfundingSubscription() && wantCrowdfunding){
+            subscribeToCrowdfunding(association);
+        }
+        if (!association.getShopSubscription()&&wantShop){
+            subscribeToShop(association);
+        }
+        associationService.update(association);
+        return "/association/AssociationProfileManagement.xhtml?faces-redirect=true";
+    }
+    public void subscribeToAdhesion(Association association){
+
+        association.setAdhesionSubscription(true);
+    }
+
+    public void subscribeToCrowdfunding(Association association){
+        association.setCrowdfundingSubscription(true);
+    }
+
+    public void subscribeToShop(Association association){
+        association.setShopSubscription(true);
     }
 
     public String uploadProfileImage(){
@@ -140,5 +170,29 @@ public class AssociationProfileManagementBean {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Boolean getWantAdhesion() {
+        return wantAdhesion;
+    }
+
+    public void setWantAdhesion(Boolean wantAdhesion) {
+        this.wantAdhesion = wantAdhesion;
+    }
+
+    public Boolean getWantCrowdfunding() {
+        return wantCrowdfunding;
+    }
+
+    public void setWantCrowdfunding(Boolean wantCrowdfunding) {
+        this.wantCrowdfunding = wantCrowdfunding;
+    }
+
+    public Boolean getWantShop() {
+        return wantShop;
+    }
+
+    public void setWantShop(Boolean wantShop) {
+        this.wantShop = wantShop;
     }
 }
