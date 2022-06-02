@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8" />
     <title>Acceuil</title>
 </head>
 <body>
-    <p th:text="'Hello, ' + ${message} + '!'" />
+    <a href="./views/association/list.html" th:href="@{/association/list}">Liste association</a>
 </body>
 </html>
