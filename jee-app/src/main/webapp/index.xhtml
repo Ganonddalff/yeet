@@ -17,99 +17,107 @@
 		<ui:define name="css">
 			<h:outputStylesheet library="css" name="AssociationProfile.css" />
 			<h:outputStylesheet library="css" name="dashboard_styles1.css" />
-			<h:outputStylesheet library="css" name="loginSignin_styles.css" />
+			<!-- <h:outputStylesheet library="css" name="loginSignin_styles.css" /> -->
 			<h:outputStylesheet library="css" name="style_home1.css" />
 			<h:outputStylesheet library="css" name="page1.css" />
 			<h:outputStylesheet library="css" name="AssociationList.css" />
-			<h:outputStylesheet library="css" name="Home.css" />
 
 		</ui:define>
 
 		<ui:define name="content">
 
+
 			<!-- PAGE D'ACCUEIL -->
 
 			<section id="section1">
-				<div class="container">
-					<div class="wrapper">
-						<div class="image-slider">
-							<h:graphicImage styleClass="img"
-								value="/resources/images/children.png" alt="child" width="100%"
-								height="auto" />
-							<h:graphicImage styleClass="img"
-								value="/resources/images/ocean.png" alt="ocean" width="100%"
-								height="auto" />
-							<h:graphicImage styleClass="img"
-								value="/resources/images/ola.png" alt="ola" width="100%"
-								height="auto" />
-							<h:graphicImage styleClass="img"
-								value="/resources/images/aqua.png" alt="aqua" width="100%"
-								height="auto" />
-						</div>
-
+				<div class="wrapper">
+					<div class="image-slider">
+						<h:graphicImage styleClass="img"
+							value="/resources/images/children.png" alt="child" width="100%"
+							height="auto" />
+						<h:graphicImage styleClass="img"
+							value="/resources/images/ocean.png" alt="ocean" width="100%"
+							height="auto" />
+						<h:graphicImage styleClass="img" value="/resources/images/ola.png"
+							alt="ola" width="100%" height="auto" />
+						<h:graphicImage styleClass="img"
+							value="/resources/images/aqua.png" alt="aqua" width="100%"
+							height="auto" />
 					</div>
 
 				</div>
+
 			</section>
 
 
-			<!-- PRESENTATION AVEC PRIX -->
-			<div id="content">
-				<h2 class="title1">
-					<strong>Nos services pour les Associations</strong>
-				</h2>
+			<!-- PRESENTATION DES SERVICES AVEC PRIX -->
 
-				<div class="services">
-					<div class="card-services">
-						<h:graphicImage value="/resources/images/member.png"
-							alt="adherent" width="300" height="auto" />
-						<h1>Gestion des adhésions</h1>
-						<p class="arguments">Votre association se modernise et passe
-							aux formulaires en ligne pour vos adhésions.</p>
-						<br />
-						<h:outputText value="15 €" />
-						<span>ttc/mois</span>
-						<p>
-							<button>Souscrire</button>
-						</p>
-					</div>
+			<section id="section2">
+				<div id="content-sect2">
+					<h2 class="title1">
+						<strong>Nos services pour les Associations</strong>
+					</h2>
 
-					<div class="card-services">
-						<h:graphicImage value="/resources/images/crowdfunding.png"
-							alt="adherent" width="300" height="auto" />
-						<h1>Crowdfunding</h1>
-						<p class="arguments">Obtenez facilement le soutien du grand
-							public pour la levée de fonds de votre association.</p>
-						<br />
-						<h:outputText value="15 €" />
-						<span>ttc/mois</span>
-						<p>
-							<button>Souscrire</button>
-						</p>
-					</div>
+					<!-- GESTION DES ADHESIONS -->
 
-					<div class="card-services">
-						<h:graphicImage value="/resources/images/shopping.png"
-							alt="adherent" width="300" height="auto" />
-						<h1>Boutique en ligne</h1>
-						<p class="arguments">Proposez des articles à vendre sur notre
-							site pour financer les engagements de votre association.</p>
-						<br />
-						<h:outputText value="15 €" />
-						<span>ttc/mois</span>
-						<p>
-							<button>Souscrire</button>
-						</p>
+					<div class="services">
+						<div class="card-services">
+							<h:graphicImage value="/resources/images/member.png"
+								alt="adherent" width="300" height="auto" />
+							<h2>Gestion des adhésions</h2>
+							<p class="arguments">Votre association se modernise et passe
+								aux formulaires en ligne pour vos adhésions.</p>
+							<br />
+							<h:outputText value="15 €" />
+							<span>ttc/mois</span>
+							<p>
+								<button>Souscrire</button>
+							</p>
+						</div>
+
+						<!-- CROWDFUNDING -->
+
+						<div class="card-services">
+							<h:graphicImage value="/resources/images/crowdfunding.png"
+								alt="adherent" width="300" height="auto" />
+							<h2>Crowdfunding</h2>
+							<p class="arguments">Obtenez facilement le soutien du grand
+								public pour la levée de fonds de votre association.</p>
+							<br />
+							<h:outputText value="15 €" />
+							<span>ttc/mois</span>
+							<p>
+								<button>Souscrire</button>
+							</p>
+						</div>
+
+						<!-- VENTE EN LIGNE -->
+
+						<div class="card-services">
+							<h:graphicImage value="/resources/images/shopping.png"
+								alt="shopping" width="300" height="auto" />
+							<h2>Boutique en ligne</h2>
+							<p class="arguments">Proposez des articles à vendre sur notre
+								site pour financer votre association.</p>
+							<br />
+							<h:outputText value="15 €" />
+							<span>ttc/mois</span>
+							<p>
+								<button>Souscrire</button>
+							</p>
+						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 
 			<!-- PARMI NOS ASSOCIATIONS -->
 
 			<section id="section3">
 
+				<h2 class="title1">
+					<strong>Parmi Nos clients Associations</strong>
+				</h2>
 
-				<ui:include src="/association/ListAssociations.xhtml" />
 			</section>
 
 			<!-- PARMI LES PRODUITS EN VENTE -->
@@ -118,7 +126,7 @@
 				<h2 class="title1">
 					<strong>Parmi les produits des Associations</strong>
 				</h2>
-				<ui:include src="/shop/ProductsList.xhtml" />
+
 			</section>
 
 			<!-- PARMI LES CAMPAGNES DE CROWDFUNDING EN COURS -->
@@ -127,7 +135,7 @@
 				<h2 class="title1">
 					<strong>Parmi les campagnes de Crowdfunding en cours</strong>
 				</h2>
-				<ui:include src="/crowdfunding/AllProjectsView.xhtml" />
+
 			</section>
 
 			<!-- EQUIPE YEET -->

@@ -1,71 +1,92 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:f="http://java.sun.com/jsf/core"
-	  xmlns:p="http://primefaces.org/ui"
-	  xmlns:h="http://xmlns.jcp.org/jsf/html"
-	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:body>
 	<ui:composition>
 		<ui:define name="css">
-			<h:outputStylesheet library="css" name="style_home1.css" />
+
 		</ui:define>
 		<div id="navbar">
 			<div id="logo">
 				<h:link outcome="/index.xhtml">
-					<h:graphicImage value="/resources/images/logo_transp.png" alt="logo" width="200" height="auto"/>
+					<h:graphicImage value="/resources/images/logo_transp.png"
+						alt="logo" width="100" height="auto" />
 				</h:link>
 			</div>
 			<div id="divLinks">
 				<ul id="links">
-					<li class="elt"><h:link value="Les associations" outcome="/association/AssociationList.xhtml"/></li>
-					<li class="elt"><h:link value="Boutique" outcome="/shop/ProductsList.xhtml"/></li>
-					<li class="elt"><h:link value="Crowdfunding" outcome="/crowdfunding/AllProjectsView.xhtml"/></li>
-					<li class="elt"><h:link value="Panier" outcome="/shop/ProductDetails.xhtml"/></li>
+					<li class="elt"><h:link value="Les associations"
+							outcome="/association/AssociationList.xhtml" /></li>
+					<li class="elt"><h:link value="Boutique"
+							outcome="/shop/ProductsList.xhtml" /></li>
+					<li class="elt"><h:link value="Crowdfunding"
+							outcome="/crowdfunding/AllProjectsView.xhtml" /></li>
+
 					<ui:fragment rendered="#{loginBean.isAssociationConnected()}">
-						<li class="elt">
-							<h:outputLabel value="#{session.getAttribute('identifier')}"/>
-						</li>
+						<li class="elt"><h:outputLabel
+								value="#{session.getAttribute('identifier')}" /></li>
 						<!-- <li class="elt">
 							<h:link value="Gérer mon association" outcome="/association/DashboardAssociation.xhtml"/>
 						</li> -->
-												
+
 						<li class="elt">
 							<h:form>
-								<h:commandLink value="Se déconnecter" action="#{loginBean.signOut}" />
+								<h:commandLink title="Deconnexion"
+									action="#{loginBean.signOut}" >
+									<i class="pi pi-sign-out" style="font-size: 2rem; color:brown; margin-left: 30%;"></i>
+								</h:commandLink>
 							</h:form>
 						</li>
-						
+
 					</ui:fragment>
 					<ui:fragment rendered="#{loginBean.isUserConnected()}">
-						<li class="elt">
-							<h:outputLabel styleClass="color:yellow" value="#{session.getAttribute('identifier')}"/>
-						</li>
-						<li class="elt">
-							<h:link value="Gérer mon compte" outcome="/account/DashboardUser.xhtml"/>
-						</li>
-						
+						<li class="elt"><h:outputLabel styleClass="color:yellow"
+								value="#{session.getAttribute('identifier')}" /></li>
+						<li class="elt"><h:link value="Gérer mon compte"
+								outcome="/account/DashboardUser.xhtml" /></li>
+
 						<li class="elt">
 							<h:form>
-								<h:commandLink class="deconnexion" value="Se déconnecter" action="#{loginBean.signOut}" style="color:green"/>
+								<h:commandLink class="deconnexion" title="Deconnexion"
+									action="#{loginBean.signOut}"
+									style="font-size:100%; color:brown; margin-left: 30%;">
+									<i class="pi pi-sign-out" style="font-size: 2rem; color:brown"></i>
+								</h:commandLink>
 							</h:form>
 						</li>
 					</ui:fragment>
 					<ui:fragment rendered="#{loginBean.isNobodyConnected()}">
-						<li class="elt" >
-							<h:link style="font-size:100%; color:orange; margin-left:-10%;" value="Inscrire mon association" outcome="/account/CreateAssociationAccount.xhtml"/></li>
-					
+						<li class="elt"><h:link
+								style="font-size:100%; color:orange; margin-left:-10%;"
+								value="Inscrire mon association"
+								outcome="/account/CreateAssociationAccount.xhtml" /></li>
+
+						<li class="elt"><h:link
+								style="font-size:100%; color:yellow; margin-left:-25%;"
+								value="Créer un compte"
+								outcome="/account/CreateUserAccount.xhtml" /></li>
+
 						<li class="elt">
-							<h:link  style="font-size:100%; color:yellow; margin-left:-25%;" value="Créer un compte" outcome="/account/CreateUserAccount.xhtml"/></li>
+						<h:link outcome="/account/Login.xhtml" title="Connexion"><i class="pi pi-sign-in" style="font-size: 2rem; color:green"></i></h:link>
+						</li>
 						
-						<li class="elt">
-							<h:link style="font-size:100%; color:green; margin-left:-50%;" value="Se connecter" outcome="/account/Login.xhtml"/></li>
-						
+
 					</ui:fragment>
 				</ul>
 			</div>
-			<div style="clear:both"></div>
+			<div class="panier">
+				<h:form>
+				<h:commandLink><i class="pi pi-shopping-cart" style="font-size: 2rem; color:yellow"></i></h:commandLink>
+				</h:form>
+			</div>	
+
+		
+			<div style="clear: both"></div>
 		</div>
 	</ui:composition>
 </h:body>

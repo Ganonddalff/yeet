@@ -3,6 +3,8 @@
 .row{
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 1000px;
+    padding-top: 100px;	
 }
 
 .card {
@@ -151,4 +153,9 @@ p{
   p {
     font-size: 1.3em
   }
+}
+
+.profil{
+	padding-bottom: 50px;
+    margin-top: 50px;
 }
