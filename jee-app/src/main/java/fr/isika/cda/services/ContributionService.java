@@ -21,10 +21,13 @@ public class ContributionService {
     public ContributionService(){}
     public Contribution createContribution(ContributionForm contributionForm){
         Contribution contribution = contributionForm.getContribution();
-        contribution.getContributionAmount();
         contribution.setDateContribution(Calendar.getInstance().getTime());
         contribution.setFundRaising(contributionForm.getFundRaising());
         projectService.contributeProject(contributionForm);
         return contributionRepository.createContribution(contributionForm);
+    }
+
+    public Contribution findById(Long id){
+        return contributionRepository.findById(id).get();
     }
 }

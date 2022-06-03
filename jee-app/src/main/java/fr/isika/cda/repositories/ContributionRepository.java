@@ -7,7 +7,9 @@ import fr.isika.cda.viewmodels.form.crowdfunding.ContributionForm;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import java.util.Optional;
 
 @Stateless
 public class ContributionRepository {
@@ -16,6 +18,7 @@ public class ContributionRepository {
     public ContributionRepository(){}
     public Contribution createContribution(ContributionForm form){
         Contribution contribution = form.getContribution();
+        entityManager.persist(contribution);
         FundRaising fr = form.getFundRaising();
         fr.addContribution(contribution);
         entityManager.merge(fr);
@@ -23,5 +26,17 @@ public class ContributionRepository {
         /*entityManager.clear();*/
         return  contribution;
 
+    }
+
+    public Optional<Contribution> findById(Long id) {
+        try {
+            Contribution contribution = this.entityManager
+                    .createQuery("select contribution from Contribution contribution where contribution.id = :id", Contribution.class)
+                    .setParameter("id", id)
+                    .getSingleResult();
+            return Optional.ofNullable(contribution);
+        } catch (NoResultException e){
+            return Optional.empty();
+        }
     }
 }

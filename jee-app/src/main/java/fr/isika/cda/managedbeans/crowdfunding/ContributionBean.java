@@ -1,5 +1,6 @@
 package fr.isika.cda.managedbeans.crowdfunding;
 
+import fr.isika.cda.model.entities.Contribution;
 import fr.isika.cda.services.AccountService;
 import fr.isika.cda.services.ContributionService;
 import fr.isika.cda.services.ProjectService;
@@ -39,13 +40,18 @@ public class ContributionBean implements Serializable {
         this.viewModel.setFundRaising(this.viewModel.getProject().getFundRaising());
 
     }
-    public void create(){
+    public String create(){
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         this.contributionForm.getContribution().setAccount(accountService.findByIdentifier(session.getAttribute("identifier").toString()).get());
         this.contributionForm.setProject(viewModel.getProject());
         this.contributionForm.setFundRaising(viewModel.getFundRaising());
         this.contributionForm.getContribution().setFundRaising(viewModel.getFundRaising());
-        contributionService.createContribution(this.contributionForm);
+        Contribution contribution = contributionService.createContribution(this.contributionForm);
+        session.setAttribute("idAsso", viewModel.getProject().getAssociation().getId());
+        session.setAttribute("amount", this.contributionForm.getContribution().getContributionAmount());
+        session.setAttribute("reason", "Contribution");
+        session.setAttribute("idReason", contribution.getId());
+        return "/payment/CreditCardPayment?faces-redirect=true";
     }
 
     public ContributionForm getContributionForm() {
