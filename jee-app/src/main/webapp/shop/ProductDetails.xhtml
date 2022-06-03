@@ -25,13 +25,14 @@
 				<p>#{productDetailsBean.product.description}</p>
 				<h:form>
 					<h:outputLabel value="Quantité" />
-					<h:inputText id="quantityInput" value="1">
+					<h:inputText id="quantityInput" value="#{basketBean.quantity}">
 					</h:inputText>
 					<h:inputHidden id="stockInput" value="#{productDetailsBean.product.stock}">
 					</h:inputHidden>
+					<h:commandButton class="card button" value="Ajouter" action="#{basketBean.addInBasket(productDetailsBean.product)}" />
+			
 				</h:form>
-				<h:commandButton class="card button" value="Ajouter" action="#{basketBean.AddInBasket(productDetailsBean.product, 1)}" />
-			</div>
+				</div>
 		</ui:define>
 	</ui:composition>
 </h:body>

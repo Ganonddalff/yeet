@@ -14,10 +14,11 @@
 <h:form id="createProductForm" enctype="multipart/form-data">
     <h:panelGrid columns="3">
     
-    	<h:outputLabel value="Catégorie de produit : "/>
-        <h:inputText id="productCategoryInput" value="#{productCreateBean.productCreateForm.product.category}">
-        </h:inputText>
+    	<h:outputLabel for="productCategoryInput" value="Catégorie de produit : "/>
+        <h:selectOneMenu id="productCategoryInput" maxlength="100" value="#{productCreateBean.productCreateForm.product.category}">
+        </h:selectOneMenu>
         <h:message for="productCategoryInput" style = "color:red" />
+        
 
         <h:outputLabel value="Nom du produit : "/>
         <h:inputText id="productNameInput" value="#{productCreateBean.productCreateForm.product.nameProduct}"/>
@@ -42,7 +43,7 @@
         <h:message for="imageInput" style = "color:red" />
         
         <h:commandButton value="Ajouter" action="#{productCreateBean.create()}"/>
-        <h:commandButton value="Annuler" action="index?faces-redirect=true"/>
+        <h:commandButton value="Retour" action="AssociationDashbord?faces-redirect=true"/>
 
     </h:panelGrid>
 </h:form>

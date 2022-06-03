@@ -12,7 +12,7 @@ public class Command {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<CommandLine> commandLine;
 
     @Temporal(TemporalType.DATE)
