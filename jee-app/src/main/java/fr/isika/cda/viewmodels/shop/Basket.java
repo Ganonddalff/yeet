@@ -1,6 +1,7 @@
 package fr.isika.cda.viewmodels.shop;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import fr.isika.cda.model.entities.Product;
 public class Basket {
 
 	private Date creatingDate;
-	private List<BasketLine> basketLines;
+	private List<BasketLine> basketLines = new ArrayList<BasketLine>();
 
 	public Date getCreatingDate() {
 		return creatingDate;
@@ -78,6 +79,16 @@ public class Basket {
 		}
 		return cmd;
 	}
+
+	public List<BasketLine> getBasketLines() {
+		return basketLines;
+	}
+
+	public void setBasketLines(List<BasketLine> basketLines) {
+		this.basketLines = basketLines;
+	}
+	
+	
 	
 	
 }

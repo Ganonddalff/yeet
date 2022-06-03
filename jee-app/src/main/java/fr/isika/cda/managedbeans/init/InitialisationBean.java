@@ -81,9 +81,11 @@ public class InitialisationBean implements Serializable {
                 "Paris", 17000,"/resources/images/crowdfunding/kidSoccer.jpg","/resources/images/crowdfunding/KidSportBanner.jpg");
 
         //Initialisation de la boutique
-        newProductInShop("Tableau", ProductCategory.Decoration, "/resources/images/produits/tableau.jpeg",
+        Product product1 = newProductInShop("Tableau", ProductCategory.Decoration, "/resources/images/produits/tableau.jpeg",
                 100D, "France", 45L, asso, "Tableau avec un cadre flamme, ludique pour la "
                         + "décoration murale de votre petit bout'chou");
+        Product product2 = newProductInShop("Jeu", ProductCategory.Jeu,"/resources/images/produits/jeuChevaux.jpeg", 
+        		50D, "France", 25L, asso, "Les petits chevaux font partie des grands classiques des jeux de société");
     }
 
     public Association newAssociationAccount(String name, String date, String siret, Double adhesionPrice,
@@ -163,7 +165,7 @@ public class InitialisationBean implements Serializable {
         projectService.createProject(form);
     }
 
-	public void newProductInShop(String name, ProductCategory category, String image, Double price, String manufacturingCountry,
+	public Product newProductInShop(String name, ProductCategory category, String image, Double price, String manufacturingCountry,
 			Long stock, Association asso, String description){
 
 		ProductCreateForm form = new ProductCreateForm();
@@ -174,7 +176,7 @@ public class InitialisationBean implements Serializable {
 		form.getProduct().setPrice(price);
 		form.getProduct().setStock(stock);
 		form.getProduct().setDescription(description);
-		productService.createProduct(form, asso);
+		return productService.createProduct(form, asso);
 	}
 
 	public void ping(){}

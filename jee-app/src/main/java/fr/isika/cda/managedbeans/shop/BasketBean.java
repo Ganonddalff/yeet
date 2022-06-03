@@ -1,5 +1,7 @@
 package fr.isika.cda.managedbeans.shop;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -12,12 +14,16 @@ import fr.isika.cda.viewmodels.shop.BasketLine;
 public class BasketBean {
 	
 	private Basket basket = new Basket();
-	
-	public void AddInBasket(Product product, Integer quantity) {
-		basket.addProduct(product, quantity);
+	private Integer quantity = 1;
+
+
+	public void addInBasket(Product product) {
+		basket.addProduct(product, this.quantity);
 	}
 	
-	public void ValidateBasket() {
+	
+	public void validateBasket() {
+		basket.validBasket();
 		// transformer le basket en commande
 		
 		// transformer chaque basket item en command line
@@ -28,12 +34,26 @@ public class BasketBean {
 		// persister le tout (avec cascade entre commande et command line)
 	}
 	
-	public void RemoveBasketLine(BasketLine line) {
+	public void removeBasketLine(BasketLine line) {
 		basket.removeProduct(line);
+	}
+	
+	public void removeALLBasketLines() {
+		this.basket = new Basket();
 	}
 
 	public Basket getBasket() {
 		return basket;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+		
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+		
 	}
 
 }
