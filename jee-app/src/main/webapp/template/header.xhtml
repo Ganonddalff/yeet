@@ -63,6 +63,18 @@
 							<h:link style="font-size:100%; color:green; margin-left:-50%;" value="Se connecter" outcome="/account/Login.xhtml"/></li>
 						
 					</ui:fragment>
+					<ui:fragment rendered="#{loginBean.isAdminConnected()}">
+						<li class="elt" >
+							<h:link style="font-size:100%; color:orange; margin-left:-10%;" value="Dashboard" outcome="/dashboard/index.xhtml"/>
+						</li>
+
+						<li class="elt">
+							<h:form>
+								<h:commandLink class="deconnexion" value="Se déconnecter" action="#{loginBean.signOut}" style="color:green"/>
+							</h:form>
+						</li>
+
+					</ui:fragment>
 				</ul>
 			</div>
 			<div style="clear:both"></div>

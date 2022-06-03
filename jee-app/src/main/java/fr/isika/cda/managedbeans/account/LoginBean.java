@@ -81,6 +81,14 @@ public class LoginBean implements Serializable {
         return false;
     }
 
+    public boolean isAdminConnected(){
+        HttpSession session = (HttpSession) FacesContext.
+                getCurrentInstance().getExternalContext().getSession(false);
+        if((String)session.getAttribute("typeAccount") != null)
+            return ((String)session.getAttribute("typeAccount")).equalsIgnoreCase("Administrator");
+        return false;
+    }
+
     public boolean isNobodyConnected(){
         HttpSession session = (HttpSession) FacesContext.
                 getCurrentInstance().getExternalContext().getSession(false);

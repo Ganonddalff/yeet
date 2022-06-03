@@ -6,7 +6,6 @@ import java.util.List;
 
 public class AssociationListViewmodel {
     private List<Association> associationList;
-
     private String keyword;
     public AssociationListViewmodel(List<Association> list){
         this.associationList = list;

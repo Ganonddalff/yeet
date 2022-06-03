@@ -2,6 +2,7 @@ package fr.isika.cda.managedbeans.init;
 
 import fr.isika.cda.model.entities.Account;
 import fr.isika.cda.model.entities.Association;
+import fr.isika.cda.model.enumeration.AccountCategory;
 import fr.isika.cda.model.enumeration.ProjectType;
 import fr.isika.cda.model.entities.Product;
 import fr.isika.cda.model.enumeration.ProductCategory;
@@ -37,18 +38,24 @@ public class InitialisationBean implements Serializable {
     @PostConstruct
     public void startup() {
         /*
+         * Création d'un compte Administrator
+         */
+        newAccount("Eleanor", "Rouze", "08/10/1991", "Admin", "Admin",
+                "eleanor@gmail.com", "0439973106", "57", "Avenue Ferdinand de Lesseps","38100", "Grenoble", "France", AccountCategory.Administrator);
+
+        /*
          * Création de comptes utilisateurs
          */
-        newUserAccount("Damien", "Parmenon", "08/10/1991", "MrDeaponnen", "aaaa",
-                "parmenon.damien@gmail.com", "0677668054", "2", "Rue de bel air","45000", "Orléans", "France");
-        newUserAccount("Fara", "Razanamanana", "01/01/2000", "Fara", "aaaa",
-                "fara@gmail.com", "0666895422", "10", "Avenue des champs élysées","75000", "Paris", "France");
-        newUserAccount("Mateusz", "Tirel", "01/01/2000", "Mateusz", "aaaa",
-                "mateusz@gmail.com", "0654145414", "3", "Rue fleury","75000", "Paris", "France");
-        newUserAccount("Fatoumata", "Kanfana", "01/01/2000", "Fatoumata", "aaaa",
-                "Fatoumata@gmail.com", "0677668054", "7", "Rue des plantes","75000", "Paris", "France");
-        newUserAccount("Billal", "benziane", "01/01/1991", "Billal", "aaaa",
-                "Billal@gmail.com", "0643478855", "7", "Rue du colonel","92320", "Chatillon", "France");
+        newAccount("Damien", "Parmenon", "08/10/1991", "MrDeaponnen", "aaaa",
+                "parmenon.damien@gmail.com", "0677668054", "2", "Rue de bel air","45000", "Orléans", "France", AccountCategory.User);
+        newAccount("Fara", "Razanamanana", "01/01/2000", "Fara", "aaaa",
+                "fara@gmail.com", "0666895422", "10", "Avenue des champs élysées","75000", "Paris", "France", AccountCategory.User);
+        newAccount("Mateusz", "Tirel", "01/01/2000", "Mateusz", "aaaa",
+                "mateusz@gmail.com", "0654145414", "3", "Rue fleury","75000", "Paris", "France", AccountCategory.User);
+        newAccount("Fatoumata", "Kanfana", "01/01/2000", "Fatoumata", "aaaa",
+                "Fatoumata@gmail.com", "0677668054", "7", "Rue des plantes","75000", "Paris", "France", AccountCategory.User);
+        newAccount("Billal", "benziane", "01/01/1991", "Billal", "aaaa",
+                "Billal@gmail.com", "0643478855", "7", "Rue du colonel","92320", "Chatillon", "France", AccountCategory.User);
 
         /*
          * Création de comptes associations
@@ -110,10 +117,11 @@ public class InitialisationBean implements Serializable {
         return associationService.update(association);
     }
 
-    public void newUserAccount(String firstname, String lastName, String date,
+    public void newAccount(String firstname, String lastName, String date,
                                   String identifier, String password,
                                   String email, String phoneNumber,
-                                  String roadNumber, String road, String postalCode, String city, String country){
+                                  String roadNumber, String road, String postalCode, String city, String country,
+                                  AccountCategory accountCategory){
         UserAccountCreationForm form = new UserAccountCreationForm();
         form.getContact().setEmail(email);
         form.getContact().setPhoneNumber(phoneNumber);
@@ -130,7 +138,10 @@ public class InitialisationBean implements Serializable {
         } catch (ParseException e) {}
         form.getAccount().setIdentifier(identifier);
         form.getAccount().setPassword(password);
-        accountService.createUserAccount(form);
+        if(accountCategory == AccountCategory.User)
+            accountService.createUserAccount(form);
+        else
+            accountService.createAdminAccount(form);
     }
 
     public void newProject(String description, String name, ProjectType projectType, Association asso,

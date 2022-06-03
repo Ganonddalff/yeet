@@ -71,11 +71,11 @@ public class CreditCardPaymentBean {
                 FacesContext.getCurrentInstance().getExternalContext().redirect(url);
                 break;
             case Command:
-                url =  "/shop/CommandValidation.xhtml?id=" + payment.getIdReason();
+                url = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/shop/CommandValidation.xhtml?id=" + payment.getIdReason();
                 FacesContext.getCurrentInstance().getExternalContext().redirect(url);
                 break;
             case Contribution:
-                url = "/crowdfunding/ContributionValidation.xhtml?id=" + payment.getIdReason();
+                url = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/crowdfunding/ContributionValidation.xhtml?id=" + payment.getIdReason();
                 FacesContext.getCurrentInstance().getExternalContext().redirect(url);
                 break;
         }

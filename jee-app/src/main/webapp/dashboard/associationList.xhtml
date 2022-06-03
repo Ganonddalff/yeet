@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:body>
+    <ui:composition template="/template/adminDashboard/dashboardLayout.xhtml">
+        <f:metadata>
+            <f:viewAction action="#{accountListBean.initAsso}" />
+        </f:metadata>
+        <ui:define name="title">Liste des associations</ui:define>
+        <ui:define name="content">
+            <div class="details">
+                <div class="accountList">
+                    <div class="cardHeader">
+                        <h2>Nos associations</h2>
+                    </div>
+                    <h:dataTable value="#{accountListBean.associationListViewmodel.accountList}" var="account">
+                        <h:column>
+                            <f:facet name = "header">Logo</f:facet>
+                            <h:graphicImage value="#{account.association.profileImage}" style="width: 100px; height: 100px; border-radius: 50%;"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Nom</f:facet>
+                            #{account.association.name}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Identifiant</f:facet>
+                            #{account.identifier}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Date de création</f:facet>
+                            <h:outputLabel value="#{account.creationDate}">
+                                <f:convertDateTime pattern="dd-MM-yyyy" />
+                            </h:outputLabel>
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Cotisation</f:facet>
+                            <ui:fragment rendered="#{account.association.adhesionPrice == 0}">
+                                Gratuite
+                            </ui:fragment>
+                            <ui:fragment rendered="#{account.association.adhesionPrice != 0}">
+                                #{account.association.adhesionPrice}
+                            </ui:fragment>
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Ville</f:facet>
+                            #{account.association.address.city}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header"></f:facet>
+                            <h:form>
+                                <h:commandLink action="#{accountListBean.delete(account)}">
+                                    <h:graphicImage value="/resources/images/icons/suppressionIcon.png" style="width: 20px; height: 20px;"/>
+                                </h:commandLink>
+                            </h:form>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>
