@@ -24,7 +24,7 @@ public class  Account{
     @Size(min = 4, max = 15, message = "Doit contenir entre 4 et 15 caractères.")
     private String password;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private CreditCard creditCard;
 
     @NotNull
@@ -33,10 +33,10 @@ public class  Account{
 
 	private Date creationDate;
 
-    @OneToOne(cascade = {CascadeType.ALL})
+    @OneToOne(cascade = {CascadeType.ALL, CascadeType.REMOVE}, orphanRemoval = true)
     private Association association;
 
-    @OneToOne(cascade = {CascadeType.ALL})
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Person person;
 
     public Long getId() {

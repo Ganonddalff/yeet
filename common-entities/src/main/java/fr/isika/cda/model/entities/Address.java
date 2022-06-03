@@ -17,7 +17,7 @@ public class Address {
     private String number;
 
     @NotNull(message = "Ne doit pas être null")
-    @Size(min = 1, max = 25, message = "Doit contenir entre 1 et 25 caractères.")
+    @Size(min = 1, max = 50, message = "Doit contenir entre 1 et 50 caractères.")
     private String road;
 
     @Size(min = 5, max = 10, message = "Doit contenir entre 1 et 10 chiffres.")

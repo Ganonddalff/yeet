@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Stateless
@@ -30,6 +31,19 @@ public class AccountService {
         person.setContact(contact);
         Account userAccount = form.getAccount();
         userAccount.setAccountCategory(AccountCategory.User);
+        userAccount.setCreationDate(Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
+        userAccount.setPerson(person);
+        return accountRepository.create(userAccount);
+    }
+
+    public Account createAdminAccount(UserAccountCreationForm form) {
+        Contact contact = form.getContact();
+        Address address = form.getAddress();
+        Person person = form.getPerson();
+        person.setAddress(address);
+        person.setContact(contact);
+        Account userAccount = form.getAccount();
+        userAccount.setAccountCategory(AccountCategory.Administrator);
         userAccount.setCreationDate(Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
         userAccount.setPerson(person);
         return accountRepository.create(userAccount);
@@ -60,5 +74,17 @@ public class AccountService {
 
     public Optional<Account> findById(Long id){
         return accountRepository.findById(id);
+    }
+
+    public List<Account> getAllAssociationAccount() {
+        return accountRepository.getAllAssociationAccount();
+    }
+
+    public List<Account> getAllUserAccount() {
+        return accountRepository.getAllUserAccount();
+    }
+
+    public void delete(Account account) {
+        accountRepository.delete(account);
     }
 }

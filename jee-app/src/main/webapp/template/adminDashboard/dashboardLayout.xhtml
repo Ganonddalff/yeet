@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
@@ -11,9 +10,11 @@
     <title><ui:insert name="title"></ui:insert></title>
     <ui:insert name="js"></ui:insert>
     <ui:insert name="css"></ui:insert>
-    <h:outputStylesheet library="css" name="dashboard_common-style.css"/>
+    <h:outputStylesheet library="css" name="dashboard_common.css"/>
     <h:outputStylesheet library="css" name="dashboard_header.css"/>
     <h:outputStylesheet library="css" name="dashboard_content.css"/>
+    <h:outputStylesheet library="css" name="dashboard_footer.css"/>
+    <h:outputScript library="js" name="dashboard.js"/>
 </h:head>
 
 <h:body>
@@ -25,16 +26,49 @@
         </div>
 
         <div id="content">
-            <ui:insert name="content">
-                <ui:include src="/template/adminDashboard/dashboardContent.xhtml"/>
-            </ui:insert>
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <h:link>
+                            <h:outputText class="title" value="Menu"/>
+                        </h:link>
+                    </li>
+                    <li>
+                        <h:link outcome="/dashboard/associationList.xhtml">
+                            <h:outputText class="title" value="Nos associations"/>
+                        </h:link>
+                    </li>
+                    <li>
+                        <h:link outcome="/dashboard/userList.xhtml">
+                            <h:outputText class="title" value="Nos utilisateurs"/>
+                        </h:link>
+                    </li>
+                    <li>
+                        <h:link outcome="/dashboard/stats.xhtml">
+                            <h:outputText class="title" value="Statistiques"/>
+                        </h:link>
+                    </li>
+                    <li>
+                        <h:form>
+                            <h:commandLink action="#{loginBean.signOut}">
+                                <h:outputText class="title" value="Se déconnecter"/>
+                            </h:commandLink>
+                        </h:form>
+                    </li>
+                </ul>
+            </div>
+            <div class="main">
+                <ui:insert name="content">
+                    <ui:include src="/template/adminDashboard/dashboardContent.xhtml"/>
+                </ui:insert>
+            </div>
         </div>
+    </div>
 
-        <div id="footer">
-            <ui:insert name="footer">
-                <ui:include src="/template/adminDashboard/dashboardFooter.xhtml"/>
-            </ui:insert>
-        </div>
+    <div id="footer">
+        <ui:insert name="footer">
+            <ui:include src="/template/adminDashboard/dashboardFooter.xhtml"/>
+        </ui:insert>
     </div>
 </h:body>
 </html>
