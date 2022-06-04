@@ -57,6 +57,9 @@ public class CreditCardPaymentBean {
                 break;
             case "Contribution" :
                 this.paymentVm.setPaymentReason(PaymentReason.Contribution);
+                break;
+            case "Subscription":
+                this.paymentVm.setPaymentReason(PaymentReason.Subscription);
         }
     }
 

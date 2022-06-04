@@ -45,18 +45,26 @@ public class AssociationProfileManagementBean {
     public String subscribe(){
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         Association association = associationService.findById((Long) session.getAttribute("idAssociation")).get();
+        double amount = 0D;
 
         if(!association.getAdhesionSubscription() && wantAdhesion){
             subscribeToAdhesion(association);
+            amount+=15;
         }
         if (!association.getCrowdfundingSubscription() && wantCrowdfunding){
             subscribeToCrowdfunding(association);
+            amount+=15;
         }
         if (!association.getShopSubscription()&&wantShop){
             subscribeToShop(association);
+            amount+=15;
         }
+        session.setAttribute("idAsso", association.getId());
+        session.setAttribute("amount", amount);
+        session.setAttribute("reason", "Subscription");
+        session.setAttribute("idReason", association.getId());
         associationService.update(association);
-        return "/association/AssociationProfileManagement.xhtml?faces-redirect=true";
+        return "/payment/CreditCardPayment?faces-redirect=true";
     }
     public void subscribeToAdhesion(Association association){
 
