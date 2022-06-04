@@ -120,6 +120,13 @@ public class InitialisationBean implements Serializable {
                 "/resources/images/banners/standardBanner.png",
                 "solidarity", "aaaa", "terresolidaire@gmail.com", "0238242825",
                 "51", "Boulevard Aristide Briand", "45000", "Orléans", "France");
+        Association asso11 = newAssociationAccount(
+                "Les enfants de la Téranga","21/02/1990","45976249851697",15.90D,
+                "Associations qui a pour but de promouvoir la culture à prix réduit",
+                "/resources/images/profileImages/standardProfileImage.jpeg",
+                "/resources/images/banners/standardBanner.png",
+                "Dkr90","123456","dkr90@associationteranga.fr","00222346257","37","Point E ","11000","Dakar","Sénégal"
+        );
 
         /*
          * Création de projets

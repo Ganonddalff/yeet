@@ -113,6 +113,23 @@ public class AssociationProfileManagementBean {
         return "/association/AssociationProfileManagement.xhtml?faces-redirect=true";
     }
 
+    public Boolean getShopSub(){
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        Association association = associationService.findById((Long) session.getAttribute("idAssociation")).get();
+        return association.getShopSubscription();
+    }
+    public Boolean getCrowdfundingSub(){
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        Association association = associationService.findById((Long) session.getAttribute("idAssociation")).get();
+        return association.getCrowdfundingSubscription();
+    }
+
+    public Boolean getAdhesionSub(){
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        Association association = associationService.findById((Long) session.getAttribute("idAssociation")).get();
+        return association.getAdhesionSubscription();
+    }
+
     public void saveDescription() {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         Association association = associationService.findById((Long) session.getAttribute("idAssociation")).get();

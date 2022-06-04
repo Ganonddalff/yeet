@@ -18,14 +18,18 @@
 			<h:outputStylesheet library="css" name="style_home1.css" />
 			
 		</ui:define>
+		<f:metadata>
+			<f:viewAction action="#{associationProfileManagementBean.init()}"/>
+		</f:metadata>
 
 		<ui:define name="content">
 
 			<!-- Liste des services -->
 
 			<div class="main-dashboard-asso">
-
 				<div class="container-services">
+					<ui:fragment rendered="#{associationProfileManagementBean.getCrowdfundingSub()}">
+
 					<div class="bloc" id="bloc">
 						<h4 class="elt-bloc" id="elt-block">Crowdfunding</h4>
 						<p class="elt-paraph">Gérer vos activités de Crowdfunding</p>
@@ -34,9 +38,13 @@
 							<a href="../crowdfunding/CrowdfundingManagement.xhtml"
 								style="text-decoration: none; color: white;">Crowdfunding</a>
 						</button>
+
 					</div>
+				</ui:fragment>
 					<p:spacer width="20" height="20" />
-					<div class="bloc" id="bloc">
+				<ui:fragment rendered="#{associationProfileManagementBean.getShopSub()}">
+
+				<div class="bloc" id="bloc">
 						<h4 class="elt-bloc" id="elt-block">Boutique en ligne</h4>
 						<p class="elt-paraph">Gérer la vente de vos produits sur notre
 							plateforme</p>
@@ -45,14 +53,17 @@
 								style="text-decoration: none; color: white;">Vente</a>
 						</button>
 					</div>
+				</ui:fragment>
 					<p:spacer width="20" height="20" /><br></br>
-					<div class="bloc" id="bloc">
+				<ui:fragment rendered="#{associationProfileManagementBean.getAdhesionSub()}">
+				<div class="bloc" id="bloc">
 						<h4 class="elt-bloc" id="elt-block">Adhésion</h4>
 						<p class="elt-paraph">Gérer vos activités d'adhésion</p>
 						<button class="btn-elt">
 							<a href="" style="text-decoration: none; color: white;">Adhésion</a>
 						</button>
 					</div>
+				</ui:fragment>
 					<p:spacer width="20" height="20" />
 					<div class="bloc" id="bloc">
 						<h4 class="elt-bloc" id="elt-block">Votre abonnement</h4>
