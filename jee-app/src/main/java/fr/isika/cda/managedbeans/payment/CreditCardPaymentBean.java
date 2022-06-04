@@ -21,6 +21,7 @@ import java.util.Optional;
 @ViewScoped
 public class CreditCardPaymentBean {
     private Long associationId;
+    private Long projectId;
     private CreditCardPaymentViewmodel paymentVm;
     private String reason;
     private boolean saveCard;
@@ -118,5 +119,13 @@ public class CreditCardPaymentBean {
 
     public void setSaveCard(boolean saveCard) {
         this.saveCard = saveCard;
+    }
+
+    public Long getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
     }
 }

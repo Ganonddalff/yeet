@@ -3,6 +3,7 @@ package fr.isika.cda.model.entities;
 import jdk.jfr.BooleanFlag;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -45,6 +46,8 @@ public class Association{
     private String profileImage;
     @NotNull
     private String banner;
+
+    @Size(max=8000)
     @NotNull
     private String description;
 

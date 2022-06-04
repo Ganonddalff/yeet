@@ -33,7 +33,7 @@
                 <h:outputLabel value="#{projectProfileBean.project.description}"/>
                 <h:button class="linkButton" value="Contribuer" outcome="Contribute.xhtml?faces-redirect=true" >
                     <f:param name="projectId" value="#{projectProfileBean.id}"/></h:button>
-                <h:button class="linkButton" value="Modifier mon projet" outcome="ProjectManagement.xhtml?faces-redirect=true">
+                <h:button class="linkButton" value="Modifier mon projet" outcome="ProjectManagement.xhtml?faces-redirect=true" rendered="#{projectProfileBean.isProjectOwner()}">
                     <f:param name="projectId" value="#{projectProfileBean.id}"/></h:button>
 
             </h:panelGrid>

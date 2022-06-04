@@ -18,7 +18,7 @@
         </ui:define>
         <ui:define name="content">
             <h:panelGrid column="1">
-                <h:outputLabel value="Merci ! &lt;br /&gt; Votre contribution de #{contributionValidationBean.contribution.contributionAmount}€ a bien été prise en compte. &lt;br /&gt; #{contributionValidationBean.contribution.fundRaising.raisedFunds}€ ont déjà été récoltés." escape="false" />
+                <h:outputLabel value="Merci ! &lt;br /&gt; Votre contribution de #{contributionValidationBean.contribution.contributionAmount}€ a bien été prise en compte. &lt;br /&gt; #{contributionValidationBean.contribution.fundRaising.raisedFunds}€ ont déjà été récoltés pour #{contributionValidationBean.contribution.project.name}." escape="false" />
                 <h:link value="Retourner sur la page de l'association" outcome="/crowdfunding/AllProjectsView.xhtml">
                 </h:link>
             </h:panelGrid>

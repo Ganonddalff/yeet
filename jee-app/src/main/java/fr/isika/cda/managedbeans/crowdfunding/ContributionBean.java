@@ -1,6 +1,7 @@
 package fr.isika.cda.managedbeans.crowdfunding;
 
 import fr.isika.cda.model.entities.Contribution;
+import fr.isika.cda.model.entities.Project;
 import fr.isika.cda.services.AccountService;
 import fr.isika.cda.services.ContributionService;
 import fr.isika.cda.services.ProjectService;
@@ -29,6 +30,7 @@ public class ContributionBean implements Serializable {
     private ProjectService projectService;
     private ContributionViewModel viewModel;
 
+
     private Long projectId;
 
     public ContributionBean(){
@@ -46,6 +48,7 @@ public class ContributionBean implements Serializable {
         this.contributionForm.setProject(viewModel.getProject());
         this.contributionForm.setFundRaising(viewModel.getFundRaising());
         this.contributionForm.getContribution().setFundRaising(viewModel.getFundRaising());
+        this.contributionForm.getContribution().setProject(viewModel.getProject());
         Contribution contribution = contributionService.createContribution(this.contributionForm);
         session.setAttribute("idAsso", viewModel.getProject().getAssociation().getId());
         session.setAttribute("amount", this.contributionForm.getContribution().getContributionAmount());

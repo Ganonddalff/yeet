@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:body>
+
+    <ui:composition template="/template/layout_dashboard.xhtml">
+        <ui:define name="title">Gérer vos abonnements</ui:define>
+
+        <ui:define name="css">
+            <h:outputStylesheet library="css" name="AssociationProfile.css" />
+            <h:outputStylesheet library="css" name="dashboard_styles1.css" />
+            <h:outputStylesheet library="css" name="loginSignin_styles.css" />
+            <h:outputStylesheet library="css" name="style_home1.css" />
+        </ui:define>
+
+        <ui:define name="content">
+
+            <div class="main-dashboard-asso">
+                <div class="container">
+                    <div class ="main-dashboard-asso">
+                        <h:form>
+                            <h:panelGrid columns="2"  >
+                                <h:column >
+                                    <h:selectBooleanCheckbox value="#{associationProfileManagementBean.wantAdhesion}"/> <br/>
+                                    <h:selectBooleanCheckbox value="#{associationProfileManagementBean.wantCrowdfunding}"/> <br/>
+                                    <h:selectBooleanCheckbox value="#{associationProfileManagementBean.wantShop}"/><br/>
+                                    <h:commandButton value="Souscrire" action="#{associationProfileManagementBean.subscribe()}"/>
+                                </h:column>
+                                <h:column>
+                                    <h:outputLabel value="Service adhésion"/>
+                                    <br/>
+                                    <h:outputLabel value="Service financement participatif "/>
+                                    <br/>
+                                    <h:outputLabel value="Service boutique en ligne "/>
+                                    <br/>
+                                </h:column>
+                            </h:panelGrid>
+                        </h:form>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </ui:define>
+
+    </ui:composition>
+</h:body>
+</html>

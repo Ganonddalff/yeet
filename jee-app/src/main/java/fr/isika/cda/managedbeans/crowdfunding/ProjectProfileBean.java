@@ -5,7 +5,9 @@ import fr.isika.cda.services.ProjectService;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 @ManagedBean
 @ViewScoped
@@ -14,6 +16,11 @@ public class ProjectProfileBean {
     private Project project;
     @Inject
     private ProjectService projectService;
+
+    public Boolean isProjectOwner(){
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        return project.getAssociation().getId().equals((Long) session.getAttribute("idAssociation"));
+    }
     public ProjectProfileBean(){}
     public void init(){
         this.project = projectService.findById(this.id).get();

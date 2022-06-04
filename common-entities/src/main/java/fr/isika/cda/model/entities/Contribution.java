@@ -1,7 +1,6 @@
 package fr.isika.cda.model.entities;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -11,16 +10,19 @@ public class Contribution {
     private Long id;
 
     @NotNull(message = "Ne doit pas être nulle.")
-    private Double ContributionAmount;
+    private Double contributionAmount;
 
     @NotNull
-    private Date DateContribution;
+    private Date dateContribution;
 
     @ManyToOne
     private Account account;
 
     @ManyToOne
     private FundRaising fundRaising;
+
+    @ManyToOne
+    private Project project;
 
     public Long getId() {
         return id;
@@ -31,19 +33,19 @@ public class Contribution {
     }
 
     public Double getContributionAmount() {
-        return ContributionAmount;
+        return contributionAmount;
     }
 
     public void setContributionAmount(Double contributionAmount) {
-        ContributionAmount = contributionAmount;
+        this.contributionAmount = contributionAmount;
     }
 
     public Date getDateContribution() {
-        return DateContribution;
+        return dateContribution;
     }
 
     public void setDateContribution(Date dateContribution) {
-        DateContribution = dateContribution;
+        this.dateContribution = dateContribution;
     }
 
 
@@ -60,5 +62,13 @@ public class Contribution {
 
     public void setFundRaising(FundRaising fundRaising) {
         this.fundRaising = fundRaising;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 }

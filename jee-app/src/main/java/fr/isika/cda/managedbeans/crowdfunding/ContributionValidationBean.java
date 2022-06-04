@@ -16,6 +16,8 @@ public class ContributionValidationBean {
     private long contributionId;
 
     private Contribution contribution;
+    private Project project;
+    private Long projectId;
 
     @Inject
     private ContributionService contributionService;
@@ -45,5 +47,17 @@ public class ContributionValidationBean {
 
     public void setContribution(Contribution contribution) {
         this.contribution = contribution;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public Long getProjectId() {
+        return projectId;
     }
 }
