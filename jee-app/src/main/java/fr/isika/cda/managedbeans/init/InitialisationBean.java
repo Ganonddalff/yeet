@@ -66,12 +66,60 @@ public class InitialisationBean implements Serializable {
                 "/resources/images/banners/standardBanner.png",
                 "eenfance", "123456", "eenfance@gmail.com", "0156915656",
                 "11", "Rue des halles", "75000", "Paris","France");
-        Association asso2 = newAssociationAccount("Terres d'amitié", "17/02/2001", "45976249851697", 0D,
+        Association asso2 = newAssociationAccount("Terres d'amitié", "17/02/2001", "47565449851697", 0D,
                 "Lutter contre la faim et la malnutrition, informer le public sur les problèmes concernant le tiers monde, coopérer sanitairement en faveur du tiers monde.",
                 "/resources/images/profileImages/profileImage_1.jpg",
                 "/resources/images/banners/standardBanner.png",
                 "terreamitie", "aaaa", "terramitie@gmail.com", "0478950181",
                 "327", "Rue André Phillip", "69003", "Lyon", "France");
+        Association asso3 = newAssociationAccount("WWF", "39/04/1961", "72164654587456", 19.99D,
+                "Le WWF ou Fonds mondial pour la nature est une organisation non gouvernementale internationale (ONGI) créée en 1961, vouée à la protection de l'environnement et au développement durable.",
+                "/resources/images/profileImages/profileImage_3.png",
+                "/resources/images/banners/standardBanner.png",
+                "wwfasso", "aaaa", "wwf@gmail.com", "0246957112",
+                "37", "Rue Baudin", "93310", "Le Pré-Saint-Gervais", "France");
+        Association asso4 = newAssociationAccount("Les sauveteurs en mer", "17/02/2001", "64413002551697", 17.99D,
+                "Les Sauveteurs en Mer effectuent les opérations de recherche en mer, assistent les navires en difficulté, évaluent l'état des personnes à secourir et leur donnent les premiers soins.",
+                "/resources/images/profileImages/profileImage_4.jpg",
+                "/resources/images/banners/standardBanner.png",
+                "sauvenmer", "aaaa", "sauveteurenmer@gmail.com", "0541412398",
+                "8", "Cité d'Antin", "75009", "Paris", "France");
+        Association asso5 = newAssociationAccount("Sidaction", "11/02/1994", "54447891224597", 0D,
+                "Lutter contre la faim et la malnutrition, informer le public sur les problèmes concernant le tiers monde, coopérer sanitairement en faveur du tiers monde.",
+                "/resources/images/profileImages/profileImage_5.jpg",
+                "/resources/images/banners/standardBanner.png",
+                "Sidact", "aaaa", "sidaction@gmail.com", "0478950181",
+                "228", "Rue du Faubourg Saint-Martin", "75010", "Paris", "France");
+        Association asso6 = newAssociationAccount("Société Géologique de France", "17/02/2008", "74784414851697", 5.99D,
+                "Concourir à l'avancement de la géologie en général et particulièrement de faire connaître le sol de la France tant en lui même que dans ses rapports avec les arts industriels et l'agriculture.",
+                "/resources/images/profileImages/profileImage_6.jpg",
+                "/resources/images/banners/standardBanner.png",
+                "sgfasso", "aaaa", "sgf@gmail.com", "0544785465",
+                "77", "Rue Claude Bernard", "75005", "Paris", "France");
+        Association asso7 = newAssociationAccount("FFD", "08/10/1991", "45699631851697", 34.99D,
+                "La Fédération Française des Diabétiques est une association de patients, au service des patients et dirigée par des patients.",
+                "/resources/images/profileImages/profileImage_7.jpg",
+                "/resources/images/banners/standardBanner.png",
+                "FFDASSO", "aaaa", "ffd@gmail.com", "0578950181",
+                "88", "Rue de la Roquette", "75011", "Paris", "France");
+        Association asso8 = newAssociationAccount("Tous Au Sport", "12/08/2010", "46665249851697", 12.99D,
+                "Cette association loi 1901 à but non lucratif, constituée le 25 juillet 2016, a pour objet de permettre l'accès le plus grand possible au sport à toutes et à tous et cela dans le cadre des cours collectifs.",
+                "/resources/images/profileImages/profileImage_8.png",
+                "/resources/images/banners/standardBanner.png",
+                "tousausport", "aaaa", "tousausport@gmail.com", "0345651144",
+                "5", "Rue du chateau", "68640", "Waldighoffen", "France");
+        Association asso9 = newAssociationAccount("Energie jeunes", "03/09/2009", "77956632121587", 15D,
+                "Notre combat, c’est la lutte pour l’égalité des chances par des actions de prévention du décrochage scolaire. Notre but est de permettre à tous les élèves d’aimer apprendre. Nous intervenons chaque année auprès de 120 000 élèves du CM2 à la 3e.",
+                "/resources/images/profileImages/profileImage_9.jpg",
+                "/resources/images/banners/standardBanner.png",
+                "Energy", "aaaa", "energie_jeune@gmail.com", "0518185465",
+                "12", "Rue Lord Byron", "75008", "Paris", "France");
+        Association asso10 = newAssociationAccount("CCFD Terre solidaire", "14/11/1960", "31100012851697", 0D,
+                "Le CCFD-Terre Solidaire agit depuis 60 ans aux côtés de celles et ceux qui luttent quotidiennement contre toutes les causes de la faim et qui font face aux injustices du modèle de développement actuel.",
+                "/resources/images/profileImages/profileImage_10.jpg",
+                "/resources/images/banners/standardBanner.png",
+                "solidarity", "aaaa", "terresolidaire@gmail.com", "0238242825",
+                "51", "Boulevard Aristide Briand", "45000", "Orléans", "France");
 
         /*
          * Création de projets

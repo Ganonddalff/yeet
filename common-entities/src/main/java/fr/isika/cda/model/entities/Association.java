@@ -46,6 +46,12 @@ public class Association{
     @NotNull
     private String description;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "association", orphanRemoval = true)
+    private List<Product> products = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "association", orphanRemoval = true)
+    private List<Project> projects = new ArrayList<>();
+
     public String getName() {
         return name;
     }

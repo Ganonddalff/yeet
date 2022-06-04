@@ -6,6 +6,7 @@ import fr.isika.cda.viewmodels.dashboard.AccountListViewmodel;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import java.io.Serializable;
 
@@ -31,8 +32,9 @@ public class AccountListBean implements Serializable {
         this.userListViewmodel.setAccountList(accountService.getAllUserAccount());
     }
 
-    public void delete(Account account){
+    public String delete(Account account){
         accountService.delete(account);
+        return FacesContext.getCurrentInstance().getViewRoot().getViewId() + "?faces-redirect=true";
     }
 
     public AccountListViewmodel getAssociationListViewmodel() {
