@@ -18,26 +18,26 @@
 
 		</ui:define>
 
-		<div class="main-sidebar" id="mySidebar">
-
-			<div class="sidebar">
-				<h3>
-					<a href="../association/AssociationDashBoard.xhtml">Tableau de bord</a>
-				</h3>
-				<div class="elements">
-					<a href="../association/AssociationDashBoard.xhtml" class="dash-bar">Gestion de Services</a> 
-					<a href="../association/AssociationProfileManagement.xhtml" class="dash-bar">Gestion de contenu</a>
-				</div>
-			</div>
+		<div class="card">
+		    <p:tabMenu activeIndex="#{param.i}">
+		        <p:menuitem value="Tableau de bord" 
+		        outcome="/association/AssociationDashBoard" icon="pi pi-fw pi-home">
+		            <f:param name="i" value="0"/>
+		        </p:menuitem>
+		        <!-- 
+		        
+		        <p:menuitem value="Gestion de services" 
+		        outcome="../association/AssociationDashBoard.xhtml" icon="pi pi-fw pi-cog">
+		            <f:param name="i" value="1"/>
+		            </p:menuitem>
+		         -->
+		        
+		        <p:menuitem value="Gestion de contenu" 
+		        outcome="/association/AssociationProfileManagement" icon="pi pi-fw pi-pencil">
+		            <f:param name="i" value="1"/>
+		        </p:menuitem>
+		    </p:tabMenu>
 		</div>
-
-		<ui:fragment rendered="#{loginBean.isAssociationConnected()}">
-			<div class="header-dashboard">
-				<SPAN class="welcome"> BIENVENUE </SPAN>
-				<h:outputLabel class="nom-asso"
-					value="#{session.getAttribute('identifier')}" />
-			</div>
-		</ui:fragment>
 
 	</ui:composition>
 </h:body>

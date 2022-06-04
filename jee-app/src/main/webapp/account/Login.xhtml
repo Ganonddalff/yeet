@@ -16,13 +16,13 @@
 					<div class="header-form">
 						<h4>Connexion</h4>
 					</div>
-					<div class="formulaire">
+					<div class="formulaire-login">
 						<h:form id="loginForm" class="form">
 
-			                <h:outputLabel value="Identifiant" style="MARGIN-LEFT: 25%;"/><br />
+			                <h:outputLabel value="Identifiant" /><br />
 			                <h:inputText id="identifierInput" value="#{loginBean.loginForm.identifier}"/><br /><br />
 			
-			                <h:outputLabel value="Mot de passe" style="MARGIN-LEFT: 25%;"/><br />
+			                <h:outputLabel value="Mot de passe"/><br />
 			                <h:inputSecret id="passwordInput" value="#{loginBean.loginForm.password}"/><br />
 			
 							<h:commandButton value="Se connecter" action="#{loginBean.login()}"/><br />
