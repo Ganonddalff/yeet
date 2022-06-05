@@ -1,19 +1,16 @@
 package fr.isika.cda.managedbeans.init;
 
-import fr.isika.cda.model.entities.Account;
-import fr.isika.cda.model.entities.Association;
+import fr.isika.cda.model.entities.*;
 import fr.isika.cda.model.enumeration.AccountCategory;
+import fr.isika.cda.model.enumeration.PaymentReason;
 import fr.isika.cda.model.enumeration.ProjectType;
-import fr.isika.cda.model.entities.Product;
 import fr.isika.cda.model.enumeration.ProductCategory;
-import fr.isika.cda.services.AccountService;
-import fr.isika.cda.services.AssociationService;
-import fr.isika.cda.services.ProjectService;
-import fr.isika.cda.services.ProductService;
+import fr.isika.cda.services.*;
 import fr.isika.cda.viewmodels.form.account.AssociationAccountCreationForm;
 import fr.isika.cda.viewmodels.form.account.UserAccountCreationForm;
 import fr.isika.cda.viewmodels.form.crowdfunding.ProjectCreationForm;
 import fr.isika.cda.viewmodels.form.shop.ProductCreateForm;
+import fr.isika.cda.viewmodels.payment.CreditCardPaymentViewmodel;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
@@ -34,6 +31,10 @@ public class InitialisationBean implements Serializable {
     private ProjectService projectService;
     @Inject
     private ProductService productService;
+    @Inject
+    private AdhesionService adhesionService;
+    @Inject
+    private PaymentService paymentService;
 
     @PostConstruct
     public void startup() {
@@ -54,7 +55,7 @@ public class InitialisationBean implements Serializable {
                 "mateusz@gmail.com", "0654145414", "3", "Rue fleury","75000", "Paris", "France", AccountCategory.User);
         newAccount("Fatoumata", "Kanfana", "01/01/2000", "Fatoumata", "aaaa",
                 "Fatoumata@gmail.com", "0677668054", "7", "Rue des plantes","75000", "Paris", "France", AccountCategory.User);
-        newAccount("Billal", "benziane", "01/01/1991", "Billal", "aaaa",
+        newAccount("Billal", "Benziane", "01/01/1991", "Billal", "aaaa",
                 "Billal@gmail.com", "0643478855", "7", "Rue du colonel","92320", "Chatillon", "France", AccountCategory.User);
 
         /*
@@ -78,12 +79,18 @@ public class InitialisationBean implements Serializable {
                 "/resources/images/banners/standardBanner.png",
                 "wwfasso", "aaaa", "wwf@gmail.com", "0246957112",
                 "37", "Rue Baudin", "93310", "Le Pré-Saint-Gervais", "France");
+        Account account1 = newAccount("Amedee", "Chatigny", "21/10/1983", "Medee52", "aaaa",
+                "chatigny.amedee@gmail.com", "0306097898", "91", "Rue Ernest Renan","52000", "Chaumont", "France", AccountCategory.User);
+        Account account2 = newAccount("Amarante", "Duffet", "05/02/1995", "amara31", "aaaa",
+                "amarante@gmail.com", "0587411456", "23", "Quai Saint-Nicolas","31170", "Tournefeuille", "France", AccountCategory.User);
         Association asso4 = newAssociationAccount("Les sauveteurs en mer", "17/02/2001", "64413002551697", 17.99D,
                 "Les Sauveteurs en Mer effectuent les opérations de recherche en mer, assistent les navires en difficulté, évaluent l'état des personnes à secourir et leur donnent les premiers soins.",
                 "/resources/images/profileImages/profileImage_4.jpg",
                 "/resources/images/banners/standardBanner.png",
                 "sauvenmer", "aaaa", "sauveteurenmer@gmail.com", "0541412398",
                 "8", "Cité d'Antin", "75009", "Paris", "France");
+        Account account3 = newAccount("Roxanne", "Baudouin", "11/02/1966", "Roxxxan", "aaaa",
+                "roxanne.baudouin@gmail.com", "0373569914", "27", "Rue Bonneterie","59370", "Mons-en-Baroeul", "France", AccountCategory.User);
         Association asso5 = newAssociationAccount("Sidaction", "11/02/1994", "54447891224597", 0D,
                 "Lutter contre la faim et la malnutrition, informer le public sur les problèmes concernant le tiers monde, coopérer sanitairement en faveur du tiers monde.",
                 "/resources/images/profileImages/profileImage_5.jpg",
@@ -102,6 +109,8 @@ public class InitialisationBean implements Serializable {
                 "/resources/images/banners/standardBanner.png",
                 "FFDASSO", "aaaa", "ffd@gmail.com", "0578950181",
                 "88", "Rue de la Roquette", "75011", "Paris", "France");
+        Account account4 = newAccount("Océane", "Sacré", "02/06/1978", "Océacré", "aaaa",
+                "oceane.sacre@gmail.com", "0468549963", "74", "Chemin des Bateliers","74000", "Annecy", "France", AccountCategory.User);
         Association asso8 = newAssociationAccount("Tous Au Sport", "12/08/2010", "46665249851697", 12.99D,
                 "Cette association loi 1901 à but non lucratif, constituée le 25 juillet 2016, a pour objet de permettre l'accès le plus grand possible au sport à toutes et à tous et cela dans le cadre des cours collectifs.",
                 "/resources/images/profileImages/profileImage_8.png",
@@ -114,6 +123,10 @@ public class InitialisationBean implements Serializable {
                 "/resources/images/banners/standardBanner.png",
                 "Energy", "aaaa", "energie_jeune@gmail.com", "0518185465",
                 "12", "Rue Lord Byron", "75008", "Paris", "France");
+        Account account5 = newAccount("Rémy", "Brunault", "21/07/1998", "Brubru62200", "aaaa",
+                "remybrunault@gmail.com", "0350506545", "99", "Rue petite fusterie","62200", "Boulogne-sur-mer", "France", AccountCategory.User);
+        Account account6 = newAccount("Sajid", "Hakimi", "25/06/1985", "hakimizz", "aaaa",
+                "sajidhakimi@gmail.com", "0598565454", "84", "Cours Jean Jaures","33800", "Bordeaux", "France", AccountCategory.User);
         Association asso10 = newAssociationAccount("CCFD Terre solidaire", "14/11/1960", "31100012851697", 0D,
                 "Le CCFD-Terre Solidaire agit depuis 60 ans aux côtés de celles et ceux qui luttent quotidiennement contre toutes les causes de la faim et qui font face aux injustices du modèle de développement actuel.",
                 "/resources/images/profileImages/profileImage_10.jpg",
@@ -129,6 +142,39 @@ public class InitialisationBean implements Serializable {
         );
 
         /*
+         * Création d'adhésion et paiement associé
+         */
+        Adhesion adhesion1 = newAdhesion(asso7, account1);
+        newPayment(PaymentReason.Adhesion, asso7.getAdhesionPrice(), adhesion1.getId(), account1, asso7);
+        Adhesion adhesion2 = newAdhesion(asso7, account2);
+        newPayment(PaymentReason.Adhesion, asso7.getAdhesionPrice(), adhesion2.getId(), account2, asso7);
+        Adhesion adhesion3 = newAdhesion(asso6, account3);
+        newPayment(PaymentReason.Adhesion, asso6.getAdhesionPrice(), adhesion3.getId(), account3, asso6);
+        Adhesion adhesion4 = newAdhesion(asso4, account4);
+        newPayment(PaymentReason.Adhesion, asso4.getAdhesionPrice(), adhesion4.getId(), account4, asso4);
+        Adhesion adhesion5 = newAdhesion(asso3, account5);
+        newPayment(PaymentReason.Adhesion, asso3.getAdhesionPrice(), adhesion5.getId(), account5, asso3);
+        Adhesion adhesion6 = newAdhesion(asso9, account6);
+        newPayment(PaymentReason.Adhesion, asso9.getAdhesionPrice(), adhesion6.getId(), account6, asso9);
+        Adhesion adhesion7 = newAdhesion(asso9, account5);
+        newPayment(PaymentReason.Adhesion, asso9.getAdhesionPrice(), adhesion7.getId(), account5, asso9);
+        Adhesion adhesion8 = newAdhesion(asso7, account4);
+        newPayment(PaymentReason.Adhesion, asso7.getAdhesionPrice(), adhesion8.getId(), account4, asso7);
+        Adhesion adhesion9 = newAdhesion(asso8, account3);
+        newPayment(PaymentReason.Adhesion, asso8.getAdhesionPrice(), adhesion9.getId(), account3, asso8);
+        Adhesion adhesion10 = newAdhesion(asso3, account2);
+        newPayment(PaymentReason.Adhesion, asso3.getAdhesionPrice(), adhesion10.getId(), account2, asso3);
+        Adhesion adhesion11 = newAdhesion(asso3, account1);
+        newPayment(PaymentReason.Adhesion, asso3.getAdhesionPrice(), adhesion11.getId(), account1, asso3);
+        Adhesion adhesion12 = newAdhesion(asso7, account6);
+        newPayment(PaymentReason.Adhesion, asso7.getAdhesionPrice(), adhesion12.getId(), account6, asso7);
+        Adhesion adhesion13 = newAdhesion(asso9, account5);
+        newPayment(PaymentReason.Adhesion, asso9.getAdhesionPrice(), adhesion13.getId(), account5, asso9);
+        Adhesion adhesion14 = newAdhesion(asso4, account4);
+        newPayment(PaymentReason.Adhesion, asso4.getAdhesionPrice(), adhesion14.getId(), account4, asso4);
+        Adhesion adhesion15 = newAdhesion(asso6, account3);
+        newPayment(PaymentReason.Adhesion, asso6.getAdhesionPrice(), adhesion15.getId(), account3, asso6);
+        /*
          * Création de projets
          */
         newProject("Permettre à tous les enfants de E-Enfance l'accès à un club de sport pour la rentrée 2022.",
@@ -141,6 +187,9 @@ public class InitialisationBean implements Serializable {
                         + "décoration murale de votre petit bout'chou");
         Product product2 = newProductInShop("Jeu", ProductCategory.Jeu,"/resources/images/produits/jeuChevaux.jpeg", 
         		50D, "France", 25L, asso, "Les petits chevaux font partie des grands classiques des jeux de société");
+
+
+
     }
 
     public Association newAssociationAccount(String name, String date, String siret, Double adhesionPrice,
@@ -174,7 +223,7 @@ public class InitialisationBean implements Serializable {
         return associationService.update(association);
     }
 
-    public void newAccount(String firstname, String lastName, String date,
+    public Account newAccount(String firstname, String lastName, String date,
                                   String identifier, String password,
                                   String email, String phoneNumber,
                                   String roadNumber, String road, String postalCode, String city, String country,
@@ -196,9 +245,9 @@ public class InitialisationBean implements Serializable {
         form.getAccount().setIdentifier(identifier);
         form.getAccount().setPassword(password);
         if(accountCategory == AccountCategory.User)
-            accountService.createUserAccount(form);
+            return accountService.createUserAccount(form);
         else
-            accountService.createAdminAccount(form);
+            return accountService.createAdminAccount(form);
     }
 
     public void newProject(String description, String name, ProjectType projectType, Association asso,
@@ -233,6 +282,20 @@ public class InitialisationBean implements Serializable {
 		form.getProduct().setDescription(description);
 		return productService.createProduct(form, asso);
 	}
+
+    public Adhesion newAdhesion(Association asso, Account user){
+        return adhesionService.create(asso, user);
+    }
+
+    public Payment newPayment(PaymentReason paymentReason, Double amount, Long idReason, Account userAccount, Association asso){
+        CreditCardPaymentViewmodel payment = new CreditCardPaymentViewmodel();
+        payment.setPaymentReason(paymentReason);
+        payment.setAmount(amount);
+        payment.setIdReason(idReason);
+        payment.setUserAccount(userAccount);
+        payment.setAssociation(asso);
+        return paymentService.createCreditCardPayment(payment);
+    }
 
 	public void ping(){}
 }

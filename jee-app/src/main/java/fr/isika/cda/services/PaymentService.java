@@ -11,6 +11,7 @@ import fr.isika.cda.viewmodels.payment.CreditCardPaymentViewmodel;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Optional;
 
 @Stateless
@@ -39,5 +40,9 @@ public class PaymentService {
 
     public CreditCard saveCard(CreditCard creditCard) {
         return paymentRepository.saveCard(creditCard);
+    }
+
+    public List<Payment> getAllPayments(){
+        return  paymentRepository.getAllPayments();
     }
 }

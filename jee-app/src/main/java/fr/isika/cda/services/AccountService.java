@@ -84,7 +84,17 @@ public class AccountService {
         return accountRepository.getAllUserAccount();
     }
 
+    public List<Account> getAllAccount() {
+        return accountRepository.getAllAccount(); }
     public void delete(Account account) {
         accountRepository.delete(account);
+    }
+
+    public List<Account> searchInAsso(String keyword){
+        return accountRepository.searchInAsso(keyword);
+    }
+
+    public List<Account> searchInUser(String keyword){
+        return accountRepository.searchInUser(keyword);
     }
 }

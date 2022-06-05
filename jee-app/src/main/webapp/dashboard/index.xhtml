@@ -7,9 +7,68 @@
       xmlns:p="http://primefaces.org/ui" lang="en">
 
 <h:body>
+    <f:metadata>
+        <f:viewAction action="#{dashboardHomeBean.init}"/>
+    </f:metadata>
     <ui:composition template="/template/adminDashboard/dashboardLayout.xhtml">
         <ui:define name="title">Acceuil</ui:define>
         <ui:define name="content">
+            <div class="accountActivity">
+            <div class="details">
+                <div class="accountList">
+                    <div class="cardHeader">
+                        <h2>Les dernières inscriptions</h2>
+                    </div>
+                    <h:dataTable value="#{dashboardHomeBean.activity.accountList}" var="account">
+                        <h:column>
+                            <f:facet name = "header">Type</f:facet>
+                            #{account.accountCategory}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Nom</f:facet>
+                            <ui:fragment rendered="#{dashboardHomeBean.isAsso(account)}">
+                                #{account.association.name}
+                            </ui:fragment>
+                            <ui:fragment rendered="#{!dashboardHomeBean.isAsso(account)}">
+                                #{account.person.firstName} #{account.person.lastName}
+                            </ui:fragment>
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Ville</f:facet>
+                            <ui:fragment rendered="#{dashboardHomeBean.isAsso(account)}">
+                                #{account.association.address.city}
+                            </ui:fragment>
+                            <ui:fragment rendered="#{!dashboardHomeBean.isAsso(account)}">
+                                #{account.person.address.city}
+                            </ui:fragment>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+            </div>
+            </div>
+            <div class="paymentActivity">
+            <div class="details">
+                <div class="accountList">
+                    <div class="cardHeader">
+                        <h2>Les derniers paiements</h2>
+                    </div>
+                    <h:dataTable value="#{dashboardHomeBean.activity.paymentList}" var="payment">
+                        <h:column>
+                            <f:facet name = "header">Objet</f:facet>
+                            #{payment.paymentReason}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Montant</f:facet>
+                            #{payment.amount} €
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Bénéficiaire</f:facet>
+                            #{payment.association.name}
+                        </h:column>
+                    </h:dataTable>
+                </div>
+            </div>
+            </div>
         </ui:define>
     </ui:composition>
 </h:body>

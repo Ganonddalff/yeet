@@ -12,7 +12,9 @@ public class CommandService {
 	public CommandService() {
 		
 	}
-	
-	
 
+
+    public double totalSales() {
+		return commandRepository.totalSales();
+    }
 }

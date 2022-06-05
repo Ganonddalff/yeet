@@ -8,10 +8,63 @@
 
 <h:body>
     <ui:composition template="/template/adminDashboard/dashboardLayout.xhtml">
-        <ui:define name="title">Liste de nos membres</ui:define>
+        <f:metadata>
+            <f:viewAction action="#{accountListBean.initUser}" />
+        </f:metadata>
+        <ui:define name="title">Liste des utilisateurs</ui:define>
         <ui:define name="content">
+            <div class="details">
+                <div class="accountList">
+                    <div class="cardHeader">
+                        <h2>Nos utilisateurs</h2>
+                        <div class="search">
+                            <h:form>
+                                <h:outputLabel>
+                                    <h:inputText value="#{accountListBean.userListViewmodel.keyword}"/>
+                                </h:outputLabel>
+                                <h:commandLink action="#{accountListBean.searchInUser}">
+                                    <h:graphicImage value="/resources/images/icons/recherche.png" style="width: 20px; height: 20px;"/>
+                                </h:commandLink>
+                            </h:form>
+                        </div>
+                    </div>
+                    <h:dataTable value="#{accountListBean.userListViewmodel.accountList}" var="account">
+                        <h:column>
+                            <f:facet name = "header">Nom</f:facet>
+                            #{account.person.lastName}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Prénom</f:facet>
+                            #{account.person.firstName}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Identifiant</f:facet>
+                            #{account.identifier}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Ville</f:facet>
+                            #{account.person.address.city}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Email</f:facet>
+                            #{account.person.contact.email}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Téléphone</f:facet>
+                            #{account.person.contact.phoneNumber}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header"></f:facet>
+                            <h:form>
+                                <h:commandLink action="#{accountListBean.delete(account)}">
+                                    <h:graphicImage value="/resources/images/icons/suppressionIcon.png" style="width: 20px; height: 20px;"/>
+                                </h:commandLink>
+                            </h:form>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+            </div>
         </ui:define>
     </ui:composition>
 </h:body>
-
 </html>

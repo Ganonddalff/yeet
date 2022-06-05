@@ -7,11 +7,129 @@
       xmlns:p="http://primefaces.org/ui" lang="en">
 
 <h:body>
+    <f:metadata>
+        <f:viewAction action="#{statsBean.init}" />
+    </f:metadata>
     <ui:composition template="/template/adminDashboard/dashboardLayout.xhtml">
         <ui:define name="title">Liste de nos membres</ui:define>
         <ui:define name="content">
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">#{statsBean.stats.associationNumber}</div>
+                        <div class="cardName">Associations</div>
+                    </div>
+                    <div class="iconBx">
+                        <h:graphicImage value="/resources/images/icons/assoIcon.jpg" style="width:100px; height:100px;"/>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">#{statsBean.stats.userNumber}</div>
+                        <div class="cardName">Utilisateurs</div>
+                    </div>
+                    <div class="iconBx">
+                        <h:graphicImage value="/resources/images/icons/member.png" style="width:100px; height:100px;"/>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">#{statsBean.stats.totalContribution}</div>
+                        <div class="cardName">Montant total des contributions</div>
+                    </div>
+                    <div class="iconBx">
+                        <h:graphicImage value="/resources/images/icons/contribution.jpg" style="width:100px; height:100px;"/>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">#{statsBean.stats.totalShopSales}</div>
+                        <div class="cardName">Montant total des ventes</div>
+                    </div>
+                    <div class="iconBx">
+                        <h:graphicImage value="/resources/images/icons/shopIcon.png" style="width:100px; height:100px;"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">#{statsBean.stats.associationsWithSubs}</div>
+                        <div class="cardName">Associations ayant souscrit à un forfait</div>
+                    </div>
+                    <div class="iconBx">
+                        <h:graphicImage value="/resources/images/icons/assoIcon.jpg" style="width:100px; height:100px;"/>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">#{statsBean.stats.subWithOneService}</div>
+                        <div class="cardName">Nombre de forfait avec un service</div>
+                    </div>
+                    <div class="iconBx">
+                        <h:graphicImage value="/resources/images/icons/assoIcon.jpg" style="width:100px; height:100px;"/>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">#{statsBean.stats.subWithTwoServices}</div>
+                        <div class="cardName">Nombre de forfait avec deux services</div>
+                    </div>
+                    <div class="iconBx">
+                        <h:graphicImage value="/resources/images/icons/assoIcon.jpg" style="width:100px; height:100px;"/>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">#{statsBean.stats.subWithThreeServices}</div>
+                        <div class="cardName">Nombre de forfait avec Trois services</div>
+                    </div>
+                    <div class="iconBx">
+                        <h:graphicImage value="/resources/images/icons/assoIcon.jpg" style="width:100px; height:100px;"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">#{statsBean.stats.numberAdhesionService}</div>
+                        <div class="cardName">Service Adhésion</div>
+                    </div>
+                    <div class="iconBx">
+                        <h:graphicImage value="/resources/images/icons/assoIcon.jpg" style="width:100px; height:100px;"/>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">#{statsBean.stats.numberShopService}</div>
+                        <div class="cardName">Service Boutique</div>
+                    </div>
+                    <div class="iconBx">
+                        <h:graphicImage value="/resources/images/icons/assoIcon.jpg" style="width:100px; height:100px;"/>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">#{statsBean.stats.numberCrowdfundingService}</div>
+                        <div class="cardName">Service Crowdfunding</div>
+                    </div>
+                    <div class="iconBx">
+                        <h:graphicImage value="/resources/images/icons/assoIcon.jpg" style="width:100px; height:100px;"/>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">#{statsBean.stats.totalServices}</div>
+                        <div class="cardName">Nombre total de services</div>
+                    </div>
+                    <div class="iconBx">
+                        <h:graphicImage value="/resources/images/icons/assoIcon.jpg" style="width:100px; height:100px;"/>
+                    </div>
+                </div>
+            </div>
         </ui:define>
     </ui:composition>
 </h:body>
-
 </html>

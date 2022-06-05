@@ -17,6 +17,16 @@
                 <div class="accountList">
                     <div class="cardHeader">
                         <h2>Nos associations</h2>
+                        <div class="search">
+                            <h:form>
+                                <h:outputLabel>
+                                    <h:inputText value="#{accountListBean.associationListViewmodel.keyword}"/>
+                                </h:outputLabel>
+                                <h:commandLink action="#{accountListBean.searchInAsso}">
+                                    <h:graphicImage value="/resources/images/icons/recherche.png" style="width: 20px; height: 20px;"/>
+                                </h:commandLink>
+                            </h:form>
+                        </div>
                     </div>
                     <h:dataTable value="#{accountListBean.associationListViewmodel.accountList}" var="account">
                         <h:column>
@@ -57,6 +67,10 @@
                                     <h:graphicImage value="/resources/images/icons/suppressionIcon.png" style="width: 20px; height: 20px;"/>
                                 </h:commandLink>
                             </h:form>
+                            <h:link outcome="/association/AssociationProfile?faces-redirect=true" target="_new">
+                                <f:param name="id" value="#{account.association.id}"/>
+                                <h:graphicImage value="/resources/images/icons/voir.jpg" style="width: 20px; height: 20px;"/>
+                            </h:link>
                         </h:column>
                     </h:dataTable>
                 </div>
@@ -64,5 +78,4 @@
         </ui:define>
     </ui:composition>
 </h:body>
-
 </html>

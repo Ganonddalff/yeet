@@ -13,7 +13,7 @@ public class FundRaising {
     private Long id;
 
     @NotNull
-    private Double RaisedFunds;
+    private Double raisedFunds;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fundRaising", fetch = FetchType.EAGER)
     private List<Contribution> contributions = new ArrayList<>();
@@ -27,11 +27,11 @@ public class FundRaising {
     }
 
     public Double getRaisedFunds() {
-        return RaisedFunds;
+        return raisedFunds;
     }
 
     public void setRaisedFunds(Double raisedFunds) {
-        RaisedFunds = raisedFunds;
+        this.raisedFunds = raisedFunds;
     }
 
     public void addContribution(Contribution contribution) {
