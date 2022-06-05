@@ -87,8 +87,9 @@ public class AccountRepository {
 
     public List<Account> searchInUser(String keyword) {
         return this.entityManager
-                .createQuery("SELECT ac FROM Account ac JOIN ac.association asso JOIN asso.address addr WHERE" +
-                        " asso.name LIKE :keyword" +
+                .createQuery("SELECT ac FROM Account ac JOIN ac.person p JOIN p.address addr WHERE" +
+                        " p.lastName LIKE :keyword" +
+                        " OR p.firstName LIKE :keyword" +
                         " OR ac.identifier LIKE :keyword" +
                         " OR addr.city LIKE :keyword", Account.class)
                 .setParameter("keyword", '%' + keyword + '%').

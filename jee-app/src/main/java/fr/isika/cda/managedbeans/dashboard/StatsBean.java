@@ -57,7 +57,7 @@ public class StatsBean {
                 if(numberService==1) this.stats.setSubWithOneService(this.stats.getSubWithOneService()+1);
                 if(numberService==2) this.stats.setSubWithTwoServices(this.stats.getSubWithTwoServices()+1);
                 if(numberService==3) this.stats.setSubWithThreeServices(this.stats.getSubWithThreeServices()+1);
-                this.stats.setTotalServices(this.stats.getTotalServices()+1);
+                this.stats.setTotalServices(this.stats.getTotalServices()+numberService);
             }
         }
         this.stats.setTotalEarnings(this.stats.getTotalServices()*15);

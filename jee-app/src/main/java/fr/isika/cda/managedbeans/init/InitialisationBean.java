@@ -63,22 +63,22 @@ public class InitialisationBean implements Serializable {
          */
         Association asso = newAssociationAccount("E-enfance", "11/12/1995", "45976249851697", 39.99D,
                 "Protection des enfants et des adolescents contre les risques liés à l'utilisation de tous moyens de communication interactifs (internet, téléphone mobile, ordinateur, télévision)",
-                "/resources/images/profileImages/standardProfileImage.jpeg",
+                "/resources/images/profileImages/profileImage_2.jpeg",
                 "/resources/images/banners/standardBanner.png",
                 "eenfance", "123456", "eenfance@gmail.com", "0156915656",
-                "11", "Rue des halles", "75000", "Paris","France");
+                "11", "Rue des halles", "75000", "Paris","France", true, true, true);
         Association asso2 = newAssociationAccount("Terres d'amitié", "17/02/2001", "47565449851697", 0D,
                 "Lutter contre la faim et la malnutrition, informer le public sur les problèmes concernant le tiers monde, coopérer sanitairement en faveur du tiers monde.",
                 "/resources/images/profileImages/profileImage_1.jpg",
                 "/resources/images/banners/standardBanner.png",
                 "terreamitie", "aaaa", "terramitie@gmail.com", "0478950181",
-                "327", "Rue André Phillip", "69003", "Lyon", "France");
+                "327", "Rue André Phillip", "69003", "Lyon", "France", true, false, true);
         Association asso3 = newAssociationAccount("WWF", "39/04/1961", "72164654587456", 19.99D,
                 "Le WWF ou Fonds mondial pour la nature est une organisation non gouvernementale internationale (ONGI) créée en 1961, vouée à la protection de l'environnement et au développement durable.",
                 "/resources/images/profileImages/profileImage_3.png",
                 "/resources/images/banners/standardBanner.png",
                 "wwfasso", "aaaa", "wwf@gmail.com", "0246957112",
-                "37", "Rue Baudin", "93310", "Le Pré-Saint-Gervais", "France");
+                "37", "Rue Baudin", "93310", "Le Pré-Saint-Gervais", "France", true, true, false);
         Account account1 = newAccount("Amedee", "Chatigny", "21/10/1983", "Medee52", "aaaa",
                 "chatigny.amedee@gmail.com", "0306097898", "91", "Rue Ernest Renan","52000", "Chaumont", "France", AccountCategory.User);
         Account account2 = newAccount("Amarante", "Duffet", "05/02/1995", "amara31", "aaaa",
@@ -88,7 +88,7 @@ public class InitialisationBean implements Serializable {
                 "/resources/images/profileImages/profileImage_4.jpg",
                 "/resources/images/banners/standardBanner.png",
                 "sauvenmer", "aaaa", "sauveteurenmer@gmail.com", "0541412398",
-                "8", "Cité d'Antin", "75009", "Paris", "France");
+                "8", "Cité d'Antin", "75009", "Paris", "France", true, true, false);
         Account account3 = newAccount("Roxanne", "Baudouin", "11/02/1966", "Roxxxan", "aaaa",
                 "roxanne.baudouin@gmail.com", "0373569914", "27", "Rue Bonneterie","59370", "Mons-en-Baroeul", "France", AccountCategory.User);
         Association asso5 = newAssociationAccount("Sidaction", "11/02/1994", "54447891224597", 0D,
@@ -96,19 +96,19 @@ public class InitialisationBean implements Serializable {
                 "/resources/images/profileImages/profileImage_5.jpg",
                 "/resources/images/banners/standardBanner.png",
                 "Sidact", "aaaa", "sidaction@gmail.com", "0478950181",
-                "228", "Rue du Faubourg Saint-Martin", "75010", "Paris", "France");
+                "228", "Rue du Faubourg Saint-Martin", "75010", "Paris", "France", false, false, false);
         Association asso6 = newAssociationAccount("Société Géologique de France", "17/02/2008", "74784414851697", 5.99D,
                 "Concourir à l'avancement de la géologie en général et particulièrement de faire connaître le sol de la France tant en lui même que dans ses rapports avec les arts industriels et l'agriculture.",
                 "/resources/images/profileImages/profileImage_6.jpg",
                 "/resources/images/banners/standardBanner.png",
                 "sgfasso", "aaaa", "sgf@gmail.com", "0544785465",
-                "77", "Rue Claude Bernard", "75005", "Paris", "France");
+                "77", "Rue Claude Bernard", "75005", "Paris", "France", true, false, false);
         Association asso7 = newAssociationAccount("FFD", "08/10/1991", "45699631851697", 34.99D,
                 "La Fédération Française des Diabétiques est une association de patients, au service des patients et dirigée par des patients.",
                 "/resources/images/profileImages/profileImage_7.jpg",
                 "/resources/images/banners/standardBanner.png",
                 "FFDASSO", "aaaa", "ffd@gmail.com", "0578950181",
-                "88", "Rue de la Roquette", "75011", "Paris", "France");
+                "88", "Rue de la Roquette", "75011", "Paris", "France", false, false, true);
         Account account4 = newAccount("Océane", "Sacré", "02/06/1978", "Océacré", "aaaa",
                 "oceane.sacre@gmail.com", "0468549963", "74", "Chemin des Bateliers","74000", "Annecy", "France", AccountCategory.User);
         Association asso8 = newAssociationAccount("Tous Au Sport", "12/08/2010", "46665249851697", 12.99D,
@@ -116,13 +116,13 @@ public class InitialisationBean implements Serializable {
                 "/resources/images/profileImages/profileImage_8.png",
                 "/resources/images/banners/standardBanner.png",
                 "tousausport", "aaaa", "tousausport@gmail.com", "0345651144",
-                "5", "Rue du chateau", "68640", "Waldighoffen", "France");
+                "5", "Rue du chateau", "68640", "Waldighoffen", "France", true, true, true);
         Association asso9 = newAssociationAccount("Energie jeunes", "03/09/2009", "77956632121587", 15D,
                 "Notre combat, c’est la lutte pour l’égalité des chances par des actions de prévention du décrochage scolaire. Notre but est de permettre à tous les élèves d’aimer apprendre. Nous intervenons chaque année auprès de 120 000 élèves du CM2 à la 3e.",
                 "/resources/images/profileImages/profileImage_9.jpg",
                 "/resources/images/banners/standardBanner.png",
                 "Energy", "aaaa", "energie_jeune@gmail.com", "0518185465",
-                "12", "Rue Lord Byron", "75008", "Paris", "France");
+                "12", "Rue Lord Byron", "75008", "Paris", "France", true, false, false);
         Account account5 = newAccount("Rémy", "Brunault", "21/07/1998", "Brubru62200", "aaaa",
                 "remybrunault@gmail.com", "0350506545", "99", "Rue petite fusterie","62200", "Boulogne-sur-mer", "France", AccountCategory.User);
         Account account6 = newAccount("Sajid", "Hakimi", "25/06/1985", "hakimizz", "aaaa",
@@ -132,14 +132,13 @@ public class InitialisationBean implements Serializable {
                 "/resources/images/profileImages/profileImage_10.jpg",
                 "/resources/images/banners/standardBanner.png",
                 "solidarity", "aaaa", "terresolidaire@gmail.com", "0238242825",
-                "51", "Boulevard Aristide Briand", "45000", "Orléans", "France");
+                "51", "Boulevard Aristide Briand", "45000", "Orléans", "France", false, true, true);
         Association asso11 = newAssociationAccount(
                 "Les enfants de la Téranga","21/02/1990","45976249851697",15.90D,
                 "Associations qui a pour but de promouvoir la culture à prix réduit",
                 "/resources/images/profileImages/standardProfileImage.jpeg",
                 "/resources/images/banners/standardBanner.png",
-                "Dkr90","123456","dkr90@associationteranga.fr","00222346257","37","Point E ","11000","Dakar","Sénégal"
-        );
+                "Dkr90","123456","dkr90@associationteranga.fr","00222346257","37","Point E ","11000","Dakar","Sénégal", true, true, true);
 
         /*
          * Création d'adhésion et paiement associé
@@ -196,7 +195,8 @@ public class InitialisationBean implements Serializable {
                                       String description, String profileImage, String banner,
                                       String identifier, String password,
                                       String email, String phoneNumber,
-                                      String roadNumber, String road, String postalCode, String city, String country){
+                                      String roadNumber, String road, String postalCode, String city, String country,
+                                      boolean adhesion, boolean shop, boolean crowdfunding){
 
         AssociationAccountCreationForm form = new AssociationAccountCreationForm();
         form.getContact().setEmail(email);
@@ -220,6 +220,10 @@ public class InitialisationBean implements Serializable {
         association.setDescription(description);
         association.setProfileImage(profileImage);
         association.setBanner(banner);
+        association.setAdhesionSubscription(adhesion);
+        association.setCrowdfundingSubscription(crowdfunding);
+        association.setShopSubscription(shop);
+        associationService.update(association);
         return associationService.update(association);
     }
 

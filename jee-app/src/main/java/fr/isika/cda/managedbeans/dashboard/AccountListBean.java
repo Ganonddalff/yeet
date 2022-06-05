@@ -41,6 +41,10 @@ public class AccountListBean implements Serializable {
         this.associationListViewmodel.setAccountList(accountService.searchInAsso(this.associationListViewmodel.getKeyword()));
     }
 
+    public void searchInUser(){
+        this.userListViewmodel.setAccountList(accountService.searchInUser(this.userListViewmodel.getKeyword()));
+    }
+
     public AccountListViewmodel getAssociationListViewmodel() {
         return associationListViewmodel;
     }
