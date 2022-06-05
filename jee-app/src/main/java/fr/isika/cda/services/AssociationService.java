@@ -13,12 +13,12 @@ public class AssociationService {
     @Inject
     private AssociationRepository associationRepository;
 
-    public AssociationService() {
-    }
+    public AssociationService() {}
 
     public Association update(Association association){
         return associationRepository.update(association);
     }
+
     public Optional<Association> findById(Long id) {
         return associationRepository.findById(id);
     }

@@ -74,4 +74,30 @@ public class AccountRepository {
         entityManager.flush();
         entityManager.clear();
     }
+
+    public List<Account> searchInAsso(String keyword) {
+        return this.entityManager
+                .createQuery("SELECT ac FROM Account ac JOIN ac.association asso JOIN asso.address addr WHERE" +
+                        " asso.name LIKE :keyword" +
+                        " OR ac.identifier LIKE :keyword" +
+                        " OR addr.city LIKE :keyword", Account.class)
+                .setParameter("keyword", '%' + keyword + '%').
+                getResultList();
+    }
+
+    public List<Account> searchInUser(String keyword) {
+        return this.entityManager
+                .createQuery("SELECT ac FROM Account ac JOIN ac.association asso JOIN asso.address addr WHERE" +
+                        " asso.name LIKE :keyword" +
+                        " OR ac.identifier LIKE :keyword" +
+                        " OR addr.city LIKE :keyword", Account.class)
+                .setParameter("keyword", '%' + keyword + '%').
+                getResultList();
+    }
+
+    public List<Account> getAllAccount() {
+        return this.entityManager
+                .createQuery("select a from Account a", Account.class)
+                .getResultList();
+    }
 }

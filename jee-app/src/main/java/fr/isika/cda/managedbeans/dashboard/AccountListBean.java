@@ -37,6 +37,10 @@ public class AccountListBean implements Serializable {
         return FacesContext.getCurrentInstance().getViewRoot().getViewId() + "?faces-redirect=true";
     }
 
+    public void searchInAsso(){
+        this.associationListViewmodel.setAccountList(accountService.searchInAsso(this.associationListViewmodel.getKeyword()));
+    }
+
     public AccountListViewmodel getAssociationListViewmodel() {
         return associationListViewmodel;
     }

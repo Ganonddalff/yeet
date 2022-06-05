@@ -1,5 +1,6 @@
 package fr.isika.cda.repositories;
 
+import fr.isika.cda.model.entities.FundRaising;
 import fr.isika.cda.model.entities.Project;
 import fr.isika.cda.services.ProjectService;
 import fr.isika.cda.viewmodels.form.crowdfunding.ContributionForm;
@@ -39,7 +40,6 @@ public class ProjectRepository {
     }
 
     public List<Project> findAll() {
-        String query = "SELECT project FROM Project";
         return this.entityManager.createQuery("SELECT project FROM Project project", Project.class).getResultList();
     }
     public void deleteProject(Project project){
@@ -59,5 +59,15 @@ public class ProjectRepository {
         } catch (NoResultException e){
             return Optional.empty();
         }
+    }
+
+    public List<FundRaising> findAllFundRaisings(){
+        return this.entityManager.createQuery("SELECT f FROM FundRaising f", FundRaising.class).getResultList();
+    }
+
+    public double totalSum(){
+        Optional<Double> totalSum = this.findAllFundRaisings().stream().map(FundRaising::getRaisedFunds).reduce(Double::sum);
+        if(totalSum.isPresent()) return totalSum.get();
+        return 0;
     }
 }

@@ -48,11 +48,11 @@ public class Association{
     @NotNull
     private String description;
 
-    private Boolean AdhesionSubscription;
+    private Boolean adhesionSubscription;
 
-    private Boolean CrowdfundingSubscription;
+    private Boolean crowdfundingSubscription;
 
-    private Boolean ShopSubscription;
+    private Boolean shopSubscription;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "association", orphanRemoval = true)
     private List<Product> products = new ArrayList<>();
@@ -141,26 +141,42 @@ public class Association{
     }
 
     public Boolean getAdhesionSubscription() {
-        return AdhesionSubscription;
+        return adhesionSubscription;
     }
 
     public void setAdhesionSubscription(Boolean adhesionSubscription) {
-        AdhesionSubscription = adhesionSubscription;
+        this.adhesionSubscription = adhesionSubscription;
     }
 
     public Boolean getCrowdfundingSubscription() {
-        return CrowdfundingSubscription;
+        return crowdfundingSubscription;
     }
 
     public void setCrowdfundingSubscription(Boolean crowdfundingSubscription) {
-        CrowdfundingSubscription = crowdfundingSubscription;
+        this.crowdfundingSubscription = crowdfundingSubscription;
     }
 
     public Boolean getShopSubscription() {
-        return ShopSubscription;
+        return shopSubscription;
     }
 
     public void setShopSubscription(Boolean shopSubscription) {
-        ShopSubscription = shopSubscription;
+        this.shopSubscription = shopSubscription;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
     }
 }
